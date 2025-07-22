@@ -1,0 +1,570 @@
+<template>
+  <div class="heatmap-chart">
+    <div class="chart-header">
+      <div class="chart-controls">
+        <el-radio-group v-model="selectedMetric" size="small" @change="updateChart">
+          <el-radio-button label="value">活跃度</el-radio-button>
+          <el-radio-button label="userCount">用户数</el-radio-button>
+          <el-radio-button label="postCount">发帖数</el-radio-button>
+        </el-radio-group>
+        
+        <el-select v-model="viewMode" size="small" style="width: 120px" @change="updateChart">
+          <el-option label="标准视图" value="standard" />
+          <el-option label="紧凑视图" value="compact" />
+        </el-select>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <v-chart 
+        :option="chartOption" 
+        :loading="loading"
+        autoresize 
+        class="chart"
+        @click="handleChartClick"
+      />
+    </div>
+
+    <div class="chart-footer">
+      <div class="legend-info">
+        <div class="metric-info">
+          <span class="metric-label">{{ getMetricName(selectedMetric) }}:</span>
+          <span class="metric-range">
+            最小值: {{ minValue.toFixed(1) }} | 
+            最大值: {{ maxValue.toFixed(1) }} | 
+            平均值: {{ avgValue.toFixed(1) }}
+          </span>
+        </div>
+        <div class="time-insights" v-if="peakTimeInsights">
+          <span class="insights-label">活跃高峰:</span>
+          <span class="insights-content">{{ peakTimeInsights }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 时段详情弹窗 -->
+    <el-dialog v-model="showTimeDetail" title="时段详情" width="400px">
+      <div v-if="selectedTimeData" class="time-detail">
+        <div class="detail-header">
+          <h4>{{ formatTimeSlot(selectedTimeData.hour, selectedTimeData.dayOfWeek) }}</h4>
+        </div>
+        <div class="detail-metrics">
+          <div class="metric-item">
+            <span class="metric-name">活跃度值</span>
+            <span class="metric-value">{{ selectedTimeData.value.toFixed(1) }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-name">活跃用户数</span>
+            <span class="metric-value">{{ selectedTimeData.userCount }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-name">发帖数</span>
+            <span class="metric-value">{{ selectedTimeData.postCount }}</span>
+          </div>
+        </div>
+        <div class="detail-insights">
+          <div class="insight-item">
+            <span class="insight-label">相对活跃程度:</span>
+            <span class="insight-value">{{ getActivityLevel(selectedTimeData.value) }}</span>
+          </div>
+          <div class="insight-item">
+            <span class="insight-label">推荐发帖时机:</span>
+            <span class="insight-value">{{ getRecommendation(selectedTimeData.value) }}</span>
+          </div>
+        </div>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, computed, watch, onMounted } from 'vue'
+import type { HeatmapDataPoint } from '@/models'
+import { WEIBO_RED, heatmapColors, echartsTheme } from '@/util/colors'
+import { use } from 'echarts/core'
+import { HeatmapChart } from 'echarts/charts'
+import {
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  VisualMapComponent,
+  CalendarComponent
+} from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+
+// 注册ECharts组件
+use([
+  HeatmapChart,
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  VisualMapComponent,
+  CalendarComponent,
+  CanvasRenderer
+])
+
+interface Props {
+  data: HeatmapDataPoint[]
+  loading?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  loading: false
+})
+
+// 响应式数据
+const selectedMetric = ref<'value' | 'userCount' | 'postCount'>('value')
+const viewMode = ref<'standard' | 'compact'>('standard')
+const showTimeDetail = ref(false)
+const selectedTimeData = ref<HeatmapDataPoint | null>(null)
+
+// 星期和小时标签
+const dayLabels = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+const hourLabels = Array.from({ length: 24 }, (_, i) => `${i.toString().padStart(2, '0')}:00`)
+
+// 计算属性
+const processedData = computed(() => {
+  if (!props.data || props.data.length === 0) {
+    return generateMockData()
+  }
+  return props.data
+})
+
+const chartData = computed(() => {
+  return processedData.value.map(item => [
+    item.hour,
+    item.dayOfWeek,
+    getMetricValue(item, selectedMetric.value)
+  ])
+})
+
+const minValue = computed(() => {
+  const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
+  return Math.min(...values)
+})
+
+const maxValue = computed(() => {
+  const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
+  return Math.max(...values)
+})
+
+const avgValue = computed(() => {
+  const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
+  return values.reduce((sum, val) => sum + val, 0) / values.length
+})
+
+const peakTimeInsights = computed(() => {
+  if (processedData.value.length === 0) return ''
+  
+  // 找到活跃度最高的时段
+  let maxData = processedData.value[0]
+  processedData.value.forEach(item => {
+    if (item.value > maxData.value) {
+      maxData = item
+    }
+  })
+  
+  return `${dayLabels[maxData.dayOfWeek]} ${hourLabels[maxData.hour]} (活跃度: ${maxData.value.toFixed(1)})`
+})
+
+const chartOption = computed(() => {
+  const data = chartData.value
+  
+  if (data.length === 0) {
+    return {
+      title: {
+        text: '暂无数据',
+        left: 'center',
+        top: 'center',
+        textStyle: {
+          color: '#999',
+          fontSize: 16
+        }
+      }
+    }
+  }
+
+  return {
+    ...echartsTheme,
+    title: {
+      text: selectedMetric.value === 'value' ? '用户活跃度热力图' : `用户活跃度热力图 - ${getMetricName(selectedMetric.value)}`,
+      left: 'center',
+      textStyle: {
+        color: '#1d2129',
+        fontSize: 16,
+        fontWeight: 'bold'
+      }
+    },
+    tooltip: {
+      position: 'top',
+      formatter: (params: any) => {
+        const [hour, dayOfWeek, value] = params.data
+        const timeData = processedData.value.find(
+          item => item.hour === hour && item.dayOfWeek === dayOfWeek
+        )
+        
+        if (!timeData) return ''
+        
+        return `
+          <div style="padding: 8px;">
+            <div style="font-weight: bold; margin-bottom: 4px;">
+              ${dayLabels[dayOfWeek]} ${hourLabels[hour]}
+            </div>
+            <div>活跃度: ${timeData.value.toFixed(1)}</div>
+            <div>活跃用户数: ${timeData.userCount}</div>
+            <div>发帖数: ${timeData.postCount}</div>
+          </div>
+        `
+      }
+    },
+    grid: {
+      height: viewMode.value === 'compact' ? '60%' : '70%',
+      top: '15%',
+      left: '10%',
+      right: '20%'
+    },
+    xAxis: {
+      type: 'category',
+      data: hourLabels,
+      splitArea: {
+        show: true
+      },
+      axisLabel: {
+        interval: viewMode.value === 'compact' ? 3 : 1, // 紧凑模式下间隔显示
+        rotate: viewMode.value === 'compact' ? 45 : 0,
+        color: '#666'
+      },
+      name: '小时',
+      nameLocation: 'middle',
+      nameGap: 30
+    },
+    yAxis: {
+      type: 'category',
+      data: dayLabels,
+      splitArea: {
+        show: true
+      },
+      axisLabel: {
+        color: '#666'
+      },
+      name: '星期',
+      nameLocation: 'middle',
+      nameGap: 50
+    },
+    visualMap: {
+      min: minValue.value,
+      max: maxValue.value,
+      calculable: true,
+      orient: 'vertical',
+      right: '10%',
+      top: '15%',
+      inRange: {
+        color: [heatmapColors.low, heatmapColors.medium, heatmapColors.high]
+      },
+      textStyle: {
+        color: '#666'
+      },
+      formatter: (value: number) => {
+        return value.toFixed(1)
+      }
+    },
+    series: [{
+      name: getMetricName(selectedMetric.value),
+      type: 'heatmap',
+      data: data,
+      label: {
+        show: viewMode.value === 'standard',
+        formatter: (params: any) => {
+          return params.data[2].toFixed(0)
+        },
+        color: '#fff',
+        fontSize: 10
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }]
+  }
+})
+
+// 方法
+function updateChart() {
+  // 图表会自动更新，因为使用了计算属性
+}
+
+function handleChartClick(params: any) {
+  if (params.componentType === 'series') {
+    const [hour, dayOfWeek] = params.data
+    const timeData = processedData.value.find(
+      item => item.hour === hour && item.dayOfWeek === dayOfWeek
+    )
+    
+    if (timeData) {
+      selectedTimeData.value = timeData
+      showTimeDetail.value = true
+    }
+  }
+}
+
+function getMetricValue(item: HeatmapDataPoint, metric: string): number {
+  switch (metric) {
+    case 'value':
+      return item.value
+    case 'userCount':
+      return item.userCount
+    case 'postCount':
+      return item.postCount
+    default:
+      return item.value
+  }
+}
+
+function getMetricName(metric: string): string {
+  const names: Record<string, string> = {
+    value: '活跃度值',
+    userCount: '活跃用户数',
+    postCount: '发帖数'
+  }
+  return names[metric] || metric
+}
+
+function formatTimeSlot(hour: number, dayOfWeek: number): string {
+  return `${dayLabels[dayOfWeek]} ${hourLabels[hour]}`
+}
+
+function getActivityLevel(value: number): string {
+  const maxVal = maxValue.value
+  const ratio = value / maxVal
+  
+  if (ratio >= 0.8) return '非常活跃'
+  if (ratio >= 0.6) return '较为活跃'
+  if (ratio >= 0.4) return '中等活跃'
+  if (ratio >= 0.2) return '较少活跃'
+  return '不活跃'
+}
+
+function getRecommendation(value: number): string {
+  const maxVal = maxValue.value
+  const ratio = value / maxVal
+  
+  if (ratio >= 0.8) return '最佳发帖时机'
+  if (ratio >= 0.6) return '适合发帖'
+  if (ratio >= 0.4) return '一般时机'
+  if (ratio >= 0.2) return '不太推荐'
+  return '避免此时段'
+}
+
+// 生成模拟数据
+function generateMockData(): HeatmapDataPoint[] {
+  const data: HeatmapDataPoint[] = []
+  
+  for (let day = 0; day < 7; day++) {
+    for (let hour = 0; hour < 24; hour++) {
+      // 模拟真实的活跃度模式
+      let baseValue = 20
+      
+      // 工作日vs周末模式
+      if (day >= 1 && day <= 5) { // 工作日
+        if (hour >= 8 && hour <= 10) baseValue += 30 // 上班路上
+        if (hour >= 12 && hour <= 14) baseValue += 25 // 午休
+        if (hour >= 18 && hour <= 22) baseValue += 40 // 下班后
+      } else { // 周末
+        if (hour >= 10 && hour <= 12) baseValue += 20 // 上午
+        if (hour >= 14 && hour <= 16) baseValue += 15 // 下午
+        if (hour >= 19 && hour <= 23) baseValue += 35 // 晚上
+      }
+      
+      // 深夜时段活跃度降低
+      if (hour >= 0 && hour <= 6) baseValue *= 0.3
+      
+      // 添加随机变化
+      const variance = Math.random() * 20 - 10
+      const value = Math.max(0, baseValue + variance)
+      
+      data.push({
+        hour,
+        dayOfWeek: day,
+        value,
+        userCount: Math.floor(value * 50 + Math.random() * 200),
+        postCount: Math.floor(value * 100 + Math.random() * 500)
+      })
+    }
+  }
+  
+  return data
+}
+
+// 监听数据变化
+watch(() => props.data, () => {
+  updateChart()
+}, { deep: true })
+
+onMounted(() => {
+  updateChart()
+})
+</script>
+
+<style scoped>
+.heatmap-chart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  padding: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chart-container {
+  flex: 1;
+  padding: 1rem;
+  min-height: 400px;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-footer {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #f0f0f0;
+}
+
+.legend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-info, .time-insights {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.metric-label, .insights-label {
+  font-weight: 600;
+  color: #4e5969;
+}
+
+.metric-range, .insights-content {
+  color: #86909c;
+}
+
+/* 时段详情样式 */
+.time-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-header h4 {
+  margin: 0;
+  color: #1d2129;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.detail-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.metric-name {
+  font-weight: 500;
+  color: #4e5969;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: #E6162D;
+  font-size: 1.1rem;
+}
+
+.detail-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #fff7f7;
+  border-radius: 8px;
+  border-left: 4px solid #E6162D;
+}
+
+.insight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.insight-label {
+  color: #4e5969;
+  font-size: 0.9rem;
+}
+
+.insight-value {
+  color: #1d2129;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .chart-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .chart-container {
+    padding: 0.5rem;
+  }
+  
+  .legend-info {
+    gap: 0.75rem;
+  }
+  
+  .metric-info, .time-insights {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .detail-insights {
+    padding: 0.75rem;
+  }
+  
+  .insight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+</style> 

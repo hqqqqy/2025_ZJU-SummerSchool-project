@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import StatisticsPage from './pages/DemoPage.vue'
-import HomePage from './pages/HomePage.vue'
+import AnalysisDashboard from './pages/AnalysisDashboard.vue'
 
 const routes = [
-    { path: '/', component: HomePage },
-    { path: '/demo', component: StatisticsPage },
+    { 
+        path: '/', 
+        name: 'dashboard',
+        component: AnalysisDashboard 
+    },
+    // 重定向到分析仪表板
+    { 
+        path: '/:pathMatch(.*)*', 
+        redirect: '/' 
+    }
 ]
 
 export const router = createRouter({
