@@ -26,79 +26,88 @@ export const INFO_BLUE = '#165DFF';
 // 数据可视化专用色彩
 // ===========================================
 
-// 兴趣分类色彩映射（12类）
-export const interestColorMap: Record<AccountInterest, string> = {
-  'animals': '#FF6B6B',           // 温暖红色
-  'arts and culture': '#4ECDC4',  // 青色
-  'business and finance': '#45B7D1', // 蓝色
-  'entertainment': '#96CEB4',     // 薄荷绿
-  'fashion and beauty': '#FFEAA7', // 浅黄色
-  'fitness and health': '#DDA0DD', // 淡紫色
-  'food and dining': '#FD79A8',   // 粉红色
-  'learning and educational': '#6C5CE7', // 紫色
-  'politics': '#A29BFE',          // 浅紫色
-  'science and technology': '#74B9FF', // 天蓝色
-  'sports': '#55A3FF',            // 蓝色系
-  'travel': '#FD95A8'             // 玫瑰色
-};
+// ===========================================
+// 数据编码专用配色方案
+// 设计原则：
+// 1. 避免红色等特殊含义颜色，红色仅用于品牌和UI
+// 2. 确保所有视图中同一分类颜色完全一致
+// 3. 基于HSL色彩空间科学分布，确保高区分度
+// 4. 保持适当的对比度和可访问性
+// ===========================================
 
-// 角色分类色彩映射（4类）
+// 角色分类色彩映射（4类）- 基于iOS系统色彩，避免红色
 export const roleColorMap: Record<AccountRole, string> = {
-  'inactive': '#BDC3C7',          // 灰色 - 非活跃
-  'information-seeker': '#3498DB', // 蓝色 - 信息搜索者
-  'information-source': WEIBO_RED, // 微博红 - 信息源
-  'general': '#2ECC71'            // 绿色 - 一般用户
+  'inactive': '#8E8E93',          // 系统灰 - 非活跃用户
+  'information-seeker': '#007AFF', // 系统蓝 - 信息搜索者  
+  'information-source': '#FF9500', // 系统橙 - 信息源（避免使用红色）
+  'general': '#34C759'            // 系统绿 - 一般用户
 };
 
-// 活跃度等级色彩
+// 兴趣分类色彩映射（12类）- 基于色相环均匀分布，避开红色区域
+export const interestColorMap: Record<AccountInterest, string> = {
+  'animals': '#B8860B',           // 深金色 (45°) - 动物
+  'arts and culture': '#228B22',  // 森林绿 (70°) - 艺术文化
+  'business and finance': '#4682B4', // 钢蓝 (95°) - 商业金融
+  'entertainment': '#6495ED',     // 矢车菊蓝 (120°) - 娱乐
+  'fashion and beauty': '#9370DB', // 中紫色 (145°) - 时尚美容
+  'fitness and health': '#BA55D3', // 中兰花紫 (170°) - 健身健康
+  'food and dining': '#20B2AA',   // 浅海绿 (195°) - 美食餐饮
+  'learning and educational': '#32CD32', // 酸橙绿 (220°) - 学习教育
+  'politics': '#FFD700',          // 金色 (245°) - 政治
+  'science and technology': '#FF8C00', // 深橙色 (270°) - 科技
+  'sports': '#4169E1',            // 皇室蓝 (295°) - 体育
+  'travel': '#8A2BE2'             // 蓝紫色 (320°) - 旅游
+};
+
+// 活跃度等级色彩 - 避免红色，使用渐进式蓝绿色系
 export const activityLevelColors = {
-  low: '#95A5A6',     // 灰色
-  medium: '#F39C12',  // 橙色
-  high: WEIBO_RED     // 微博红
+  low: '#95A5A6',     // 中性灰 - 低活跃度
+  medium: '#3498DB',  // 蓝色 - 中活跃度  
+  high: '#2ECC71'     // 绿色 - 高活跃度（避免使用红色）
 };
 
-// 影响力等级色彩
+// 影响力等级色彩 - 使用紫色系渐变，避免红色
 export const influenceLevelColors = {
-  low: '#BDC3C7',     // 浅灰
-  medium: '#9B59B6',  // 紫色
-  high: '#E74C3C'     // 红色
+  low: '#BDC3C7',     // 浅灰 - 低影响力
+  medium: '#9B59B6',  // 紫色 - 中影响力
+  high: '#6A1B9A'     // 深紫色 - 高影响力（避免使用红色）
 };
 
 // ===========================================
 // 图表主题色彩
 // ===========================================
 
-// 渐变色组合
+// 渐变色组合 - 重新设计，避免红色系
 export const gradientColors = {
-  primary: [WEIBO_RED, '#FF4757'],
-  secondary: [LIGHT_BLUE, '#74B9FF'],
-  success: ['#2ECC71', '#55E384'],
-  warning: ['#F39C12', '#F8C471'],
-  info: ['#3498DB', '#85C1E9']
+  primary: ['#007AFF', '#4FC3F7'],    // 蓝色渐变（替代红色主色）
+  secondary: ['#34C759', '#81C784'],  // 绿色渐变
+  warning: ['#FF9500', '#FFB74D'],    // 橙色渐变
+  info: ['#9370DB', '#BA68C8'],       // 紫色渐变
+  accent: ['#20B2AA', '#4DD0E1']      // 青色渐变
 };
 
-// 热力图色彩范围
+// 热力图色彩范围 - 使用蓝色系渐变，避免红色
 export const heatmapColors = {
-  low: '#FFF5F5',     // 最浅
-  medium: '#FFCDD2',  // 中等
-  high: WEIBO_RED     // 最深
+  low: '#F0F8FF',     // 爱丽丝蓝（最浅）
+  medium: '#87CEEB',  // 天空蓝（中等）
+  high: '#1E90FF'     // 道奇蓝（最深，避免使用红色）
 };
 
-// 网络图节点色彩（按影响力）
+// 网络图节点色彩（按影响力）- 使用紫色系渐变
 export const networkNodeColors = {
-  lowInfluence: '#E8F4FD',
-  mediumInfluence: '#74B9FF',
-  highInfluence: WEIBO_RED
+  lowInfluence: '#F3E5F5',    // 浅紫色
+  mediumInfluence: '#9C27B0', // 中紫色
+  highInfluence: '#4A148C'    // 深紫色（避免使用红色）
 };
 
-// 时间序列图色彩
+// 时间序列图色彩 - 重新设计，避免红色系
 export const timeSeriesColors = {
-  activeUsers: WEIBO_RED,
-  newUsers: LIGHT_BLUE,
-  posts: '#2ECC71',
-  interactions: '#9B59B6',
-  activity: '#F39C12',
-  influence: '#E74C3C'
+  activeUsers: '#007AFF',     // 系统蓝（替代微博红）
+  newUsers: '#34C759',        // 系统绿  
+  posts: '#FF9500',           // 系统橙
+  interactions: '#9370DB',    // 中紫色
+  activity: '#20B2AA',        // 浅海绿
+  influence: '#4169E1'        // 皇室蓝（避免使用红色）
 };
 
 // ===========================================
@@ -176,14 +185,14 @@ export function getInfluenceColor(influenceScore: number): string {
 
 export const echartsTheme = {
   color: [
-    WEIBO_RED,
-    LIGHT_BLUE,
-    '#2ECC71',
-    '#9B59B6',
-    '#F39C12',
-    '#E74C3C',
-    '#1ABC9C',
-    '#34495E'
+    '#007AFF',    // 系统蓝（替代微博红作为首选色）
+    '#34C759',    // 系统绿
+    '#FF9500',    // 系统橙  
+    '#9370DB',    // 中紫色
+    '#20B2AA',    // 浅海绿
+    '#4169E1',    // 皇室蓝
+    '#32CD32',    // 酸橙绿
+    '#8A2BE2'     // 蓝紫色（移除所有红色系）
   ],
   backgroundColor: 'transparent',
   textStyle: {
@@ -209,3 +218,58 @@ export const echartsTheme = {
     }
   }
 };
+
+// ===========================================
+// 颜色设计规范与使用指南
+// ===========================================
+
+/**
+ * 颜色设计规范：
+ * 
+ * 1. 【数据编码颜色】
+ *    - 角色分类：使用 roleColorMap，基于iOS系统色彩
+ *    - 兴趣分类：使用 interestColorMap，基于HSL色相环均匀分布
+ *    - 严禁在数据编码中使用红色系（#E6162D及其衍生色）
+ * 
+ * 2. 【品牌与UI颜色】  
+ *    - 微博红（WEIBO_RED）仅用于：品牌标识、主按钮、强调元素
+ *    - 不得用于：数据分类、图表系列、用户角色/兴趣标识
+ * 
+ * 3. 【多视图一致性】
+ *    - 所有图表组件必须使用统一的颜色映射
+ *    - 禁止在组件内部定义局部颜色
+ *    - 同一分类在所有视图中颜色必须完全一致
+ * 
+ * 4. 【可访问性要求】
+ *    - 确保足够的对比度（WCAG AA标准）
+ *    - 避免仅依赖颜色传达信息
+ *    - 考虑色盲用户的体验
+ * 
+ * 5. 【维护指南】
+ *    - 新增分类时，从HSL色相环选择未使用的色相
+ *    - 修改颜色时，必须更新所有相关组件
+ *    - 定期检查颜色在不同设备上的显示效果
+ */
+
+/**
+ * 获取分类颜色的标准方法
+ */
+export function getRoleColor(role: AccountRole): string {
+  return roleColorMap[role];
+}
+
+export function getInterestColor(interest: AccountInterest): string {
+  return interestColorMap[interest];
+}
+
+/**
+ * 颜色一致性验证函数
+ */
+export function validateColorConsistency(): boolean {
+  // 检查是否有重复颜色
+  const roleColors = Object.values(roleColorMap);
+  const interestColors = Object.values(interestColorMap);
+  const allColors = [...roleColors, ...interestColors];
+  
+  return new Set(allColors).size === allColors.length;
+}

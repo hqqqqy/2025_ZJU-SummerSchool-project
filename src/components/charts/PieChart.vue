@@ -2,11 +2,6 @@
   <div class="pie-chart">
     <div class="chart-header">
       <div class="chart-controls">
-        <el-radio-group v-model="chartType" size="small" @change="updateChart">
-          <el-radio-button label="role">用户角色</el-radio-button>
-          <el-radio-button label="interest">兴趣分类</el-radio-button>
-        </el-radio-group>
-        
         <el-select v-model="chartStyle" size="small" style="width: 120px" @change="updateChart">
           <el-option label="环形图" value="doughnut" />
           <el-option label="饼图" value="pie" />
@@ -22,6 +17,8 @@
         autoresize 
         class="chart"
         @click="handleChartClick"
+        @mouseover="handleChartHover"
+        @mouseout="handleChartLeave"
       />
     </div>
 
@@ -66,6 +63,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAnalysisStore } from '@/stores'
 import type { AccountRole, AccountInterest, SelectionState } from '@/models'
 import { accountRoles, accountInterests } from '@/models'
 import { roleColorMap, interestColorMap, WEIBO_RED, echartsTheme } from '@/util/colors'
@@ -101,13 +100,30 @@ interface Emits {
 const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
+// store
+const analysisStore = useAnalysisStore()
+const { filterCondition, hoverState } = storeToRefs(analysisStore)
+
 // 响应式数据
-const chartType = ref<'role' | 'interest'>('role')
 const chartStyle = ref<'doughnut' | 'pie' | 'rose'>('doughnut')
 const selectedCategory = ref<string | null>(null)
 const showDetailTable = ref(false)
 
 // 计算属性
+const chartType = computed(() => {
+  // 根据筛选面板的选择决定显示什么
+  // 如果有角色筛选，优先显示角色分布
+  if (filterCondition.value.roles && filterCondition.value.roles.length > 0) {
+    return 'role'
+  }
+  // 如果有兴趣筛选，显示兴趣分布
+  if (filterCondition.value.interests && filterCondition.value.interests.length > 0) {
+    return 'interest'
+  }
+  // 默认显示角色分布
+  return 'role'
+})
+
 const currentDistribution = computed(() => {
   if (chartType.value === 'role') {
     return props.roleDistribution || generateMockRoleData()
@@ -226,7 +242,15 @@ const chartOption = computed(() => {
         radius,
         center: ['35%', '50%'],
         roseType: chartStyle.value === 'rose' ? 'radius' : false,
-        data: data.map(item => ({
+        data: data.map(item => {
+          // 检查是否需要高亮此项
+          const shouldHighlight = chartType.value === 'role' 
+            ? hoverState.value.hoveredRole === item.key
+            : hoverState.value.hoveredInterest === item.key
+          
+          const hasHover = hoverState.value.hoveredRole || hoverState.value.hoveredInterest
+          
+          return {
           ...item,
           selected: item.key === selectedCategory.value,
           emphasis: {
@@ -236,6 +260,14 @@ const chartOption = computed(() => {
               shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
           },
+            itemStyle: {
+              ...item.itemStyle,
+              opacity: shouldHighlight || !hasHover ? 1 : 0.3,
+              borderWidth: shouldHighlight ? 3 : 2,
+              borderColor: shouldHighlight ? '#fff' : '#fff'
+            }
+          }
+        }),
           label: {
             show: chartStyle.value !== 'doughnut',
             position: chartStyle.value === 'rose' ? 'inside' : 'outside',
@@ -248,8 +280,7 @@ const chartOption = computed(() => {
           },
           labelLine: {
             show: chartStyle.value === 'pie'
-          }
-        })),
+        },
         itemStyle: {
           borderColor: '#fff',
           borderWidth: 2
@@ -265,9 +296,6 @@ const chartOption = computed(() => {
 // 方法
 function updateChart() {
   // 图表会自动更新，因为使用了计算属性
-  // 切换图表类型时清除选择
-  selectedCategory.value = null
-  updateSelection()
 }
 
 function handleChartClick(params: any) {
@@ -284,6 +312,30 @@ function handleChartClick(params: any) {
     
     updateSelection()
   }
+}
+
+function handleChartHover(params: any) {
+  if (params.componentType === 'series') {
+    const hoveredKey = params.data.key
+    
+    // 设置hover状态，触发其他图表联动
+    if (chartType.value === 'role') {
+      analysisStore.setHoverState({
+        hoveredRole: hoveredKey as AccountRole,
+        sourceChart: 'pieChart'
+      })
+    } else {
+      analysisStore.setHoverState({
+        hoveredInterest: hoveredKey as AccountInterest,
+        sourceChart: 'pieChart'
+      })
+    }
+  }
+}
+
+function handleChartLeave() {
+  // 清除hover状态
+  analysisStore.clearHoverState()
 }
 
 function selectCategory(key: string) {

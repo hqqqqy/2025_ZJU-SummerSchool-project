@@ -79,6 +79,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAnalysisStore } from '@/stores'
 import type { HeatmapDataPoint } from '@/models'
 import { WEIBO_RED, heatmapColors, echartsTheme } from '@/util/colors'
 import { use } from 'echarts/core'
@@ -112,6 +114,10 @@ const props = withDefaults(defineProps<Props>(), {
   loading: false
 })
 
+// store
+const analysisStore = useAnalysisStore()
+const { hoverState } = storeToRefs(analysisStore)
+
 // 响应式数据
 const selectedMetric = ref<'value' | 'userCount' | 'postCount'>('value')
 const viewMode = ref<'standard' | 'compact'>('standard')
@@ -124,10 +130,15 @@ const hourLabels = Array.from({ length: 24 }, (_, i) => `${i.toString().padStart
 
 // 计算属性
 const processedData = computed(() => {
-  if (!props.data || props.data.length === 0) {
-    return generateMockData()
+  // 优先使用传入的真实数据
+  if (props.data && props.data.length > 0) {
+    console.log('热力图使用真实数据:', props.data.length, '个数据点')
+    return props.data
   }
-  return props.data
+  
+  // 如果没有数据则使用模拟数据
+  console.log('热力图使用模拟数据')
+  return generateMockData()
 })
 
 const chartData = computed(() => {
@@ -140,17 +151,23 @@ const chartData = computed(() => {
 
 const minValue = computed(() => {
   const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
-  return Math.min(...values)
+  if (values.length === 0) return 0
+  const validValues = values.filter(val => !isNaN(val) && isFinite(val))
+  return validValues.length > 0 ? Math.min(...validValues) : 0
 })
 
 const maxValue = computed(() => {
   const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
-  return Math.max(...values)
+  if (values.length === 0) return 100
+  const validValues = values.filter(val => !isNaN(val) && isFinite(val))
+  return validValues.length > 0 ? Math.max(...validValues) : 100
 })
 
 const avgValue = computed(() => {
   const values = processedData.value.map(item => getMetricValue(item, selectedMetric.value))
-  return values.reduce((sum, val) => sum + val, 0) / values.length
+  if (values.length === 0) return 0
+  const sum = values.reduce((sum, val) => sum + (isNaN(val) ? 0 : val), 0)
+  return sum / values.length
 })
 
 const peakTimeInsights = computed(() => {
@@ -310,16 +327,23 @@ function handleChartClick(params: any) {
 }
 
 function getMetricValue(item: HeatmapDataPoint, metric: string): number {
+  let value: number
   switch (metric) {
     case 'value':
-      return item.value
+      value = item.value
+      break
     case 'userCount':
-      return item.userCount
+      value = item.userCount
+      break
     case 'postCount':
-      return item.postCount
+      value = item.postCount
+      break
     default:
-      return item.value
+      value = item.value
   }
+  
+  // 确保返回有效数字
+  return isNaN(value) || !isFinite(value) ? 0 : value
 }
 
 function getMetricName(metric: string): string {
@@ -364,32 +388,32 @@ function generateMockData(): HeatmapDataPoint[] {
   for (let day = 0; day < 7; day++) {
     for (let hour = 0; hour < 24; hour++) {
       // 模拟真实的活跃度模式
-      let baseValue = 20
+      let baseValue = 30 // 提高基础值，确保有明显的热力图效果
       
       // 工作日vs周末模式
-      if (day >= 1 && day <= 5) { // 工作日
-        if (hour >= 8 && hour <= 10) baseValue += 30 // 上班路上
-        if (hour >= 12 && hour <= 14) baseValue += 25 // 午休
-        if (hour >= 18 && hour <= 22) baseValue += 40 // 下班后
+      if (day >= 1 && day <= 5) { // 工作日 (周一到周五)
+        if (hour >= 8 && hour <= 10) baseValue += 40 // 上班通勤高峰
+        if (hour >= 12 && hour <= 14) baseValue += 35 // 午休时间
+        if (hour >= 18 && hour <= 22) baseValue += 50 // 下班后高峰
+        if (hour >= 0 && hour <= 6) baseValue *= 0.2 // 深夜很低
+        if (hour >= 7 && hour <= 8) baseValue += 15 // 早上起床
       } else { // 周末
-        if (hour >= 10 && hour <= 12) baseValue += 20 // 上午
-        if (hour >= 14 && hour <= 16) baseValue += 15 // 下午
-        if (hour >= 19 && hour <= 23) baseValue += 35 // 晚上
+        if (hour >= 9 && hour <= 11) baseValue += 25 // 周末上午
+        if (hour >= 14 && hour <= 17) baseValue += 20 // 周末下午
+        if (hour >= 19 && hour <= 23) baseValue += 45 // 周末晚上
+        if (hour >= 0 && hour <= 8) baseValue *= 0.3 // 周末睡懒觉
       }
       
-      // 深夜时段活跃度降低
-      if (hour >= 0 && hour <= 6) baseValue *= 0.3
-      
-      // 添加随机变化
-      const variance = Math.random() * 20 - 10
-      const value = Math.max(0, baseValue + variance)
+      // 添加随机变化，保持数据的自然性
+      const variance = (Math.random() - 0.5) * 25
+      const value = Math.max(5, baseValue + variance) // 确保最小值为5
       
       data.push({
         hour,
         dayOfWeek: day,
         value,
-        userCount: Math.floor(value * 50 + Math.random() * 200),
-        postCount: Math.floor(value * 100 + Math.random() * 500)
+        userCount: Math.floor(value * 8 + Math.random() * 100 + 50), // 确保有合理的用户数
+        postCount: Math.floor(value * 15 + Math.random() * 200 + 100) // 确保有合理的发帖数
       })
     }
   }

@@ -26,6 +26,29 @@
             <el-icon><Filter /></el-icon>
             {{ showFilterPanel ? '隐藏筛选' : '显示筛选' }}
           </el-button>
+          <el-dropdown @command="handleDataCommand" class="data-actions">
+            <el-button>
+              <el-icon><UploadFilled /></el-icon>
+              数据管理
+              <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item command="import">
+                  <el-icon><UploadFilled /></el-icon>
+                  导入CSV数据
+                </el-dropdown-item>
+                <el-dropdown-item command="mock" divided>
+                  <el-icon><DataBoard /></el-icon>
+                  生成示例数据
+                </el-dropdown-item>
+                <el-dropdown-item command="clear" divided>
+                  <el-icon><Delete /></el-icon>
+                  清空所有数据
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </div>
       </div>
     </div>
@@ -67,12 +90,6 @@
       />
 
       <!-- 交互历史轨迹 -->
-      <InteractionHistory 
-        v-if="interactionHistory.length > 0"
-        class="interaction-history"
-        :interactions="interactionHistory.slice(0, 5)"
-        @revert="handleRevert"
-      />
 
       <!-- 可视化视图网格 -->
       <div class="views-grid" :class="{ 'with-filter': showFilterPanel }">
@@ -119,6 +136,8 @@
             <HeatmapChart 
               :data="heatmapData"
               :loading="isLoading"
+              :selection="selectionState"
+              @selectionChange="handleSelectionChange"
             />
           </ViewCard>
         </div>
@@ -140,24 +159,6 @@
             />
           </ViewCard>
         </div>
-
-        <!-- 关系网络视图 -->
-        <div class="view-container" v-if="viewConfigs.network.isVisible">
-          <ViewCard 
-            :title="viewConfigs.network.title"
-            :viewType="'network'"
-            @toggleVisibility="toggleViewVisibility"
-            @showInfo="handleShowViewInfo"
-          >
-            <NetworkChart 
-              :nodes="networkNodes"
-              :edges="networkEdges"
-              :selection="selectionState"
-              :loading="isLoading"
-              @selectionChange="handleSelectionChange"
-            />
-          </ViewCard>
-        </div>
       </div>
     </div>
 
@@ -172,6 +173,12 @@
       <el-icon class="is-loading" :size="32"><Loading /></el-icon>
       <div class="loading-text">正在加载数据...</div>
     </div>
+
+    <FileUploadDialog 
+      :visible="showUploadDialog" 
+      @close="showUploadDialog = false" 
+      @import="handleCsvData" 
+    />
   </div>
 </template>
 
@@ -181,11 +188,16 @@ import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useAnalysisStore } from '@/stores'
 import type { FilterCondition, SelectionState, ViewType } from '@/models'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   DataAnalysis,
   Refresh,
   Filter,
-  Loading
+  Loading,
+  UploadFilled,
+  ArrowDown,
+  DataBoard,
+  Delete
 } from '@element-plus/icons-vue'
 
 // 导入组件
@@ -196,8 +208,7 @@ import ScatterChart from '@/components/charts/ScatterChart.vue'
 import HeatmapChart from '@/components/charts/HeatmapChart.vue'
 import PieChart from '@/components/charts/PieChart.vue'
 import ViewInfoDialog from '@/components/ViewInfoDialog.vue'
-// import InteractionHistory from '@/components/InteractionHistory.vue'
-// import NetworkChart from '@/components/charts/NetworkChart.vue'
+import FileUploadDialog from '@/components/FileUploadDialog.vue'
 
 const router = useRouter()
 const analysisStore = useAnalysisStore()
@@ -221,6 +232,7 @@ const {
 const showFilterPanel = ref(true)
 const showViewInfoDialog = ref(false)
 const currentViewInfo = ref<ViewType>('timeSeries')
+const showUploadDialog = ref(false)
 
 // 计算属性
 const hasData = computed(() => {
@@ -270,6 +282,57 @@ function formatNumber(num: number): string {
 
 function formatUpdateTime(time: string): string {
   return new Date(time).toLocaleString('zh-CN')
+}
+
+async function handleCsvData(processedData: any) {
+  try {
+    // 调用store的导入方法
+    const result = await analysisStore.importData(processedData)
+    
+    if (result.success) {
+      const { summary } = result
+      let message = '数据导入成功！'
+      
+      if (summary.userProfiles > 0 || summary.userBehaviors > 0 || summary.timeSeriesData > 0) {
+        const details = []
+        if (summary.userProfiles > 0) details.push(`${summary.userProfiles} 个用户配置`)
+        if (summary.userBehaviors > 0) details.push(`${summary.userBehaviors} 个用户行为`)
+        if (summary.timeSeriesData > 0) details.push(`${summary.timeSeriesData} 个时间序列数据`)
+        
+        message += `\n导入内容：${details.join('，')}`
+      }
+      
+      ElMessage({
+        message,
+        type: 'success',
+        duration: 5000,
+        showClose: true
+      })
+    }
+  } catch (error) {
+    console.error('数据导入失败:', error)
+    ElMessage.error(error instanceof Error ? error.message : '数据导入失败')
+  }
+}
+
+function handleDataCommand(command: string) {
+  if (command === 'import') {
+    showUploadDialog.value = true
+  } else if (command === 'mock') {
+    analysisStore.generateMockData()
+    ElMessage.success('已生成示例数据')
+  } else if (command === 'clear') {
+    ElMessageBox.confirm('确定要清空所有数据吗？', '警告', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+    }).then(() => {
+      analysisStore.clearAllData()
+      ElMessage.success('数据已清空')
+    }).catch(() => {
+      // 用户取消
+    })
+  }
 }
 
 // 生命周期
@@ -344,6 +407,18 @@ onMounted(async () => {
 .refresh-button:hover {
   background: #d01428;
   border-color: #d01428;
+}
+
+.data-actions .el-button {
+  background: #f0f0f0;
+  border-color: #e0e0e0;
+  color: #333;
+}
+
+.data-actions .el-button:hover {
+  background: #e0e0e0;
+  border-color: #d0d0d0;
+  color: #333;
 }
 
 /* 统计概览卡片 */
