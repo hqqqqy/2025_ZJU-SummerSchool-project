@@ -73,6 +73,20 @@ export const useAnalysisStore = defineStore('analysis', () => {
   const isLoading = ref(false)
   const lastUpdateTime = ref<string>('')
 
+  // hover状态管理，支持跨图表联动
+  const hoverState = ref<{
+    hoveredRole?: AccountRole
+    hoveredInterest?: AccountInterest
+    hoveredUserId?: string
+    sourceChart?: string
+  }>({})
+
+  const highlightState = ref<{
+    highlightedRole?: AccountRole
+    highlightedInterest?: AccountInterest
+    highlightedUserIds?: string[]
+  }>({})
+
   // ===========================================
   // 视图配置状态
   // ===========================================
@@ -324,26 +338,505 @@ export const useAnalysisStore = defineStore('analysis', () => {
   }
 
   // ===========================================
+  // hover状态管理方法
+  // ===========================================
+  
+  // 设置hover状态
+  function setHoverState(newHoverState: {
+    hoveredRole?: AccountRole
+    hoveredInterest?: AccountInterest
+    hoveredUserId?: string
+    sourceChart?: string
+  }) {
+    hoverState.value = { ...newHoverState }
+  }
+
+  // 清除hover状态
+  function clearHoverState() {
+    hoverState.value = {}
+  }
+
+  // 设置高亮状态
+  function setHighlightState(newHighlightState: {
+    highlightedRole?: AccountRole
+    highlightedInterest?: AccountInterest
+    highlightedUserIds?: string[]
+  }) {
+    highlightState.value = { ...newHighlightState }
+  }
+
+  // 清除高亮状态
+  function clearHighlightState() {
+    highlightState.value = {}
+  }
+
+  // ===========================================
   // 数据加载方法
   // ===========================================
   
   async function loadData() {
     isLoading.value = true
     try {
-      // 这里是数据加载的占位符
-      // 实际使用时应该调用API接口加载数据
-      console.log('Loading data...')
+      console.log('加载CSV数据文件...')
       
-      // 模拟数据加载
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // 加载用户配置和行为数据
+      try {
+        const userDataResponse = await fetch('/sample-data.csv')
+        const userDataText = await userDataResponse.text()
+        const userLines = userDataText.split('\n').filter(line => line.trim())
+        
+        if (userLines.length > 1) {
+          const userHeaders = userLines[0].split(',')
+          const newUserProfiles: UserProfile[] = []
+          const newUserBehaviors: UserBehaviorData[] = []
+          
+          for (let i = 1; i < userLines.length; i++) {
+            const values = userLines[i].split(',')
+            if (values.length >= userHeaders.length) {
+              const userId = values[0]
+              const role = values[1] as AccountRole
+              const interests = values[2].replace(/"/g, '').split(',').filter(i => i.trim()) as AccountInterest[]
+              const registrationDate = values[3]
+              const location = values[4]
+              const activityScore = isNaN(parseFloat(values[5])) ? 0 : parseFloat(values[5])
+              const influenceScore = isNaN(parseFloat(values[6])) ? 0 : parseFloat(values[6])
+              const postCount = isNaN(parseInt(values[7])) ? 0 : parseInt(values[7])
+              const interactionCount = isNaN(parseInt(values[8])) ? 0 : parseInt(values[8])
+              const followerCount = isNaN(parseInt(values[9])) ? 0 : parseInt(values[9])
+              const followingCount = isNaN(parseInt(values[10])) ? 0 : parseInt(values[10])
+              const lastActiveDate = values[11]
+              
+              newUserProfiles.push({
+                userId,
+                role,
+                interests,
+                registrationDate,
+                location
+              })
+              
+              newUserBehaviors.push({
+                userId,
+                activityScore,
+                influenceScore,
+                postCount,
+                interactionCount,
+                followerCount,
+                followingCount,
+                lastActiveDate
+              })
+            }
+          }
+          
+          userProfiles.value = newUserProfiles
+          userBehaviors.value = newUserBehaviors
+          console.log(`加载了 ${newUserProfiles.length} 个用户数据`)
+        }
+      } catch (error) {
+        console.warn('用户数据文件加载失败:', error)
+      }
+      
+      // 加载时间序列数据
+      try {
+        const timeSeriesResponse = await fetch('/sample-timeseries.csv')
+        const timeSeriesText = await timeSeriesResponse.text()
+        const timeSeriesLines = timeSeriesText.split('\n').filter(line => line.trim())
+        
+        if (timeSeriesLines.length > 1) {
+          const headers = timeSeriesLines[0].split(',')
+          const newTimeSeriesData: TimeSeriesDataPoint[] = []
+          
+          for (let i = 1; i < timeSeriesLines.length; i++) {
+            const values = timeSeriesLines[i].split(',')
+            if (values.length >= headers.length) {
+              newTimeSeriesData.push({
+                timestamp: values[0],
+                activeUserCount: isNaN(parseInt(values[1])) ? 0 : parseInt(values[1]),
+                newUserCount: isNaN(parseInt(values[2])) ? 0 : parseInt(values[2]),
+                postCount: isNaN(parseInt(values[3])) ? 0 : parseInt(values[3]),
+                interactionCount: isNaN(parseInt(values[4])) ? 0 : parseInt(values[4]),
+                avgActivityScore: isNaN(parseFloat(values[5])) ? 0 : parseFloat(values[5]),
+                avgInfluenceScore: isNaN(parseFloat(values[6])) ? 0 : parseFloat(values[6])
+              })
+            }
+          }
+          
+          timeSeriesData.value = newTimeSeriesData
+          console.log(`加载了 ${newTimeSeriesData.length} 个时间序列数据点`)
+        }
+      } catch (error) {
+        console.warn('时间序列数据文件加载失败:', error)
+      }
+      
+      // 生成衍生数据
+      await generateDerivedData()
+      updateAggregatedStats()
       
       lastUpdateTime.value = new Date().toISOString()
+      console.log('数据加载完成')
     } catch (error) {
       console.error('Failed to load data:', error)
       throw error
     } finally {
       isLoading.value = false
     }
+  }
+
+  // ===========================================
+  // 数据导入方法
+  // ===========================================
+  
+  // 导入CSV数据
+  async function importData(importedData: {
+    userProfiles?: UserProfile[]
+    userBehaviors?: UserBehaviorData[]
+    timeSeriesData?: TimeSeriesDataPoint[]
+    rawData: Record<string, any>[]
+  }) {
+    isLoading.value = true
+    
+    try {
+      // 导入用户配置数据
+      if (importedData.userProfiles && importedData.userProfiles.length > 0) {
+        // 合并或替换用户配置数据
+        const existingUserIds = new Set(userProfiles.value.map(u => u.userId))
+        const newProfiles = importedData.userProfiles.filter(profile => !existingUserIds.has(profile.userId))
+        const updatedProfiles = importedData.userProfiles.filter(profile => existingUserIds.has(profile.userId))
+        
+        // 添加新用户
+        userProfiles.value.push(...newProfiles)
+        
+        // 更新已存在的用户
+        updatedProfiles.forEach(updatedProfile => {
+          const index = userProfiles.value.findIndex(p => p.userId === updatedProfile.userId)
+          if (index !== -1) {
+            userProfiles.value[index] = { ...userProfiles.value[index], ...updatedProfile }
+          }
+        })
+        
+        console.log(`导入了 ${newProfiles.length} 个新用户配置，更新了 ${updatedProfiles.length} 个用户配置`)
+      }
+
+      // 导入用户行为数据
+      if (importedData.userBehaviors && importedData.userBehaviors.length > 0) {
+        const existingUserIds = new Set(userBehaviors.value.map(u => u.userId))
+        const newBehaviors = importedData.userBehaviors.filter(behavior => !existingUserIds.has(behavior.userId))
+        const updatedBehaviors = importedData.userBehaviors.filter(behavior => existingUserIds.has(behavior.userId))
+        
+        // 添加新用户行为数据
+        userBehaviors.value.push(...newBehaviors)
+        
+        // 更新已存在的用户行为数据
+        updatedBehaviors.forEach(updatedBehavior => {
+          const index = userBehaviors.value.findIndex(b => b.userId === updatedBehavior.userId)
+          if (index !== -1) {
+            userBehaviors.value[index] = { ...userBehaviors.value[index], ...updatedBehavior }
+          }
+        })
+
+        console.log(`导入了 ${newBehaviors.length} 个新用户行为数据，更新了 ${updatedBehaviors.length} 个用户行为数据`)
+      }
+
+      // 导入时间序列数据
+      if (importedData.timeSeriesData && importedData.timeSeriesData.length > 0) {
+        // 按时间戳合并时间序列数据，避免重复
+        const existingTimestamps = new Set(timeSeriesData.value.map(t => t.timestamp))
+        const newTimeSeriesData = importedData.timeSeriesData.filter(
+          dataPoint => !existingTimestamps.has(dataPoint.timestamp)
+        )
+        
+        timeSeriesData.value.push(...newTimeSeriesData)
+        // 按时间排序
+        timeSeriesData.value.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+        
+        console.log(`导入了 ${newTimeSeriesData.length} 个时间序列数据点`)
+      }
+
+      // 生成其他相关数据
+      await generateDerivedData()
+      
+      // 更新统计信息
+      updateAggregatedStats()
+      
+      lastUpdateTime.value = new Date().toISOString()
+      
+      // 记录导入操作
+      addInteractionRecord(
+        'filter', 
+        'global', 
+        `导入CSV数据: ${importedData.rawData.length} 条记录`, 
+        filterCondition.value
+      )
+      
+      return {
+        success: true,
+        message: '数据导入成功',
+        summary: {
+          userProfiles: importedData.userProfiles?.length || 0,
+          userBehaviors: importedData.userBehaviors?.length || 0,
+          timeSeriesData: importedData.timeSeriesData?.length || 0,
+          totalRecords: importedData.rawData.length
+        }
+      }
+      
+    } catch (error) {
+      console.error('数据导入失败:', error)
+      throw new Error(error instanceof Error ? error.message : '数据导入失败')
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  // 生成衍生数据（散点图、热力图、网络数据等）
+  async function generateDerivedData() {
+    // 生成散点图数据
+    scatterData.value = userBehaviors.value.map(behavior => {
+      const profile = userProfiles.value.find(p => p.userId === behavior.userId)
+      return {
+        userId: behavior.userId,
+        activityScore: behavior.activityScore,
+        influenceScore: behavior.influenceScore,
+        role: profile?.role || 'general',
+        interests: profile?.interests || [],
+        postCount: behavior.postCount,
+        interactionCount: behavior.interactionCount
+      } as ScatterDataPoint
+    })
+
+    // 生成热力图数据（基于时间序列数据）
+    if (timeSeriesData.value.length > 0) {
+      const heatmapMap = new Map<string, {
+        hour: number
+        dayOfWeek: number
+        values: number[]
+        userCounts: number[]
+        postCounts: number[]
+      }>()
+      
+      // 收集每个时段的所有数据点
+      timeSeriesData.value.forEach(point => {
+        const date = new Date(point.timestamp)
+        const hour = date.getHours()
+        const dayOfWeek = date.getDay()
+        const key = `${hour}-${dayOfWeek}`
+        
+        if (heatmapMap.has(key)) {
+          const existing = heatmapMap.get(key)!
+          existing.values.push(point.activeUserCount)
+          existing.userCounts.push(point.activeUserCount)
+          existing.postCounts.push(point.postCount)
+        } else {
+          heatmapMap.set(key, {
+            hour,
+            dayOfWeek,
+            values: [point.activeUserCount],
+            userCounts: [point.activeUserCount],
+            postCounts: [point.postCount]
+          })
+        }
+      })
+      
+      // 计算每个时段的平均值
+      heatmapData.value = Array.from(heatmapMap.values()).map(item => {
+        const avgValue = item.values.length > 0 
+          ? item.values.reduce((sum, val) => sum + (isNaN(val) ? 0 : val), 0) / item.values.length 
+          : 0
+        const avgUserCount = item.userCounts.length > 0 
+          ? item.userCounts.reduce((sum, val) => sum + (isNaN(val) ? 0 : val), 0) / item.userCounts.length 
+          : 0
+        const avgPostCount = item.postCounts.length > 0 
+          ? item.postCounts.reduce((sum, val) => sum + (isNaN(val) ? 0 : val), 0) / item.postCounts.length 
+          : 0
+        
+        return {
+          hour: item.hour,
+          dayOfWeek: item.dayOfWeek,
+          value: isNaN(avgValue) ? 0 : avgValue,
+          userCount: Math.round(isNaN(avgUserCount) ? 0 : avgUserCount),
+          postCount: Math.round(isNaN(avgPostCount) ? 0 : avgPostCount)
+        } as HeatmapDataPoint
+      })
+      
+      console.log(`生成了 ${heatmapData.value.length} 个热力图数据点`)
+      console.log('热力图数据示例:', heatmapData.value.slice(0, 3))
+    } else {
+      console.log('没有时间序列数据，热力图将使用模拟数据')
+      console.log('当前timeSeriesData.value:', timeSeriesData.value)
+    }
+
+    // 生成网络节点数据
+    networkNodes.value = userProfiles.value.map(profile => {
+      const behavior = userBehaviors.value.find(b => b.userId === profile.userId)
+      return {
+        id: profile.userId,
+        activityScore: behavior?.activityScore || 0,
+        influenceScore: behavior?.influenceScore || 0,
+        role: profile.role,
+        primaryInterest: profile.interests[0] || 'general',
+        size: (behavior?.influenceScore || 0) / 10 + 5 // 节点大小基于影响力
+      } as NetworkNode
+    })
+
+    // 生成简单的网络边数据（基于共同兴趣）
+    networkEdges.value = []
+    for (let i = 0; i < userProfiles.value.length; i++) {
+      for (let j = i + 1; j < userProfiles.value.length; j++) {
+        const user1 = userProfiles.value[i]
+        const user2 = userProfiles.value[j]
+        
+        // 计算共同兴趣
+        const commonInterests = user1.interests.filter(interest => 
+          user2.interests.includes(interest)
+        )
+        
+        if (commonInterests.length > 0) {
+          networkEdges.value.push({
+            source: user1.userId,
+            target: user2.userId,
+            weight: commonInterests.length,
+            interactionType: 'follow'
+          })
+        }
+      }
+    }
+
+    // 限制边的数量避免过于复杂
+    if (networkEdges.value.length > 200) {
+      networkEdges.value = networkEdges.value
+        .sort((a, b) => b.weight - a.weight)
+        .slice(0, 200)
+    }
+  }
+
+  // 更新聚合统计数据
+  function updateAggregatedStats() {
+    if (userBehaviors.value.length === 0) {
+      aggregatedStats.value = null
+      return
+    }
+
+    const totalUsers = userBehaviors.value.length
+    const activeUsers = userBehaviors.value.filter(b => b.activityScore > 30).length
+    const totalPosts = userBehaviors.value.reduce((sum, b) => sum + b.postCount, 0)
+    const totalInteractions = userBehaviors.value.reduce((sum, b) => sum + b.interactionCount, 0)
+    const avgActivity = userBehaviors.value.reduce((sum, b) => sum + b.activityScore, 0) / totalUsers
+    const avgInfluence = userBehaviors.value.reduce((sum, b) => sum + b.influenceScore, 0) / totalUsers
+
+    aggregatedStats.value = {
+      totalUsers,
+      activeUsers,
+      totalPosts,
+      totalInteractions,
+      avgActivityScore: avgActivity,
+      avgInfluenceScore: avgInfluence,
+      roleDistribution: getRoleDistribution(),
+      interestDistribution: getInterestDistribution()
+    }
+  }
+
+  // 生成模拟数据（用于演示）
+  async function generateMockData(count: number = 100) {
+    isLoading.value = true
+    
+    try {
+      const roles: AccountRole[] = ['inactive', 'information-seeker', 'information-source', 'general']
+      const interests: AccountInterest[] = [
+        'animals', 'arts and culture', 'business and finance', 'entertainment',
+        'fashion and beauty', 'fitness and health', 'food and dining',
+        'learning and educational', 'politics', 'science and technology',
+        'sports', 'travel'
+      ]
+      const locations = ['北京', '上海', '广州', '深圳', '杭州', '南京', '成都', '武汉', '西安', '重庆']
+
+      // 生成用户配置数据
+      userProfiles.value = []
+      userBehaviors.value = []
+      
+      for (let i = 0; i < count; i++) {
+        const userId = `user_${i + 1}`
+        const role = roles[Math.floor(Math.random() * roles.length)]
+        const userInterests = interests
+          .sort(() => 0.5 - Math.random())
+          .slice(0, Math.floor(Math.random() * 4) + 1)
+        const location = locations[Math.floor(Math.random() * locations.length)]
+        
+        // 用户配置
+        userProfiles.value.push({
+          userId,
+          role,
+          interests: userInterests,
+          registrationDate: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toISOString(),
+          location
+        })
+
+        // 用户行为数据
+        const activityScore = Math.floor(Math.random() * 100)
+        const influenceScore = Math.floor(Math.random() * 100)
+        const postCount = Math.floor(Math.random() * 1000)
+        const interactionCount = Math.floor(Math.random() * 5000)
+        
+        userBehaviors.value.push({
+          userId,
+          activityScore,
+          influenceScore,
+          postCount,
+          interactionCount,
+          followerCount: Math.floor(Math.random() * 10000),
+          followingCount: Math.floor(Math.random() * 1000),
+          lastActiveDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString()
+        })
+      }
+
+      // 生成时间序列数据（最近30天）
+      timeSeriesData.value = []
+      const now = new Date()
+      for (let i = 29; i >= 0; i--) {
+        const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000)
+        timeSeriesData.value.push({
+          timestamp: date.toISOString(),
+          activeUserCount: Math.floor(Math.random() * count * 0.8) + count * 0.1,
+          newUserCount: Math.floor(Math.random() * 20),
+          postCount: Math.floor(Math.random() * 1000) + 100,
+          interactionCount: Math.floor(Math.random() * 5000) + 500,
+          avgActivityScore: Math.random() * 100,
+          avgInfluenceScore: Math.random() * 100
+        })
+      }
+
+      // 生成衍生数据
+      await generateDerivedData()
+      updateAggregatedStats()
+      
+      lastUpdateTime.value = new Date().toISOString()
+      
+      addInteractionRecord('filter', 'global', `生成模拟数据: ${count} 个用户`, filterCondition.value)
+      
+      console.log(`成功生成 ${count} 个用户的模拟数据`)
+      
+    } catch (error) {
+      console.error('生成模拟数据失败:', error)
+      throw error
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  // 清空所有数据
+  function clearAllData() {
+    userProfiles.value = []
+    userBehaviors.value = []
+    timeSeriesData.value = []
+    heatmapData.value = []
+    scatterData.value = []
+    networkNodes.value = []
+    networkEdges.value = []
+    wordCloudData.value = []
+    geographicData.value = []
+    aggregatedStats.value = null
+    
+    resetFilter()
+    clearSelection()
+    
+    addInteractionRecord('filter', 'global', '清空所有数据', filterCondition.value)
   }
 
   // ===========================================
@@ -410,6 +903,10 @@ export const useAnalysisStore = defineStore('analysis', () => {
     isLoading,
     lastUpdateTime,
     
+    // hover和高亮状态
+    hoverState,
+    highlightState,
+    
     // 视图配置
     viewConfigs,
     
@@ -429,6 +926,17 @@ export const useAnalysisStore = defineStore('analysis', () => {
     revertToHistory,
     updateViewConfig,
     toggleViewVisibility,
-    loadData
+    loadData,
+    
+    // 数据导入和管理方法
+    importData,
+    generateMockData,
+    clearAllData,
+    
+    // hover状态管理方法
+    setHoverState,
+    clearHoverState,
+    setHighlightState,
+    clearHighlightState
   }
 }) 

@@ -2,20 +2,6 @@
   <div class="scatter-chart">
     <div class="chart-header">
       <div class="chart-controls">
-        <el-radio-group v-model="colorBy" size="small" @change="updateChart">
-          <el-radio-button label="role">按角色</el-radio-button>
-          <el-radio-button label="interest">按兴趣</el-radio-button>
-        </el-radio-group>
-        
-        <el-select v-model="selectedInterest" placeholder="筛选兴趣" size="small" clearable @change="updateChart">
-          <el-option
-            v-for="interest in accountInterests"
-            :key="interest"
-            :label="getInterestName(interest)"
-            :value="interest"
-          />
-        </el-select>
-        
         <el-button 
           size="small" 
           :type="brushMode ? 'primary' : ''"
@@ -37,6 +23,8 @@
         @click="handleChartClick"
         @brushselected="handleBrushSelected"
         @brushEnd="handleBrushEnd"
+        @mouseover="handleChartHover"
+        @mouseout="handleChartLeave"
       />
     </div>
 
@@ -103,6 +91,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAnalysisStore } from '@/stores'
 import type { ScatterDataPoint, AccountRole, AccountInterest, SelectionState } from '@/models'
 import { accountInterests, accountRoles } from '@/models'
 import { roleColorMap, interestColorMap, WEIBO_RED, echartsTheme } from '@/util/colors'
@@ -148,10 +138,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<Emits>()
 
+// store
+const analysisStore = useAnalysisStore()
+const { filterCondition, hoverState } = storeToRefs(analysisStore)
+
 // 响应式数据
 const chartRef = ref()
-const colorBy = ref<'role' | 'interest'>('role')
-const selectedInterest = ref<AccountInterest | undefined>()
 const brushMode = ref(false)
 const selectedUsers = ref<string[]>([])
 const showUserDetail = ref(false)
@@ -163,16 +155,58 @@ const processedData = computed(() => {
     return generateMockData()
   }
   
-  let filteredData = props.data
-  
-  // 根据选择的兴趣筛选
-  if (selectedInterest.value) {
-    filteredData = filteredData.filter(item => 
-      item.interests.includes(selectedInterest.value!)
-    )
+  // 应用筛选条件
+  return props.data.filter(item => {
+    const condition = filterCondition.value
+    
+    // 活跃度筛选
+    if (condition.activityRange) {
+      if (item.activityScore < condition.activityRange.min || 
+          item.activityScore > condition.activityRange.max) {
+        return false
+      }
+    }
+    
+    // 影响力筛选
+    if (condition.influenceRange) {
+      if (item.influenceScore < condition.influenceRange.min || 
+          item.influenceScore > condition.influenceRange.max) {
+        return false
+      }
+    }
+    
+    // 角色筛选
+    if (condition.roles && condition.roles.length > 0 && !condition.roles.includes(item.role)) {
+      return false
+    }
+    
+    // 兴趣筛选
+    if (condition.interests && condition.interests.length > 0) {
+      const hasMatchingInterest = item.interests.some(interest => condition.interests!.includes(interest))
+      if (!hasMatchingInterest) return false
+    }
+    
+    // 用户ID筛选
+    if (condition.userIds && condition.userIds.length > 0 && !condition.userIds.includes(item.userId)) {
+      return false
+    }
+    
+    return true
+  })
+})
+
+// 根据筛选面板确定颜色分类方式
+const colorBy = computed(() => {
+  // 如果有角色筛选，优先按角色分类
+  if (filterCondition.value.roles && filterCondition.value.roles.length > 0) {
+    return 'role'
   }
-  
-  return filteredData
+  // 如果有兴趣筛选，按兴趣分类
+  if (filterCondition.value.interests && filterCondition.value.interests.length > 0) {
+    return 'interest'
+  }
+  // 默认按角色分类
+  return 'role'
 })
 
 const avgActivity = computed(() => {
@@ -299,15 +333,28 @@ const chartOption = computed(() => {
     series: seriesData.map(series => ({
       name: series.name,
       type: 'scatter',
-      data: series.data.map(item => ({
+      data: series.data.map(item => {
+        // 检查是否需要高亮此点
+        const shouldHighlight = colorBy.value === 'role' 
+          ? hoverState.value.hoveredRole === item.role
+          : hoverState.value.hoveredInterest && item.interests.includes(hoverState.value.hoveredInterest)
+        
+        const hasHover = hoverState.value.hoveredRole || hoverState.value.hoveredInterest
+        
+        return {
         value: [item.activityScore, item.influenceScore],
         ...item,
-        symbolSize: Math.max(6, Math.min(20, item.influenceScore / 5)) // 根据影响力调整点大小
-      })),
+          symbolSize: shouldHighlight 
+            ? Math.max(8, Math.min(24, item.influenceScore / 5)) 
+            : Math.max(6, Math.min(20, item.influenceScore / 5)),
       itemStyle: {
         color: series.color,
-        opacity: 0.7
-      },
+            opacity: shouldHighlight || !hasHover ? 0.8 : 0.3,
+            borderWidth: shouldHighlight ? 2 : 0,
+            borderColor: shouldHighlight ? '#fff' : 'transparent'
+          }
+        }
+      }),
       emphasis: {
         itemStyle: {
           borderColor: '#fff',
@@ -413,6 +460,36 @@ function handleBrushSelected(params: any) {
 
 function handleBrushEnd() {
   // 框选结束后的处理
+}
+
+function handleChartHover(params: any) {
+  if (params.componentType === 'series') {
+    const point = params.data
+    
+    // 设置hover状态，触发其他图表联动
+    if (colorBy.value === 'role') {
+      analysisStore.setHoverState({
+        hoveredRole: point.role,
+        hoveredUserId: point.userId,
+        sourceChart: 'scatterChart'
+      })
+    } else {
+      // 取用户的主要兴趣
+      const primaryInterest = point.interests[0]
+      if (primaryInterest) {
+        analysisStore.setHoverState({
+          hoveredInterest: primaryInterest,
+          hoveredUserId: point.userId,
+          sourceChart: 'scatterChart'
+        })
+      }
+    }
+  }
+}
+
+function handleChartLeave() {
+  // 清除hover状态
+  analysisStore.clearHoverState()
 }
 
 function clearSelection() {

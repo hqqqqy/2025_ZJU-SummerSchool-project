@@ -40,6 +40,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useAnalysisStore } from '@/stores'
 import type { TimeSeriesDataPoint } from '@/models'
 import { timeSeriesColors, WEIBO_RED, echartsTheme } from '@/util/colors'
 import { use } from 'echarts/core'
@@ -84,6 +86,10 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits<Emits>()
+
+// store
+const analysisStore = useAnalysisStore()
+const { hoverState } = storeToRefs(analysisStore)
 
 // 响应式数据
 const selectedMetrics = ref<string>('activeUsers')
