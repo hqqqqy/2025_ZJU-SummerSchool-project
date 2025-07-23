@@ -148,7 +148,7 @@ import ScatterChart from '@/components/charts/ScatterChart.vue'
 import HeatmapChart from '@/components/charts/HeatmapChart.vue'
 import PieChart from '@/components/charts/PieChart.vue'
 import ViewInfoDialog from '@/components/ViewInfoDialog.vue'
-import InteractionHistory from '@/components/InteractionHistory.vue'
+//import InteractionHistory from '@/components/InteractionHistory.vue'
 import NetworkChart from '@/components/charts/NetworkChart.vue'
 
 const router = useRouter()
