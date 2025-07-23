@@ -13,23 +13,6 @@
           </div>
         </div>
         <div class="header-actions">
-          <!-- 新增的数据导入按钮 -->
-          <el-tooltip content="导入CSV数据" placement="bottom">
-            <el-upload
-              action=""
-              accept=".csv"
-              :show-file-list="false"
-              :auto-upload="false"
-              :on-change="handleFileImport"
-              class="data-import"
-            >
-              <el-button type="primary" :loading="importLoading">
-                <el-icon><Upload /></el-icon>
-                导入数据
-              </el-button>
-            </el-upload>
-          </el-tooltip>
-          
           <el-button 
             type="primary" 
             :loading="isLoading"
@@ -108,7 +91,73 @@
           </ViewCard>
         </div>
 
-        <!-- 其他视图... -->
+        <!-- 散点图分析视图 -->
+        <div class="view-container" v-if="viewConfigs.scatter.isVisible">
+          <ViewCard 
+            :title="viewConfigs.scatter.title"
+            :viewType="'scatter'"
+            @toggleVisibility="toggleViewVisibility"
+            @showInfo="handleShowViewInfo"
+          >
+            <ScatterChart 
+              :data="scatterData"
+              :selection="selectionState"
+              :loading="isLoading"
+              @selectionChange="handleSelectionChange"
+            />
+          </ViewCard>
+        </div>
+
+        <!-- 热力图视图 -->
+        <div class="view-container" v-if="viewConfigs.heatmap.isVisible">
+          <ViewCard 
+            :title="viewConfigs.heatmap.title"
+            :viewType="'heatmap'"
+            @toggleVisibility="toggleViewVisibility"
+            @showInfo="handleShowViewInfo"
+          >
+            <HeatmapChart 
+              :data="heatmapData"
+              :loading="isLoading"
+            />
+          </ViewCard>
+        </div>
+
+        <!-- 用户分布饼图视图 -->
+        <div class="view-container" v-if="viewConfigs.pieChart.isVisible">
+          <ViewCard 
+            :title="viewConfigs.pieChart.title"
+            :viewType="'pieChart'"
+            @toggleVisibility="toggleViewVisibility"
+            @showInfo="handleShowViewInfo"
+          >
+            <PieChart 
+              :roleDistribution="currentStats?.roleDistribution"
+              :interestDistribution="currentStats?.interestDistribution"
+              :selection="selectionState"
+              :loading="isLoading"
+              @selectionChange="handleSelectionChange"
+            />
+          </ViewCard>
+        </div>
+
+        <!-- 关系网络视图 -->
+        <div class="view-container" v-if="viewConfigs.network.isVisible">
+          <ViewCard 
+            :title="viewConfigs.network.title"
+            :viewType="'network'"
+            @toggleVisibility="toggleViewVisibility"
+            @showInfo="handleShowViewInfo"
+          >
+            <NetworkChart 
+              :nodes="networkNodes"
+              :edges="networkEdges"
+              :selection="selectionState"
+              :loading="isLoading"
+              @selectionChange="handleSelectionChange"
+            />
+          </ViewCard>
+        </div>
       </div>
     </div>
 
@@ -136,8 +185,7 @@ import {
   DataAnalysis,
   Refresh,
   Filter,
-  Loading,
-  Upload
+  Loading
 } from '@element-plus/icons-vue'
 
 // 导入组件
@@ -148,8 +196,8 @@ import ScatterChart from '@/components/charts/ScatterChart.vue'
 import HeatmapChart from '@/components/charts/HeatmapChart.vue'
 import PieChart from '@/components/charts/PieChart.vue'
 import ViewInfoDialog from '@/components/ViewInfoDialog.vue'
-import InteractionHistory from '@/components/InteractionHistory.vue'
-import NetworkChart from '@/components/charts/NetworkChart.vue'
+// import InteractionHistory from '@/components/InteractionHistory.vue'
+// import NetworkChart from '@/components/charts/NetworkChart.vue'
 
 const router = useRouter()
 const analysisStore = useAnalysisStore()
@@ -173,7 +221,6 @@ const {
 const showFilterPanel = ref(true)
 const showViewInfoDialog = ref(false)
 const currentViewInfo = ref<ViewType>('timeSeries')
-const importLoading = ref(false) // 新增的导入状态
 
 // 计算属性
 const hasData = computed(() => {
@@ -184,27 +231,10 @@ const hasData = computed(() => {
 async function refreshData() {
   try {
     await analysisStore.loadData()
+    // 这里可以添加成功提示
   } catch (error) {
     console.error('Failed to refresh data:', error)
-  }
-}
-
-// 新增的CSV导入处理方法
-async function handleFileImport(file: any) {
-  if (!file.raw.type.includes('csv') && !file.name.endsWith('.csv')) {
-    ElMessage.error('请上传CSV格式文件')
-    return
-  }
-
-  importLoading.value = true
-  try {
-    const text = await file.raw.text()
-    await analysisStore.loadCSVData(text)
-    ElMessage.success(`成功导入 ${analysisStore.userProfiles.length} 条用户数据`)
-  } catch (error: any) {
-    ElMessage.error(`导入失败: ${error.message}`)
-  } finally {
-    importLoading.value = false
+    // 这里可以添加错误提示
   }
 }
 
@@ -244,6 +274,7 @@ function formatUpdateTime(time: string): string {
 
 // 生命周期
 onMounted(async () => {
+  // 初始化加载数据
   await refreshData()
 })
 </script>
@@ -255,12 +286,7 @@ onMounted(async () => {
   position: relative;
 }
 
-/* 新增数据导入按钮样式 */
-.data-import {
-  margin-right: 12px;
-}
-
-/* 原有样式保持不变 */
+/* 顶部导航栏 */
 .dashboard-header {
   background: white;
   border-bottom: 1px solid #e5e6eb;
@@ -320,9 +346,122 @@ onMounted(async () => {
   border-color: #d01428;
 }
 
-/* ...其他原有样式... */
+/* 统计概览卡片 */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.stats-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(230, 22, 45, 0.1);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #E6162D;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #4e5969;
+  font-weight: 500;
+}
+
+/* 仪表板内容区域 */
+.dashboard-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.interaction-history {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 视图网格布局 */
+.views-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.views-grid.with-filter {
+  margin-top: 1rem;
+}
+
+.view-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 400px;
+}
+
+.view-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 加载遮罩 */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #4e5969;
+}
 
 /* 响应式设计 */
+@media (max-width: 1200px) {
+  .views-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-header {
     padding: 1rem;
@@ -339,9 +478,37 @@ onMounted(async () => {
     justify-content: center;
   }
   
-  .data-import {
-    margin-right: 0;
-    margin-bottom: 0.5rem;
+  .stats-overview {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  
+  .dashboard-content {
+    padding: 0 1rem 1rem;
+  }
+  
+  .views-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .view-container {
+    min-height: 300px;
   }
 }
-</style>
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.25rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .stats-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style> 
