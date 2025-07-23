@@ -24,6 +24,9 @@ import type {
   AccountInterest
 } from '@/models'
 
+// ============== 新增导入 ==============
+import { processCSVData } from '@/util/dataLoader'
+
 // ===========================================
 // 主要分析状态管理
 // ===========================================
@@ -133,7 +136,6 @@ export const useAnalysisStore = defineStore('analysis', () => {
   // 计算属性
   // ===========================================
   
-  // 过滤后的数据
   const filteredUserProfiles = computed(() => {
     return userProfiles.value.filter(user => {
       const condition = filterCondition.value
@@ -202,12 +204,10 @@ export const useAnalysisStore = defineStore('analysis', () => {
     })
   })
 
-  // 可见视图配置
   const visibleViews = computed(() => {
     return Object.values(viewConfigs.value).filter(config => config.isVisible)
   })
 
-  // 当前筛选条件的统计信息
   const currentStats = computed(() => {
     const filteredBehaviors = filteredUserBehaviors.value
     if (filteredBehaviors.length === 0) return null
@@ -234,13 +234,11 @@ export const useAnalysisStore = defineStore('analysis', () => {
   // 状态操作方法
   // ===========================================
   
-  // 更新筛选条件
   function updateFilter(newFilter: Partial<FilterCondition>) {
     filterCondition.value = { ...filterCondition.value, ...newFilter }
     addInteractionRecord('filter', 'global', '更新筛选条件', newFilter)
   }
 
-  // 重置筛选条件
   function resetFilter() {
     filterCondition.value = {
       dateRange: {
@@ -257,13 +255,11 @@ export const useAnalysisStore = defineStore('analysis', () => {
     clearSelection()
   }
 
-  // 更新选择状态
   function updateSelection(newSelection: Partial<SelectionState>) {
     selectionState.value = { ...selectionState.value, ...newSelection }
     addInteractionRecord('select', 'global', '更新选择状态', undefined, newSelection)
   }
 
-  // 清除选择
   function clearSelection() {
     selectionState.value = {
       selectedUserIds: [],
@@ -274,7 +270,6 @@ export const useAnalysisStore = defineStore('analysis', () => {
     }
   }
 
-  // 添加交互记录
   function addInteractionRecord(
     action: InteractionRecord['action'],
     viewType: ViewType | 'global',
@@ -300,7 +295,6 @@ export const useAnalysisStore = defineStore('analysis', () => {
     }
   }
 
-  // 回退到历史状态
   function revertToHistory(recordId: string) {
     const record = interactionHistory.value.find(r => r.id === recordId)
     if (!record) return
@@ -313,37 +307,57 @@ export const useAnalysisStore = defineStore('analysis', () => {
     }
   }
 
-  // 更新视图配置
   function updateViewConfig(viewType: ViewType, config: Partial<ViewConfig>) {
     viewConfigs.value[viewType] = { ...viewConfigs.value[viewType], ...config }
   }
 
-  // 切换视图可见性
   function toggleViewVisibility(viewType: ViewType) {
     viewConfigs.value[viewType].isVisible = !viewConfigs.value[viewType].isVisible
   }
 
-  // ===========================================
-  // 数据加载方法
-  // ===========================================
-  
-  async function loadData() {
+  // ============== 新增方法 ==============
+  async function loadCSVData(csvData: string) {
     isLoading.value = true
     try {
-      // 这里是数据加载的占位符
-      // 实际使用时应该调用API接口加载数据
-      console.log('Loading data...')
-      
-      // 模拟数据加载
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      const {
+        userProfiles: profiles,
+        userBehaviors: behaviors,
+        timeSeriesData: tsData,
+        heatmapData: hmData,
+        scatterData: scData
+      } = processCSVData(csvData)
+
+      // 更新核心数据
+      userProfiles.value = profiles
+      userBehaviors.value = behaviors
+      timeSeriesData.value = tsData
+      heatmapData.value = hmData
+      scatterData.value = scData
+
+      // 生成网络数据
+      networkNodes.value = profiles.map(profile => ({
+        id: profile.userId,
+        activityScore: behaviors.find(b => b.userId === profile.userId)!.activityScore,
+        influenceScore: behaviors.find(b => b.userId === profile.userId)!.influenceScore,
+        role: profile.role,
+        primaryInterest: profile.interests[0] || 'general',
+        size: behaviors.find(b => b.userId === profile.userId)!.influenceScore / 10
+      }))
+
       lastUpdateTime.value = new Date().toISOString()
     } catch (error) {
-      console.error('Failed to load data:', error)
+      console.error('CSV处理失败:', error)
       throw error
     } finally {
       isLoading.value = false
     }
+  }
+
+  async function loadMockData() {
+    if (!import.meta.env.DEV) return
+    await loadCSVData(`user_id,registration_date,location,last_active_date,role,interests,post_count,interactions,follower_count
+user1,2023-01-01,北京,2023-06-20,general,"technology,sports",120,680,5000
+user2,2022-11-03,上海,2023-06-18,information-source,"entertainment,fashion",350,1750,15000`)
   }
 
   // ===========================================
@@ -429,6 +443,8 @@ export const useAnalysisStore = defineStore('analysis', () => {
     revertToHistory,
     updateViewConfig,
     toggleViewVisibility,
-    loadData
+    // ============== 新增导出 ==============
+    loadCSVData,
+    loadMockData
   }
-}) 
+})
