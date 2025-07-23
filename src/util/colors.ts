@@ -35,12 +35,12 @@ export const INFO_BLUE = '#165DFF';
 // 4. 保持适当的对比度和可访问性
 // ===========================================
 
-// 角色分类色彩映射（4类）- 基于iOS系统色彩，避免红色
+// 角色分类色彩映射（4类）- 与实际显示的"灰蓝绿橙"顺序匹配
 export const roleColorMap: Record<AccountRole, string> = {
-  'inactive': '#8E8E93',          // 系统灰 - 非活跃用户
-  'information-seeker': '#007AFF', // 系统蓝 - 信息搜索者  
-  'information-source': '#FF9500', // 系统橙 - 信息源（避免使用红色）
-  'general': '#34C759'            // 系统绿 - 一般用户
+  'inactive': '#8E8E93',          // 灰色 - 非活跃用户（低活跃度，用中性灰色）
+  'information-seeker': '#007AFF', // 蓝色 - 信息搜索者（中活跃度，低影响力）
+  'information-source': '#34C759', // 绿色 - 信息源（高活跃度，高影响力）
+  'general': '#FF9500'            // 橙色 - 一般用户（中等水平）
 };
 
 // 兴趣分类色彩映射（12类）- 基于色相环均匀分布，避开红色区域
@@ -86,11 +86,42 @@ export const gradientColors = {
   accent: ['#20B2AA', '#4DD0E1']      // 青色渐变
 };
 
-// 热力图色彩范围 - 使用蓝色系渐变，避免红色
+// 热力图色彩范围 - 使用经典的绿-黄-红渐变，更直观的热力表示
 export const heatmapColors = {
-  low: '#F0F8FF',     // 爱丽丝蓝（最浅）
-  medium: '#87CEEB',  // 天空蓝（中等）
-  high: '#1E90FF'     // 道奇蓝（最深，避免使用红色）
+  low: '#2E7D32',     // 深绿色（低活跃度，冷色调）
+  medium: '#FF8F00',  // 琥珀色（中活跃度，暖色调）
+  high: '#D32F2F'     // 深红色（高活跃度，热色调）
+};
+
+// 可选的热力图配色方案
+export const heatmapColorSchemes = {
+  // 经典方案：绿-橙-红
+  classic: {
+    low: '#2E7D32',
+    medium: '#FF8F00', 
+    high: '#D32F2F'
+  },
+  
+  // 现代方案：蓝-紫-粉
+  modern: {
+    low: '#1565C0',
+    medium: '#7B1FA2',
+    high: '#C2185B'
+  },
+  
+  // 温和方案：青-蓝-紫
+  gentle: {
+    low: '#00ACC1',
+    medium: '#1976D2',
+    high: '#512DA8'
+  },
+  
+  // 单色方案：浅红-深红渐变
+  monochrome: {
+    low: '#FFEBEE',
+    medium: '#E57373',
+    high: '#C62828'
+  }
 };
 
 // 网络图节点色彩（按影响力）- 使用紫色系渐变
@@ -185,14 +216,15 @@ export function getInfluenceColor(influenceScore: number): string {
 
 export const echartsTheme = {
   color: [
-    '#007AFF',    // 系统蓝（替代微博红作为首选色）
-    '#34C759',    // 系统绿
-    '#FF9500',    // 系统橙  
+    '#8E8E93',    // 灰色 - 对应 inactive (非活跃用户)
+    '#007AFF',    // 蓝色 - 对应 information-seeker (信息搜索者)  
+    '#34C759',    // 绿色 - 对应 information-source (信息源)
+    '#FF9500',    // 橙色 - 对应 general (一般用户)
     '#9370DB',    // 中紫色
     '#20B2AA',    // 浅海绿
     '#4169E1',    // 皇室蓝
     '#32CD32',    // 酸橙绿
-    '#8A2BE2'     // 蓝紫色（移除所有红色系）
+    '#8A2BE2'     // 蓝紫色
   ],
   backgroundColor: 'transparent',
   textStyle: {

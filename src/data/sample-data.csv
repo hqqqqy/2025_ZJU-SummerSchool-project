@@ -1,501 +1,501 @@
 userId,role,interests,registrationDate,location,activityScore,influenceScore,postCount,interactionCount,followerCount,followingCount,lastActiveDate
-user_001,general,"travel,arts and culture,food and dining",2021-09-26,南京,62,42,110,723,2231,104,2023-11-09
-user_002,inactive,"entertainment,travel",2023-06-13,沈阳,15,4,4,82,19,11,2023-12-03
-user_003,information-source,"travel",2023-10-30,西安,81,90,313,2484,7001,132,2023-11-01
-user_004,information-seeker,"science and technology",2022-03-01,宁波,27,21,13,241,744,375,2023-12-02
-user_005,inactive,"entertainment,politics",2022-06-23,昆明,8,9,13,72,130,95,2024-01-17
-user_006,general,"travel",2021-09-20,北京,42,62,115,1351,1167,166,2023-12-04
-user_007,information-source,"food and dining,business and finance,travel",2023-01-01,成都,93,72,454,2574,8298,224,2023-11-17
-user_008,inactive,"animals,business and finance",2023-08-21,济南,9,11,7,67,66,60,2023-11-12
-user_009,information-source,"entertainment,sports,animals",2021-10-08,南京,74,71,183,2462,4865,163,2023-11-19
-user_010,information-source,"travel,science and technology",2023-08-18,福州,78,65,290,4887,2786,167,2023-12-14
-user_011,information-seeker,"animals",2023-04-06,深圳,33,29,53,758,926,498,2023-12-22
-user_012,inactive,"sports,arts and culture",2023-07-18,北京,10,9,16,11,24,82,2024-01-09
-user_013,information-seeker,"politics,learning and educational",2022-07-10,石家庄,38,17,35,474,290,216,2023-11-16
-user_014,inactive,"fashion and beauty,animals",2023-04-16,上海,13,14,1,45,112,61,2023-12-02
-user_015,information-source,"business and finance,science and technology,learning and educational",2020-10-01,太原,86,92,468,4917,2485,190,2023-12-15
-user_016,inactive,"science and technology",2020-10-23,南昌,16,8,19,59,180,89,2024-01-06
-user_017,information-source,"travel,animals,learning and educational",2023-10-05,太原,92,77,455,3422,3710,130,2023-11-06
-user_018,general,"food and dining",2022-08-25,南昌,52,39,82,811,2441,142,2024-01-09
-user_019,information-seeker,"business and finance,fitness and health",2021-03-02,哈尔滨,48,29,69,331,226,425,2024-01-03
-user_020,inactive,"travel,learning and educational,food and dining",2023-04-08,厦门,12,11,12,66,49,54,2023-12-12
-user_021,inactive,"animals",2021-09-02,济南,8,18,9,98,130,64,2024-01-19
-user_022,inactive,"sports",2023-01-24,哈尔滨,24,12,8,98,76,61,2023-11-04
-user_023,general,"fitness and health",2023-09-12,沈阳,53,34,140,889,1011,157,2023-11-17
-user_024,general,"arts and culture,learning and educational",2023-05-15,沈阳,67,62,148,1221,1005,113,2023-11-04
-user_025,inactive,"travel,learning and educational",2021-09-16,宁波,18,8,15,94,126,50,2023-12-24
-user_026,information-seeker,"arts and culture,fashion and beauty,entertainment",2021-11-19,佛山,42,32,60,667,666,393,2023-12-27
-user_027,inactive,"food and dining,fashion and beauty,science and technology",2021-05-26,武汉,21,17,9,85,164,85,2024-01-11
-user_028,general,"fitness and health,fashion and beauty,learning and educational",2020-12-08,上海,40,36,68,1236,1456,162,2024-01-08
-user_029,general,"travel",2020-05-03,长沙,71,42,107,1000,2742,160,2023-12-06
-user_030,information-source,"fashion and beauty,business and finance",2020-08-05,武汉,81,62,235,4556,3433,58,2023-11-17
-user_031,general,"entertainment",2020-08-10,济南,72,59,145,552,2283,203,2023-11-09
-user_032,information-source,"food and dining",2023-04-18,武汉,71,83,347,1654,8382,89,2023-11-28
-user_033,information-seeker,"entertainment,business and finance",2023-12-16,广州,52,15,73,102,460,472,2024-01-16
-user_034,general,"food and dining,entertainment",2021-12-26,西安,42,45,148,1339,1135,283,2023-12-22
-user_035,general,"animals,sports,arts and culture",2021-03-14,成都,54,50,92,1052,2886,115,2024-01-12
-user_036,general,"arts and culture",2020-08-31,重庆,59,52,134,1308,2513,116,2023-11-06
-user_037,information-seeker,"entertainment",2020-07-07,武汉,25,28,52,713,453,360,2023-12-22
-user_038,information-seeker,"entertainment,business and finance",2021-12-02,南昌,45,41,53,200,671,257,2023-11-22
-user_039,information-source,"fitness and health",2023-04-03,上海,81,93,172,1405,5349,90,2023-12-17
-user_040,inactive,"business and finance,food and dining,sports",2020-06-10,合肥,24,5,4,39,88,82,2023-11-15
-user_041,information-seeker,"fashion and beauty",2020-07-02,长沙,43,43,50,336,973,507,2023-11-25
-user_042,general,"animals,fitness and health",2022-02-07,长春,41,51,66,1480,831,176,2024-01-12
-user_043,general,"fashion and beauty,arts and culture",2022-01-31,太原,62,31,54,1356,997,287,2024-01-09
-user_044,general,"science and technology",2020-08-14,西安,73,49,137,788,1632,264,2024-01-06
-user_045,information-seeker,"science and technology",2020-04-02,济南,44,29,47,219,542,587,2023-11-29
-user_046,information-source,"sports,travel",2021-02-01,青岛,89,63,320,1679,7773,184,2024-01-08
-user_047,information-source,"entertainment",2022-08-01,苏州,83,86,397,1220,6782,202,2023-11-25
-user_048,general,"food and dining",2020-03-01,北京,53,60,63,986,2628,229,2023-12-27
-user_049,general,"learning and educational",2023-08-12,太原,40,55,130,732,807,295,2024-01-02
-user_050,information-source,"arts and culture,science and technology",2021-04-12,厦门,90,86,223,4584,7460,127,2024-01-14
-user_051,information-seeker,"entertainment,food and dining",2022-11-05,青岛,41,31,15,629,848,261,2023-12-11
-user_052,information-seeker,"entertainment",2020-09-16,大连,36,41,40,768,729,204,2023-12-01
-user_053,general,"science and technology,entertainment",2023-06-17,上海,65,30,86,715,1301,197,2023-11-09
-user_054,information-source,"fitness and health,travel",2023-03-05,苏州,73,81,471,1247,7945,197,2023-12-18
-user_055,general,"travel,entertainment",2023-03-26,石家庄,68,38,72,635,2482,148,2023-12-12
-user_056,general,"animals",2021-06-07,合肥,74,38,105,1045,2082,116,2023-11-07
-user_057,information-seeker,"travel",2020-11-10,重庆,51,19,41,754,626,240,2024-01-19
-user_058,information-seeker,"science and technology,animals,sports",2022-03-23,重庆,45,41,72,184,207,467,2023-12-20
-user_059,inactive,"food and dining",2020-03-31,宁波,25,8,11,33,152,45,2023-12-21
-user_060,general,"business and finance,arts and culture,science and technology",2022-10-13,南京,48,58,133,1469,1134,222,2023-12-15
-user_061,inactive,"food and dining",2022-05-23,长春,23,3,15,81,38,78,2023-12-04
-user_062,information-source,"entertainment,food and dining",2020-10-10,长春,87,70,436,2432,3985,108,2023-11-25
-user_063,inactive,"animals",2022-06-22,厦门,6,8,16,58,91,76,2023-12-05
-user_064,information-source,"animals,sports",2020-01-21,上海,91,68,337,3241,5148,174,2023-12-18
-user_065,information-seeker,"science and technology",2021-04-17,福州,33,45,68,217,591,412,2024-01-19
-user_066,inactive,"learning and educational,sports,fashion and beauty",2022-04-12,沈阳,16,9,13,69,39,46,2023-11-22
-user_067,general,"fitness and health,learning and educational",2023-05-28,深圳,63,30,93,505,1780,106,2023-12-19
-user_068,information-source,"entertainment",2020-07-30,哈尔滨,66,62,142,3837,4904,74,2023-12-25
-user_069,inactive,"arts and culture,entertainment",2020-04-13,青岛,14,3,16,26,93,70,2023-12-26
-user_070,information-source,"science and technology,entertainment",2021-04-09,合肥,84,79,310,3676,8094,160,2023-11-12
-user_071,inactive,"science and technology,learning and educational,politics",2022-06-01,厦门,23,20,13,37,195,77,2023-11-16
-user_072,information-seeker,"learning and educational,food and dining,science and technology",2023-09-04,长沙,55,42,26,649,592,452,2024-01-06
-user_073,information-seeker,"animals",2021-06-18,上海,56,39,17,536,974,418,2023-12-17
-user_074,inactive,"animals,arts and culture,science and technology",2020-08-06,南京,10,19,8,49,67,64,2024-01-14
-user_075,general,"business and finance",2021-11-26,哈尔滨,62,41,136,1346,570,196,2024-01-14
-user_076,inactive,"learning and educational,entertainment",2020-03-25,北京,25,10,10,6,118,48,2023-11-19
-user_077,information-seeker,"sports",2021-07-08,合肥,50,30,70,729,367,212,2023-12-27
-user_078,information-seeker,"travel,animals,entertainment",2023-02-11,青岛,60,23,58,378,166,293,2023-12-24
-user_079,information-source,"fitness and health,business and finance,food and dining",2023-07-05,大连,78,84,442,2465,9932,121,2024-01-08
-user_080,information-seeker,"fashion and beauty,sports,entertainment",2021-11-07,南昌,48,31,71,413,447,225,2023-11-25
-user_081,information-seeker,"science and technology,fashion and beauty,politics",2021-06-06,长春,35,44,63,451,725,317,2024-01-07
-user_082,information-source,"food and dining",2022-02-07,西安,86,88,240,1648,6297,212,2023-12-15
-user_083,information-seeker,"animals,learning and educational,fitness and health",2022-08-27,重庆,39,16,68,732,790,204,2023-12-31
-user_084,inactive,"sports,learning and educational",2020-07-04,哈尔滨,24,13,6,6,16,39,2023-12-01
-user_085,information-seeker,"animals,fitness and health",2020-07-26,南京,25,39,29,757,654,548,2023-12-25
-user_086,general,"fashion and beauty,entertainment,fitness and health",2020-11-18,武汉,56,55,73,539,2878,149,2023-12-29
-user_087,information-seeker,"sports,arts and culture,politics",2022-06-13,石家庄,42,34,67,297,924,493,2023-12-25
-user_088,information-source,"politics",2023-10-01,武汉,94,69,246,2358,3115,221,2023-12-13
-user_089,inactive,"entertainment,food and dining,business and finance",2022-12-22,杭州,10,5,1,63,132,44,2023-12-02
-user_090,information-source,"entertainment",2021-12-14,南京,89,62,125,1749,9681,66,2023-11-05
-user_091,general,"animals",2023-11-17,广州,40,44,80,982,521,152,2023-12-23
-user_092,inactive,"fitness and health,business and finance",2023-05-21,郑州,16,14,0,8,103,19,2023-11-04
-user_093,information-seeker,"animals,business and finance",2020-05-22,昆明,48,35,55,506,959,593,2023-11-12
-user_094,information-seeker,"entertainment",2021-07-25,杭州,42,24,23,616,264,284,2024-01-10
-user_095,information-source,"entertainment,learning and educational",2021-04-27,福州,69,82,213,1743,3823,112,2023-11-19
-user_096,information-seeker,"fitness and health,learning and educational,entertainment",2021-10-01,石家庄,31,45,65,680,229,466,2024-01-14
-user_097,information-source,"learning and educational,fitness and health",2021-11-11,成都,67,75,491,2943,5641,164,2024-01-08
-user_098,information-source,"science and technology",2020-06-02,无锡,68,83,356,3953,5941,250,2023-11-23
-user_099,general,"learning and educational,entertainment,politics",2020-05-20,北京,56,64,75,1338,2675,174,2023-12-21
-user_100,inactive,"science and technology",2020-03-23,昆明,20,16,3,30,133,81,2024-01-03
-user_101,information-source,"learning and educational,travel,politics",2023-09-19,上海,88,68,185,3824,8995,196,2023-11-20
-user_102,information-source,"animals",2023-12-13,长沙,86,91,191,3240,2845,125,2024-01-08
-user_103,information-seeker,"arts and culture",2021-07-19,无锡,31,15,17,487,147,452,2023-11-22
-user_104,information-seeker,"business and finance,fitness and health",2023-03-22,长沙,49,18,63,170,444,394,2024-01-01
-user_105,general,"animals,entertainment",2020-03-29,南京,75,57,113,1020,2181,101,2023-11-02
-user_106,inactive,"animals,arts and culture,sports",2022-03-01,苏州,12,5,6,77,164,97,2023-12-05
-user_107,information-seeker,"travel,animals,learning and educational",2020-07-24,长春,45,19,43,745,313,435,2024-01-02
-user_108,general,"fashion and beauty",2023-09-30,天津,40,54,69,830,2566,293,2023-12-20
-user_109,information-seeker,"fitness and health,politics",2022-08-28,福州,38,24,36,551,114,385,2023-11-29
-user_110,general,"fashion and beauty,business and finance",2023-11-04,南昌,69,37,138,683,899,158,2023-11-11
-user_111,inactive,"animals,learning and educational",2023-03-20,合肥,15,18,5,80,173,75,2023-11-30
-user_112,information-source,"business and finance,travel,arts and culture",2021-07-05,武汉,76,84,276,2310,7497,168,2023-12-13
-user_113,information-seeker,"arts and culture,business and finance,science and technology",2023-12-15,佛山,37,45,10,593,343,211,2023-12-12
-user_114,inactive,"animals",2023-08-13,南京,18,8,12,4,47,74,2023-12-06
-user_115,information-source,"travel,science and technology",2022-08-27,西安,67,82,284,3790,8994,70,2023-12-02
-user_116,general,"food and dining,fashion and beauty",2022-09-01,成都,69,59,94,1322,598,146,2024-01-14
-user_117,inactive,"entertainment",2022-04-18,长沙,21,18,13,89,49,10,2023-11-11
-user_118,information-source,"fashion and beauty,animals",2023-07-09,苏州,88,91,388,2166,6336,70,2023-12-18
-user_119,information-seeker,"science and technology,entertainment,sports",2022-10-08,广州,30,42,30,371,986,426,2024-01-09
-user_120,information-seeker,"entertainment,animals,arts and culture",2020-02-03,宁波,49,42,54,219,965,242,2023-11-09
-user_121,inactive,"arts and culture,fashion and beauty",2022-11-28,宁波,22,7,15,49,29,93,2023-12-29
-user_122,inactive,"travel",2020-08-19,昆明,6,16,12,89,127,33,2023-12-31
-user_123,inactive,"fashion and beauty,entertainment",2023-08-26,宁波,10,14,7,12,178,63,2023-12-01
-user_124,information-seeker,"entertainment,business and finance,arts and culture",2023-05-02,青岛,54,38,79,109,483,421,2023-12-29
-user_125,information-source,"science and technology,animals,sports",2022-11-26,长沙,81,68,369,1951,4555,180,2023-11-24
-user_126,information-seeker,"animals,fashion and beauty",2022-01-26,沈阳,58,35,14,261,833,469,2024-01-08
-user_127,inactive,"food and dining,science and technology,animals",2023-12-09,天津,24,13,16,98,163,62,2023-11-09
-user_128,inactive,"learning and educational,business and finance,sports",2022-11-01,昆明,19,9,1,85,124,15,2024-01-07
-user_129,information-seeker,"arts and culture,learning and educational,sports",2021-07-21,哈尔滨,38,40,19,561,972,502,2024-01-12
-user_130,information-seeker,"food and dining,travel",2023-08-05,济南,31,44,25,718,335,567,2023-11-06
-user_131,general,"travel,animals,arts and culture",2022-11-08,大连,70,62,93,1223,2843,149,2024-01-10
-user_132,general,"fashion and beauty,entertainment",2020-06-04,长沙,46,39,64,1212,1156,203,2023-12-15
-user_133,inactive,"business and finance,arts and culture,politics",2021-11-30,长沙,20,14,6,12,59,68,2023-11-18
-user_134,information-seeker,"politics",2023-12-16,合肥,28,28,53,470,907,594,2023-12-05
-user_135,inactive,"animals,learning and educational",2021-03-03,太原,22,4,10,18,64,47,2023-11-10
-user_136,general,"fitness and health",2023-03-14,北京,67,37,67,753,688,120,2023-11-29
-user_137,general,"entertainment,fitness and health,politics",2022-03-19,厦门,48,52,80,871,2373,104,2023-12-12
-user_138,general,"fitness and health",2022-05-04,深圳,69,30,94,1142,1012,151,2023-11-12
-user_139,inactive,"business and finance,politics",2022-04-01,杭州,19,20,16,91,45,62,2023-11-07
-user_140,information-seeker,"travel,entertainment",2022-01-27,太原,46,21,53,387,111,252,2023-11-01
-user_141,information-source,"learning and educational,arts and culture",2020-05-18,石家庄,74,77,239,4519,3612,137,2023-12-04
-user_142,information-seeker,"food and dining,fitness and health",2022-02-17,苏州,41,29,38,163,680,229,2023-11-10
-user_143,general,"sports,animals,travel",2021-07-07,长春,56,52,106,759,1346,138,2024-01-14
-user_144,inactive,"science and technology,politics",2022-09-26,哈尔滨,25,7,4,86,44,47,2023-11-14
-user_145,inactive,"fashion and beauty,fitness and health,science and technology",2023-01-26,厦门,23,4,12,92,106,25,2024-01-16
-user_146,general,"animals",2022-01-27,重庆,51,42,105,1080,1780,235,2024-01-18
-user_147,information-seeker,"arts and culture,business and finance",2022-10-07,太原,42,28,75,719,163,233,2023-12-20
-user_148,inactive,"animals,fitness and health,learning and educational",2021-07-25,济南,8,11,19,46,119,96,2023-11-30
-user_149,general,"entertainment,business and finance,food and dining",2021-09-06,成都,54,35,97,764,2255,266,2023-11-20
-user_150,information-seeker,"learning and educational,business and finance,entertainment",2023-04-06,沈阳,50,22,59,203,580,495,2023-12-02
-user_151,inactive,"entertainment",2022-04-02,福州,16,16,19,51,102,32,2023-12-24
-user_152,inactive,"learning and educational,fitness and health,politics",2020-05-18,重庆,23,4,7,15,119,68,2024-01-08
-user_153,information-source,"business and finance,fashion and beauty,food and dining",2021-06-05,大连,67,83,359,2719,3763,124,2023-11-01
-user_154,information-seeker,"entertainment,politics,science and technology",2021-07-22,佛山,51,39,64,127,575,309,2023-11-01
-user_155,information-seeker,"fitness and health,science and technology,arts and culture",2020-08-26,济南,30,36,40,304,984,332,2024-01-13
-user_156,information-source,"food and dining,entertainment,business and finance",2022-09-18,上海,72,92,368,1542,8948,170,2024-01-03
-user_157,information-seeker,"learning and educational,business and finance",2023-01-24,无锡,30,26,14,743,943,294,2023-11-14
-user_158,inactive,"learning and educational,travel",2020-07-09,哈尔滨,9,11,18,89,94,14,2024-01-13
-user_159,information-seeker,"entertainment,fitness and health,food and dining",2022-06-06,杭州,38,25,49,344,130,529,2024-01-12
-user_160,inactive,"fashion and beauty,entertainment,business and finance",2022-10-21,郑州,25,9,10,29,125,88,2023-12-27
-user_161,inactive,"politics",2022-10-27,苏州,17,13,7,13,17,7,2023-11-30
-user_162,information-source,"sports,science and technology",2020-08-30,北京,76,61,485,1431,4301,65,2024-01-10
-user_163,general,"fitness and health",2020-06-14,大连,64,56,123,1288,2647,109,2023-12-12
-user_164,general,"arts and culture,fitness and health",2020-09-04,成都,56,46,143,528,585,100,2023-11-01
-user_165,inactive,"fashion and beauty,learning and educational,entertainment",2022-04-02,哈尔滨,23,7,12,50,70,23,2023-11-22
-user_166,information-source,"food and dining,entertainment",2020-06-22,合肥,84,64,339,1555,3307,151,2023-12-17
-user_167,general,"entertainment,animals,arts and culture",2021-01-10,南昌,61,40,116,1402,1435,268,2023-12-05
-user_168,general,"learning and educational,politics,science and technology",2020-06-20,青岛,58,42,147,547,2649,172,2023-12-27
-user_169,information-seeker,"politics",2022-11-11,佛山,28,41,34,705,826,528,2023-12-20
-user_170,general,"animals,fitness and health",2021-03-08,昆明,67,34,70,1349,1351,289,2024-01-13
-user_171,inactive,"entertainment,learning and educational",2022-05-16,广州,11,17,8,93,74,12,2023-12-19
-user_172,information-seeker,"science and technology",2020-10-26,上海,36,29,29,416,254,594,2023-12-02
-user_173,information-seeker,"learning and educational",2022-08-02,大连,33,27,55,676,122,550,2023-11-06
-user_174,information-seeker,"science and technology,politics",2022-02-25,沈阳,26,31,62,509,962,474,2023-11-02
-user_175,information-source,"politics",2023-08-07,大连,90,71,405,2966,2036,107,2023-11-19
-user_176,information-source,"animals,arts and culture,business and finance",2021-05-25,沈阳,89,81,343,3320,6694,176,2023-11-27
-user_177,inactive,"food and dining",2020-12-12,天津,7,17,12,3,124,58,2023-11-03
-user_178,general,"food and dining",2020-01-28,深圳,51,37,64,504,566,144,2024-01-10
-user_179,inactive,"entertainment",2020-03-03,石家庄,8,12,16,31,147,86,2024-01-15
-user_180,information-seeker,"business and finance",2021-06-13,杭州,44,16,25,709,333,315,2023-11-04
-user_181,information-source,"fitness and health,fashion and beauty,science and technology",2020-07-24,大连,94,94,319,1122,6043,133,2023-11-17
-user_182,information-seeker,"animals",2023-11-20,西安,38,28,80,154,675,343,2024-01-14
-user_183,inactive,"food and dining,politics,animals",2021-07-18,天津,21,14,10,88,66,97,2023-12-26
-user_184,inactive,"travel,food and dining,fitness and health",2021-10-18,深圳,16,4,20,1,89,18,2023-11-14
-user_185,inactive,"sports,food and dining",2022-07-19,济南,5,7,5,33,148,37,2024-01-14
-user_186,general,"science and technology,animals",2020-03-10,无锡,69,59,115,914,1600,270,2023-11-10
-user_187,information-seeker,"animals,arts and culture,business and finance",2020-04-13,郑州,56,37,14,258,330,231,2024-01-18
-user_188,general,"arts and culture,entertainment",2020-12-09,上海,40,36,117,1063,2718,103,2023-12-22
-user_189,general,"food and dining,fashion and beauty",2023-12-21,济南,65,48,116,1439,1000,209,2023-12-28
-user_190,inactive,"sports,arts and culture",2020-02-14,无锡,17,17,8,49,124,44,2023-11-10
-user_191,information-seeker,"entertainment",2022-04-02,南京,41,29,46,325,430,582,2023-11-12
-user_192,general,"learning and educational,entertainment,sports",2021-08-19,长春,56,55,114,548,1641,246,2023-12-26
-user_193,information-source,"travel,politics,science and technology",2023-08-14,天津,93,69,361,4244,5248,202,2023-12-29
-user_194,inactive,"politics",2022-04-25,昆明,19,3,10,8,151,18,2023-11-29
-user_195,information-seeker,"politics",2021-09-23,宁波,34,22,19,587,470,371,2023-11-07
-user_196,general,"fitness and health,business and finance",2022-05-25,长春,60,64,111,1307,2848,256,2024-01-07
-user_197,information-seeker,"animals",2020-10-31,石家庄,57,18,61,213,282,501,2024-01-05
-user_198,inactive,"arts and culture,food and dining",2020-06-07,西安,6,13,1,26,198,28,2023-11-10
-user_199,information-seeker,"fitness and health,animals",2020-07-05,长沙,32,32,68,559,433,246,2024-01-11
-user_200,information-source,"arts and culture,animals,food and dining",2021-03-18,佛山,81,71,276,3155,4959,73,2023-12-11
-user_201,information-seeker,"fashion and beauty",2022-08-23,厦门,46,37,19,551,497,526,2023-12-25
-user_202,inactive,"travel,science and technology",2020-08-06,沈阳,7,13,20,30,66,7,2023-12-07
-user_203,general,"fashion and beauty",2022-03-24,太原,75,44,138,971,2535,247,2023-11-20
-user_204,information-seeker,"arts and culture,science and technology,learning and educational",2020-01-26,沈阳,36,15,42,373,521,519,2023-11-04
-user_205,information-source,"food and dining,learning and educational",2022-08-11,上海,73,72,346,3733,3869,205,2023-12-13
-user_206,general,"animals,arts and culture,politics",2021-02-19,西安,44,58,94,518,1006,224,2024-01-01
-user_207,information-source,"animals",2023-09-28,南昌,87,67,301,2130,3866,151,2023-12-05
-user_208,general,"travel",2021-03-22,太原,62,47,70,883,752,228,2023-11-17
-user_209,information-seeker,"fitness and health,business and finance,travel",2020-12-25,南昌,26,25,20,685,399,567,2023-12-10
-user_210,information-source,"animals",2020-11-11,大连,94,71,149,3049,4735,52,2023-12-28
-user_211,inactive,"learning and educational,business and finance,fitness and health",2022-12-09,太原,16,6,4,34,67,62,2024-01-08
-user_212,information-source,"business and finance",2020-04-15,合肥,85,76,361,4757,3267,209,2023-11-08
-user_213,information-seeker,"politics,learning and educational,sports",2022-07-04,哈尔滨,59,37,18,430,122,572,2024-01-16
-user_214,inactive,"travel,entertainment",2021-11-19,深圳,23,7,19,43,149,86,2023-11-07
-user_215,general,"politics,arts and culture",2023-06-18,南昌,40,54,87,949,883,250,2023-11-18
-user_216,information-source,"science and technology,learning and educational,politics",2022-06-05,西安,95,61,185,3743,7965,148,2023-12-24
-user_217,general,"sports,politics",2022-06-02,石家庄,53,61,99,530,2101,109,2023-12-03
-user_218,information-seeker,"fashion and beauty,learning and educational,science and technology",2020-04-30,上海,60,16,60,516,658,588,2023-12-28
-user_219,information-source,"animals",2021-08-23,长春,91,84,194,4688,8595,114,2024-01-10
-user_220,inactive,"animals,arts and culture",2021-11-12,深圳,5,17,18,54,26,78,2023-12-21
-user_221,inactive,"learning and educational,sports",2020-08-27,厦门,16,14,14,84,133,89,2023-12-12
-user_222,inactive,"food and dining",2020-02-05,成都,19,10,16,91,25,18,2023-11-30
-user_223,inactive,"animals,fashion and beauty,learning and educational",2023-04-22,北京,15,14,3,7,200,25,2023-12-24
-user_224,information-seeker,"animals",2020-03-03,青岛,42,34,32,122,999,584,2023-12-05
-user_225,information-seeker,"fashion and beauty,travel,food and dining",2020-03-30,长春,39,40,75,646,145,221,2023-11-02
-user_226,general,"sports,fashion and beauty",2021-03-19,上海,50,40,117,560,2946,297,2023-12-12
-user_227,information-source,"politics,business and finance",2022-01-18,西安,92,68,151,3952,3102,186,2023-11-02
-user_228,information-seeker,"politics,arts and culture",2021-09-06,北京,34,15,12,361,644,251,2023-11-30
-user_229,information-source,"fashion and beauty,food and dining,sports",2020-03-07,哈尔滨,66,77,444,1279,3007,112,2023-12-28
-user_230,general,"animals,arts and culture",2021-10-05,太原,75,34,133,1360,1980,210,2023-12-29
-user_231,information-source,"business and finance,learning and educational",2022-06-17,合肥,93,72,426,1380,4540,101,2024-01-14
-user_232,inactive,"entertainment,business and finance",2020-07-01,宁波,8,20,2,3,103,24,2023-11-04
-user_233,general,"science and technology,politics,learning and educational",2023-09-25,青岛,66,61,125,986,2604,246,2023-12-10
-user_234,inactive,"fashion and beauty,entertainment,travel",2020-11-05,成都,5,11,12,65,125,34,2023-12-15
-user_235,information-source,"fashion and beauty,travel,entertainment",2022-10-12,沈阳,89,83,460,3608,8430,205,2023-12-08
-user_236,information-source,"learning and educational",2022-09-20,南京,69,93,282,2757,4807,93,2023-11-09
-user_237,inactive,"learning and educational",2021-08-30,重庆,14,9,14,32,51,26,2024-01-06
-user_238,inactive,"learning and educational",2023-10-01,宁波,14,19,6,19,107,47,2024-01-06
-user_239,information-seeker,"science and technology,sports",2022-08-16,上海,29,26,74,180,383,211,2023-11-01
-user_240,information-seeker,"learning and educational,animals,food and dining",2020-11-14,合肥,37,42,45,489,800,497,2024-01-05
-user_241,general,"business and finance",2023-04-22,青岛,50,58,143,985,1890,286,2024-01-12
-user_242,information-seeker,"entertainment",2023-11-19,合肥,40,28,56,603,778,310,2023-11-25
-user_243,inactive,"learning and educational",2023-05-02,广州,12,12,18,87,105,36,2023-11-26
-user_244,information-source,"sports,food and dining,travel",2022-01-03,上海,71,64,300,3701,5134,140,2023-12-02
-user_245,general,"entertainment",2023-11-08,石家庄,73,47,58,1076,1435,156,2024-01-01
-user_246,general,"travel,learning and educational",2022-08-11,青岛,48,33,61,825,1234,219,2024-01-10
-user_247,inactive,"business and finance,fashion and beauty",2021-10-25,成都,25,16,14,14,71,35,2023-12-13
-user_248,information-seeker,"entertainment,food and dining",2021-07-01,郑州,54,16,38,554,660,288,2023-11-07
-user_249,general,"arts and culture,sports,animals",2021-05-31,西安,73,37,128,1042,2605,146,2024-01-06
-user_250,general,"business and finance",2022-03-23,佛山,51,55,126,778,606,104,2024-01-05
-user_251,general,"fitness and health",2021-12-24,广州,52,39,142,873,802,268,2023-11-30
-user_252,inactive,"learning and educational",2020-10-24,天津,7,8,16,82,119,34,2023-11-07
-user_253,inactive,"fashion and beauty",2023-05-08,重庆,15,10,15,74,158,42,2023-11-20
-user_254,general,"food and dining",2022-09-26,长沙,52,38,79,974,1277,200,2023-12-19
-user_255,inactive,"science and technology",2021-09-02,宁波,20,10,15,31,119,24,2023-11-19
-user_256,general,"food and dining,learning and educational",2020-08-12,深圳,60,46,138,1494,1945,181,2023-11-24
-user_257,information-seeker,"learning and educational",2020-09-12,武汉,48,18,15,197,591,208,2024-01-04
-user_258,information-source,"business and finance,politics",2023-11-23,重庆,67,88,132,4397,9803,235,2023-12-18
-user_259,general,"entertainment,sports",2022-09-26,上海,71,34,88,1122,2321,170,2024-01-09
-user_260,information-source,"animals",2021-07-06,昆明,90,66,268,1167,9664,141,2023-11-25
-user_261,inactive,"learning and educational,animals",2022-11-02,昆明,9,3,6,9,109,32,2023-11-02
-user_262,general,"arts and culture",2022-09-07,无锡,68,39,141,1277,907,182,2023-12-16
-user_263,inactive,"learning and educational,entertainment",2020-10-31,南京,9,14,6,45,182,81,2024-01-01
-user_264,information-source,"business and finance",2021-01-06,郑州,88,62,256,3662,3546,238,2023-11-06
-user_265,general,"learning and educational,fitness and health",2023-04-11,济南,59,49,61,641,1056,300,2023-11-07
-user_266,general,"fashion and beauty,entertainment,business and finance",2022-08-19,石家庄,72,38,121,996,2213,125,2023-11-29
-user_267,general,"learning and educational,food and dining,politics",2020-06-11,宁波,46,37,104,1373,2220,253,2023-12-31
-user_268,general,"business and finance",2022-08-04,重庆,42,31,136,706,1149,300,2023-11-17
-user_269,information-seeker,"learning and educational,arts and culture,sports",2022-12-12,杭州,58,21,38,378,713,549,2023-12-05
-user_270,information-source,"travel,food and dining",2022-11-19,无锡,93,88,341,3422,2735,132,2023-11-04
-user_271,general,"fashion and beauty",2022-12-02,南京,40,50,77,1383,2275,117,2023-11-27
-user_272,inactive,"travel",2022-06-06,太原,7,11,17,100,199,31,2024-01-08
-user_273,inactive,"entertainment,sports,learning and educational",2023-10-14,合肥,10,8,14,93,175,79,2023-11-07
-user_274,general,"entertainment,politics,sports",2023-09-23,厦门,60,65,63,616,1283,133,2023-11-30
-user_275,information-seeker,"business and finance",2023-03-06,青岛,40,23,78,715,665,568,2023-11-10
-user_276,inactive,"animals,sports,entertainment",2022-04-19,无锡,13,12,9,100,140,13,2024-01-12
-user_277,information-source,"travel",2023-02-26,杭州,68,64,189,3750,7337,106,2024-01-09
-user_278,inactive,"business and finance",2022-12-24,成都,15,16,17,83,184,25,2023-12-21
-user_279,inactive,"business and finance,learning and educational",2021-10-07,佛山,7,19,14,20,46,33,2024-01-16
-user_280,inactive,"entertainment,business and finance,science and technology",2020-08-14,宁波,13,5,6,11,185,72,2023-12-11
-user_281,general,"animals,arts and culture",2022-06-21,宁波,60,61,72,1163,1456,273,2023-12-18
-user_282,general,"science and technology,fashion and beauty",2023-07-12,杭州,69,49,132,1380,2578,130,2024-01-01
-user_283,general,"animals,learning and educational",2023-07-14,苏州,48,43,95,1001,1243,208,2023-11-03
-user_284,information-source,"fashion and beauty,fitness and health,politics",2022-04-10,重庆,90,91,285,4360,6982,188,2024-01-11
-user_285,information-source,"travel",2022-08-25,郑州,82,72,491,3101,3126,164,2024-01-11
-user_286,information-source,"food and dining,fitness and health,science and technology",2022-02-25,长沙,76,85,328,4434,9585,217,2023-12-15
-user_287,information-source,"arts and culture",2021-02-02,大连,69,75,219,3267,3174,210,2024-01-09
-user_288,general,"learning and educational,fashion and beauty,business and finance",2022-11-17,石家庄,60,43,136,545,1097,168,2023-11-21
-user_289,inactive,"food and dining,fitness and health,fashion and beauty",2023-08-02,石家庄,24,8,3,92,116,86,2024-01-03
-user_290,general,"politics",2023-09-09,厦门,60,60,65,1030,1149,195,2023-11-07
-user_291,inactive,"animals",2020-10-31,福州,9,8,1,69,71,21,2023-12-27
-user_292,inactive,"entertainment",2021-08-06,昆明,9,10,15,74,10,47,2024-01-17
-user_293,inactive,"entertainment",2022-03-07,宁波,6,3,20,63,83,55,2024-01-17
-user_294,information-source,"arts and culture,animals,politics",2021-05-29,无锡,72,82,161,3180,8847,96,2023-11-18
-user_295,general,"science and technology",2022-10-05,太原,40,60,72,1006,1886,229,2023-12-08
-user_296,general,"animals,travel,arts and culture",2022-06-06,上海,57,55,113,1268,640,185,2023-11-05
-user_297,inactive,"politics,sports",2022-01-04,合肥,20,12,9,84,150,12,2023-12-08
-user_298,inactive,"sports,fashion and beauty,travel",2021-10-29,宁波,10,7,3,72,80,5,2024-01-07
-user_299,information-seeker,"travel",2023-03-29,石家庄,60,26,25,779,512,574,2023-11-25
-user_300,information-source,"arts and culture",2022-07-18,石家庄,80,81,105,1776,5395,249,2024-01-04
-user_301,information-source,"food and dining,arts and culture",2020-05-22,长春,72,72,475,2763,2575,77,2023-11-03
-user_302,inactive,"entertainment",2022-10-28,大连,20,5,15,14,170,49,2023-11-23
-user_303,general,"entertainment,animals,fitness and health",2022-11-10,深圳,58,35,119,885,1593,258,2024-01-05
-user_304,inactive,"food and dining,entertainment,business and finance",2023-09-07,哈尔滨,21,5,2,82,160,66,2024-01-11
-user_305,information-source,"fashion and beauty,politics",2023-02-09,天津,66,90,462,3186,6611,162,2024-01-03
-user_306,general,"arts and culture,entertainment",2021-07-19,长沙,65,63,150,1185,2905,127,2023-11-27
-user_307,information-seeker,"food and dining,entertainment",2023-08-29,合肥,35,31,40,166,427,365,2024-01-01
-user_308,inactive,"animals,entertainment,fashion and beauty",2023-11-22,西安,12,19,13,73,137,27,2023-12-11
-user_309,information-source,"fitness and health",2022-10-01,长沙,95,84,110,4123,7333,226,2023-11-10
-user_310,inactive,"entertainment,fitness and health,business and finance",2022-10-17,青岛,20,10,10,57,93,97,2023-11-05
-user_311,inactive,"business and finance,learning and educational",2020-08-05,深圳,10,19,2,0,144,65,2023-11-25
-user_312,general,"entertainment,fitness and health,travel",2021-11-27,南昌,51,64,95,572,1320,130,2023-12-19
-user_313,inactive,"fitness and health,arts and culture,food and dining",2022-03-14,沈阳,24,20,20,100,200,10,2023-11-02
-user_314,general,"fitness and health,animals,travel",2023-10-08,无锡,67,61,150,641,1551,245,2023-12-20
-user_315,information-source,"politics,food and dining,learning and educational",2023-06-23,宁波,69,70,411,3625,5430,103,2023-12-20
-user_316,general,"politics,learning and educational,sports",2021-10-07,广州,56,45,77,645,1454,262,2024-01-12
-user_317,general,"travel",2022-07-21,合肥,68,63,84,983,1335,255,2023-12-26
-user_318,general,"learning and educational,animals,sports",2023-03-21,苏州,72,33,56,1080,1755,273,2023-12-10
-user_319,information-seeker,"animals",2021-03-30,合肥,55,35,36,268,185,230,2023-12-18
-user_320,general,"politics,learning and educational,animals",2022-04-04,天津,48,60,55,918,1816,150,2023-11-30
-user_321,general,"fashion and beauty",2022-06-26,天津,59,36,117,962,1468,160,2023-11-04
-user_322,general,"animals",2020-03-20,苏州,44,38,102,1276,676,115,2023-11-04
-user_323,information-seeker,"fashion and beauty,business and finance",2023-04-21,上海,44,34,20,673,206,360,2023-11-02
-user_324,information-source,"business and finance",2020-04-07,长春,79,65,495,1178,9733,146,2023-11-13
-user_325,inactive,"arts and culture,animals",2021-07-01,长沙,15,18,17,15,136,93,2023-12-03
-user_326,information-source,"business and finance",2020-03-31,长春,76,61,145,2087,8610,58,2024-01-14
-user_327,information-seeker,"arts and culture",2021-03-24,西安,26,31,65,431,621,286,2023-12-17
-user_328,general,"animals,learning and educational,travel",2020-11-25,石家庄,63,64,103,926,2280,252,2024-01-19
-user_329,general,"business and finance",2021-07-15,武汉,48,34,55,1250,2628,190,2024-01-12
-user_330,information-source,"politics,learning and educational",2021-09-02,广州,83,80,180,4510,3710,190,2023-12-21
-user_331,general,"fitness and health,travel,animals",2021-11-10,无锡,64,51,142,553,2402,138,2024-01-02
-user_332,information-seeker,"sports,animals",2020-01-24,郑州,39,42,27,235,950,480,2023-12-01
-user_333,information-source,"learning and educational",2022-11-23,重庆,74,78,149,4432,4494,87,2024-01-17
-user_334,information-source,"animals,entertainment",2020-04-17,武汉,66,60,386,1938,8685,63,2024-01-07
-user_335,general,"fitness and health,learning and educational,travel",2023-08-27,重庆,61,45,105,1424,2971,298,2023-11-28
-user_336,inactive,"entertainment,business and finance",2023-10-04,杭州,23,3,12,59,95,27,2024-01-04
-user_337,inactive,"animals",2023-03-31,哈尔滨,18,4,10,69,57,39,2023-12-17
-user_338,information-seeker,"learning and educational,arts and culture",2021-02-03,昆明,36,30,16,697,758,581,2023-12-25
-user_339,information-source,"science and technology",2023-08-07,重庆,88,91,403,2168,3910,100,2023-12-10
-user_340,general,"travel,entertainment,food and dining",2023-03-03,大连,71,31,53,1255,865,132,2023-11-08
-user_341,information-source,"food and dining,sports,learning and educational",2021-09-07,长沙,88,74,325,4200,2660,156,2023-12-16
-user_342,general,"fitness and health,science and technology,travel",2023-01-17,杭州,72,33,66,1421,926,167,2023-11-20
-user_343,information-source,"fashion and beauty,entertainment",2022-12-15,广州,94,83,358,1060,7427,245,2023-11-21
-user_344,information-seeker,"sports,fitness and health,fashion and beauty",2020-05-29,西安,28,43,28,644,652,400,2023-11-18
-user_345,information-source,"fitness and health,animals",2020-07-15,上海,73,86,196,4484,8313,176,2023-11-17
-user_346,information-source,"fitness and health,business and finance,science and technology",2021-04-27,郑州,84,85,240,4895,5403,68,2023-11-04
-user_347,general,"entertainment,arts and culture,travel",2022-09-24,合肥,73,52,82,558,2004,276,2023-11-11
-user_348,information-seeker,"business and finance",2020-04-22,上海,57,26,17,127,687,595,2024-01-09
-user_349,information-source,"animals",2021-08-01,广州,66,72,225,4842,2591,240,2023-12-03
-user_350,inactive,"arts and culture,animals,sports",2023-01-13,苏州,8,16,18,56,173,66,2023-11-03
-user_351,general,"politics,sports,arts and culture",2023-08-09,西安,45,63,135,1218,2021,213,2023-12-03
-user_352,information-seeker,"fitness and health",2023-02-18,成都,37,36,22,304,833,385,2023-12-02
-user_353,information-source,"learning and educational,fitness and health",2023-08-05,宁波,83,81,100,2732,8800,142,2024-01-09
-user_354,information-seeker,"business and finance",2022-10-24,天津,58,37,51,215,460,309,2023-12-10
-user_355,information-source,"sports,learning and educational,entertainment",2023-07-21,长春,75,82,304,1405,4559,227,2023-12-29
-user_356,information-seeker,"food and dining,politics",2023-12-08,青岛,42,33,52,793,282,348,2024-01-10
-user_357,information-source,"travel,learning and educational,arts and culture",2020-07-15,北京,79,73,147,3732,4504,109,2023-11-14
-user_358,information-seeker,"arts and culture,business and finance",2023-08-23,成都,60,39,18,380,369,255,2023-11-08
-user_359,inactive,"fashion and beauty",2021-01-02,合肥,22,17,11,63,26,41,2023-12-07
-user_360,information-seeker,"entertainment,learning and educational,science and technology",2020-08-01,石家庄,41,15,76,733,318,600,2023-12-13
-user_361,inactive,"science and technology,learning and educational",2021-01-27,长沙,20,12,6,43,41,89,2023-12-25
-user_362,inactive,"animals,arts and culture,business and finance",2023-04-06,广州,10,5,2,71,105,91,2024-01-08
-user_363,information-seeker,"learning and educational,business and finance",2023-01-27,北京,34,43,24,556,900,202,2023-12-10
-user_364,information-seeker,"learning and educational,food and dining",2023-02-19,济南,52,16,19,633,717,297,2023-12-16
-user_365,general,"entertainment,animals,fitness and health",2023-01-10,沈阳,69,31,54,1255,1968,223,2024-01-18
-user_366,information-source,"entertainment,business and finance",2020-09-18,北京,73,86,193,1139,3306,66,2024-01-09
-user_367,information-seeker,"learning and educational",2023-09-14,重庆,25,29,80,635,266,391,2023-12-25
-user_368,general,"business and finance",2023-01-02,沈阳,41,30,108,1009,1201,213,2023-11-07
-user_369,inactive,"entertainment,politics",2023-08-06,天津,10,3,17,28,176,31,2023-11-04
-user_370,inactive,"travel,food and dining,animals",2022-03-11,昆明,20,19,9,66,88,75,2023-12-30
-user_371,information-seeker,"science and technology",2022-05-12,成都,55,30,62,265,422,359,2023-12-12
-user_372,information-source,"science and technology,business and finance",2022-01-27,天津,78,79,275,4653,2342,137,2023-12-22
-user_373,information-source,"fitness and health",2021-11-21,佛山,89,87,133,4149,9720,59,2023-12-18
-user_374,inactive,"arts and culture",2023-12-13,哈尔滨,21,18,3,53,17,62,2023-11-07
-user_375,information-source,"sports,animals",2022-08-15,济南,92,73,234,2272,2809,151,2023-11-02
-user_376,inactive,"fashion and beauty,entertainment",2023-05-31,长沙,7,13,8,51,104,41,2023-12-28
-user_377,information-source,"travel",2020-11-24,北京,87,77,384,3723,8176,217,2024-01-03
-user_378,inactive,"business and finance",2023-01-19,南京,18,13,11,37,87,43,2024-01-09
-user_379,inactive,"learning and educational,animals",2022-08-02,西安,22,5,16,13,183,20,2023-12-28
-user_380,inactive,"business and finance,entertainment,sports",2022-01-01,沈阳,17,15,12,95,180,13,2024-01-19
-user_381,inactive,"business and finance,learning and educational",2020-09-19,合肥,19,5,10,0,155,79,2023-11-30
-user_382,general,"science and technology,politics",2022-10-07,武汉,55,63,143,1443,1521,218,2023-11-17
-user_383,inactive,"animals",2020-01-12,上海,19,14,7,32,47,96,2023-12-28
-user_384,information-seeker,"politics,fitness and health,food and dining",2020-02-16,太原,34,29,65,615,930,520,2023-12-11
-user_385,information-seeker,"learning and educational",2020-05-20,南京,53,19,15,627,132,546,2024-01-18
-user_386,general,"learning and educational",2020-05-12,太原,75,41,82,613,1717,185,2023-11-22
-user_387,information-source,"travel,politics",2020-10-24,昆明,76,74,412,4005,2274,227,2024-01-05
-user_388,general,"fitness and health,travel,animals",2021-11-25,郑州,75,62,92,1122,1629,238,2023-12-12
-user_389,information-source,"arts and culture,fashion and beauty",2020-11-10,太原,74,81,486,1384,8417,163,2024-01-11
-user_390,inactive,"animals",2021-12-22,天津,16,10,14,91,184,62,2023-12-20
-user_391,information-seeker,"fashion and beauty,politics,travel",2023-09-09,青岛,42,27,56,511,924,592,2023-11-25
-user_392,information-source,"science and technology,animals,learning and educational",2023-09-03,成都,70,60,228,4918,4428,233,2024-01-10
-user_393,inactive,"animals,travel,arts and culture",2022-05-08,福州,25,8,19,2,183,79,2023-11-09
-user_394,information-source,"business and finance,fashion and beauty,entertainment",2021-12-20,沈阳,73,87,130,4091,8590,107,2024-01-02
-user_395,information-source,"animals,learning and educational,food and dining",2021-04-04,济南,91,89,128,1541,7006,243,2024-01-19
-user_396,general,"arts and culture,animals",2020-02-01,苏州,50,31,116,648,2843,240,2024-01-12
-user_397,inactive,"sports,travel,science and technology",2023-02-11,北京,24,17,14,45,168,79,2024-01-14
-user_398,inactive,"animals",2023-04-01,昆明,20,16,19,57,135,37,2024-01-03
-user_399,information-seeker,"fashion and beauty,fitness and health,business and finance",2022-09-23,昆明,34,45,31,571,781,496,2023-12-12
-user_400,inactive,"business and finance",2020-11-05,沈阳,5,7,14,23,112,49,2023-11-25
-user_401,inactive,"arts and culture,animals,entertainment",2023-08-11,合肥,8,9,19,30,162,40,2023-12-05
-user_402,inactive,"animals",2023-08-29,无锡,10,13,8,53,73,95,2023-12-23
-user_403,information-seeker,"fashion and beauty,fitness and health",2023-12-08,福州,28,43,28,140,640,534,2023-11-01
-user_404,general,"business and finance",2020-08-05,杭州,69,47,113,1488,1487,222,2023-12-05
-user_405,general,"entertainment",2023-06-23,石家庄,47,37,149,1225,1028,251,2023-11-15
-user_406,information-seeker,"food and dining,travel,fitness and health",2020-02-13,深圳,30,37,41,474,202,314,2023-11-27
-user_407,information-seeker,"business and finance,learning and educational",2023-06-05,厦门,29,19,57,605,961,317,2023-11-26
-user_408,general,"animals,arts and culture,sports",2020-08-21,无锡,46,44,136,1380,1146,204,2024-01-09
-user_409,general,"food and dining,travel,fitness and health",2021-08-04,太原,65,60,55,1376,2403,298,2023-11-19
-user_410,general,"entertainment,arts and culture",2023-07-14,上海,52,42,66,1142,2377,270,2023-12-19
-user_411,information-source,"food and dining,travel",2020-09-07,北京,69,88,343,3751,9269,233,2023-12-02
-user_412,general,"food and dining,politics,entertainment",2021-06-09,大连,69,46,73,1114,920,275,2024-01-08
-user_413,inactive,"animals,science and technology",2023-12-17,沈阳,17,3,18,48,135,37,2023-11-04
-user_414,information-seeker,"fashion and beauty,business and finance",2022-07-20,佛山,57,30,54,733,512,226,2023-12-18
-user_415,information-source,"business and finance,food and dining,science and technology",2023-01-21,西安,75,67,294,1323,4999,121,2023-12-29
-user_416,inactive,"business and finance",2023-05-27,深圳,8,11,17,41,29,67,2023-12-11
-user_417,information-source,"fitness and health,entertainment,science and technology",2022-10-27,杭州,89,79,319,2714,5578,226,2023-11-02
-user_418,information-seeker,"sports",2020-11-07,成都,58,35,61,267,566,376,2023-11-19
-user_419,inactive,"entertainment",2022-10-05,成都,21,6,18,59,72,8,2023-12-27
-user_420,information-source,"entertainment,learning and educational,science and technology",2022-09-18,重庆,72,77,355,4951,6806,175,2023-11-10
-user_421,information-source,"business and finance",2020-04-01,北京,78,92,270,2312,3439,72,2023-12-30
-user_422,general,"sports",2020-02-01,太原,75,31,57,1312,1064,185,2023-12-14
-user_423,information-seeker,"politics",2023-09-02,太原,60,26,43,320,893,581,2023-11-19
-user_424,information-seeker,"fitness and health",2021-05-09,成都,32,41,31,375,397,487,2023-11-02
-user_425,inactive,"food and dining,politics,fashion and beauty",2021-03-06,福州,5,6,16,75,76,45,2023-12-02
-user_426,information-source,"fashion and beauty,business and finance,food and dining",2020-08-10,福州,77,95,315,1579,5066,77,2024-01-06
-user_427,information-source,"animals",2023-06-27,太原,85,84,446,1709,2188,105,2023-12-05
-user_428,information-seeker,"fashion and beauty,entertainment",2023-12-24,太原,26,35,29,374,710,370,2023-12-04
-user_429,inactive,"travel,animals",2022-05-05,合肥,5,20,20,11,113,18,2023-12-17
-user_430,information-source,"travel,entertainment",2020-11-17,武汉,93,77,308,1283,8083,190,2023-11-20
-user_431,information-seeker,"learning and educational,animals,arts and culture",2023-12-14,深圳,52,36,70,368,116,580,2023-12-04
-user_432,inactive,"travel",2020-05-26,南京,7,12,17,33,43,88,2023-11-06
-user_433,information-source,"animals,arts and culture",2022-02-22,昆明,78,93,157,4297,9784,141,2023-12-15
-user_434,general,"politics,entertainment",2022-03-31,佛山,46,50,69,1111,1070,185,2023-11-03
-user_435,general,"animals",2020-09-02,杭州,64,37,105,1482,2438,206,2023-12-18
-user_436,information-source,"travel,fitness and health,entertainment",2020-11-08,天津,80,77,219,2921,6354,63,2024-01-01
-user_437,general,"learning and educational,entertainment",2022-06-14,广州,69,50,52,1164,2879,192,2023-11-23
-user_438,information-source,"food and dining,animals,sports",2021-09-09,广州,86,95,115,1895,6323,191,2023-11-07
-user_439,general,"business and finance,entertainment,fitness and health",2020-07-14,长春,71,49,143,825,1038,168,2023-11-15
-user_440,information-source,"learning and educational,arts and culture,animals",2022-04-12,上海,95,88,165,2370,2081,133,2023-12-09
-user_441,general,"food and dining,animals",2021-09-30,南昌,48,65,94,609,978,282,2023-11-27
-user_442,information-seeker,"travel",2020-04-07,济南,47,44,13,609,977,314,2023-11-10
-user_443,information-seeker,"fashion and beauty",2021-08-11,昆明,60,31,75,546,935,238,2024-01-05
-user_444,information-source,"science and technology,animals",2023-06-01,济南,69,67,259,4089,5503,201,2023-11-23
-user_445,information-seeker,"science and technology,fitness and health",2020-07-15,长沙,56,21,57,372,353,336,2023-12-19
-user_446,inactive,"business and finance,fitness and health,science and technology",2022-05-15,郑州,11,9,13,90,179,11,2024-01-09
-user_447,general,"science and technology,learning and educational,arts and culture",2023-09-02,南京,60,50,94,1052,2414,252,2024-01-04
-user_448,general,"food and dining",2020-09-03,郑州,66,31,54,1136,644,152,2023-12-14
-user_449,general,"entertainment",2022-05-01,哈尔滨,41,58,105,1177,2579,187,2023-11-21
-user_450,general,"animals,science and technology,food and dining",2023-02-17,南昌,58,58,87,1044,944,299,2023-12-03
-user_451,information-source,"animals,politics,learning and educational",2022-06-03,重庆,68,79,303,3261,4207,210,2023-11-23
-user_452,information-seeker,"arts and culture",2021-05-01,郑州,56,37,76,605,622,575,2023-11-04
-user_453,information-seeker,"learning and educational,fitness and health",2022-05-22,广州,36,40,52,587,506,200,2023-11-16
-user_454,inactive,"fashion and beauty,fitness and health",2022-03-26,沈阳,22,9,19,33,183,24,2023-12-09
-user_455,general,"animals,business and finance,food and dining",2022-01-31,上海,68,59,82,1449,1236,256,2023-12-06
-user_456,information-source,"science and technology,politics",2021-05-21,福州,90,69,384,3281,6401,246,2023-11-10
-user_457,general,"fashion and beauty,business and finance,travel",2022-05-03,苏州,55,37,70,505,719,124,2023-11-22
-user_458,information-source,"fitness and health,travel,animals",2022-12-25,长春,84,77,408,1813,7930,153,2023-12-13
-user_459,information-source,"travel,sports,science and technology",2021-01-15,重庆,70,76,434,2222,8214,113,2023-11-15
-user_460,general,"travel,arts and culture",2023-06-03,西安,44,46,135,933,2110,229,2024-01-19
-user_461,general,"arts and culture,entertainment",2022-01-13,深圳,45,36,56,593,1709,109,2024-01-01
-user_462,general,"learning and educational",2022-02-23,太原,49,62,117,659,1536,283,2023-12-05
-user_463,general,"animals,arts and culture,fashion and beauty",2023-08-15,长沙,46,36,76,839,2353,259,2023-11-16
-user_464,general,"food and dining,animals,travel",2021-11-21,大连,44,56,148,1048,2155,242,2023-12-03
-user_465,information-seeker,"animals,food and dining,science and technology",2023-07-25,广州,53,34,22,422,197,518,2023-12-16
-user_466,information-source,"politics,entertainment",2020-09-29,深圳,87,60,278,3031,6634,157,2023-12-11
-user_467,information-source,"business and finance,arts and culture,food and dining",2021-12-27,沈阳,79,60,177,2588,2603,149,2024-01-09
-user_468,general,"fashion and beauty,animals,arts and culture",2021-04-13,沈阳,62,44,123,1275,1919,259,2023-12-06
-user_469,general,"sports,entertainment",2021-12-02,福州,51,52,87,1044,2233,190,2024-01-01
-user_470,inactive,"animals,science and technology",2022-10-25,西安,10,15,6,11,158,40,2023-11-07
-user_471,inactive,"politics,fashion and beauty",2023-10-11,南京,13,9,8,93,174,83,2023-12-08
-user_472,inactive,"sports,food and dining",2022-10-20,无锡,9,16,6,96,196,22,2023-12-06
-user_473,information-source,"animals,science and technology,fitness and health",2020-08-14,西安,95,93,234,2254,2964,180,2023-12-10
-user_474,general,"business and finance",2020-08-13,武汉,50,63,77,902,737,136,2023-12-03
-user_475,information-seeker,"fitness and health,travel",2023-08-20,佛山,33,43,48,675,596,405,2023-11-21
-user_476,inactive,"sports,politics",2023-05-30,苏州,21,9,8,68,130,41,2024-01-17
-user_477,information-seeker,"arts and culture,animals",2021-07-14,佛山,48,21,59,513,313,489,2024-01-04
-user_478,inactive,"animals,arts and culture",2023-10-15,上海,19,8,5,21,61,56,2023-12-11
-user_479,information-seeker,"sports,animals",2020-08-25,合肥,51,28,10,758,726,441,2023-12-14
-user_480,information-seeker,"arts and culture,politics,animals",2022-02-24,厦门,43,22,65,763,132,356,2023-12-15
-user_481,information-seeker,"entertainment,animals,food and dining",2023-12-19,福州,31,32,64,261,509,489,2023-12-10
-user_482,general,"travel",2023-11-03,长沙,42,58,92,909,2291,253,2024-01-17
-user_483,inactive,"business and finance,arts and culture,science and technology",2022-02-21,昆明,25,7,7,90,43,20,2023-11-29
-user_484,general,"fashion and beauty,fitness and health",2023-06-05,无锡,68,49,137,1224,688,123,2023-11-22
-user_485,information-seeker,"animals,entertainment",2023-04-21,太原,42,25,64,693,946,391,2023-11-06
-user_486,general,"animals,science and technology,travel",2021-02-19,广州,75,42,138,1286,2842,271,2023-11-20
-user_487,information-source,"entertainment,sports",2023-02-22,郑州,83,88,291,1297,8677,231,2024-01-17
-user_488,inactive,"sports,fashion and beauty,arts and culture",2020-10-21,宁波,5,17,6,66,40,63,2023-12-26
-user_489,information-seeker,"business and finance,animals",2022-01-01,大连,30,29,19,601,349,551,2024-01-14
-user_490,information-source,"sports,fashion and beauty",2023-10-14,长沙,66,69,286,3279,3743,66,2023-12-26
-user_491,information-seeker,"animals,learning and educational,science and technology",2022-05-16,长沙,45,24,25,476,790,302,2023-12-07
-user_492,inactive,"entertainment,sports",2023-02-27,上海,12,18,0,88,133,38,2024-01-10
-user_493,general,"science and technology",2020-05-26,宁波,71,46,57,1375,928,194,2023-11-12
-user_494,information-source,"politics,learning and educational",2023-10-03,西安,85,78,220,2568,8351,64,2023-11-04
-user_495,general,"fitness and health",2022-11-25,厦门,70,36,99,574,1072,251,2023-12-14
-user_496,inactive,"animals,fitness and health,fashion and beauty",2020-01-08,太原,6,7,9,48,22,92,2023-11-17
-user_497,general,"fashion and beauty",2021-07-28,厦门,66,64,90,1472,1541,204,2023-12-23
-user_498,general,"business and finance,food and dining",2021-03-01,青岛,60,52,117,502,1207,208,2024-01-12
-user_499,general,"fitness and health,animals",2021-06-28,宁波,68,53,148,1220,1646,253,2023-11-06
-user_500,general,"learning and educational,fitness and health,entertainment",2020-04-06,郑州,51,33,123,610,655,183,2023-11-27
+user_001,information-seeker,"learning and educational,food and dining",2021-01-18,石家庄,51,29,20,365,268,469,2024-01-02
+user_002,information-seeker,"entertainment",2020-08-14,南昌,47,35,59,428,726,332,2023-12-05
+user_003,general,"sports",2020-04-06,杭州,46,38,101,1133,1469,242,2024-01-01
+user_004,information-source,"politics",2020-05-31,北京,94,85,115,1617,9353,178,2024-01-02
+user_005,inactive,"business and finance",2021-11-28,上海,10,20,19,19,37,38,2023-12-20
+user_006,information-seeker,"entertainment",2020-09-07,大连,59,24,78,715,938,348,2023-11-16
+user_007,information-seeker,"learning and educational,food and dining,sports",2020-04-29,合肥,37,39,66,753,248,421,2024-01-01
+user_008,information-seeker,"entertainment,business and finance",2022-08-18,重庆,59,19,35,357,241,221,2023-11-09
+user_009,general,"science and technology,travel,animals",2022-05-03,济南,52,59,141,652,1197,109,2023-12-10
+user_010,general,"animals,arts and culture",2020-02-12,宁波,41,61,99,846,1563,164,2023-12-01
+user_011,inactive,"travel,fitness and health",2023-06-09,武汉,9,7,3,60,157,14,2023-12-17
+user_012,information-seeker,"travel",2022-08-09,沈阳,33,44,41,228,351,365,2023-12-09
+user_013,inactive,"fashion and beauty",2020-03-28,广州,12,7,5,71,133,47,2023-12-23
+user_014,information-seeker,"business and finance,fitness and health",2021-02-16,北京,33,35,25,212,919,406,2024-01-17
+user_015,inactive,"food and dining,fashion and beauty",2020-11-09,深圳,12,4,14,91,190,35,2023-11-30
+user_016,general,"politics,entertainment",2020-03-14,深圳,44,45,135,563,1398,287,2024-01-08
+user_017,general,"fitness and health,animals",2021-12-24,沈阳,74,47,106,1394,652,234,2023-12-02
+user_018,information-source,"travel,animals,arts and culture",2020-02-13,佛山,80,89,140,1723,3961,208,2023-12-26
+user_019,general,"science and technology",2023-02-19,重庆,64,49,50,935,1783,198,2023-12-24
+user_020,general,"entertainment",2021-04-13,合肥,68,35,78,1269,927,121,2023-11-29
+user_021,general,"entertainment",2020-02-20,哈尔滨,58,34,133,936,1028,273,2023-12-11
+user_022,information-seeker,"entertainment,animals,fashion and beauty",2022-01-06,大连,56,17,57,603,618,322,2023-11-16
+user_023,inactive,"travel,fitness and health",2021-03-15,太原,21,13,17,20,182,83,2023-11-19
+user_024,information-source,"entertainment,animals,fashion and beauty",2021-11-16,苏州,72,90,493,4315,3725,62,2023-11-30
+user_025,information-source,"animals,science and technology",2023-07-23,石家庄,77,70,206,4148,6805,203,2023-11-29
+user_026,information-seeker,"learning and educational",2020-02-27,合肥,29,18,19,219,322,297,2023-12-06
+user_027,information-seeker,"politics,animals",2020-10-20,福州,39,31,69,241,436,392,2023-12-06
+user_028,inactive,"animals,fashion and beauty,politics",2021-03-06,长春,11,12,1,37,136,10,2023-11-13
+user_029,inactive,"food and dining,fashion and beauty",2020-11-28,南昌,8,7,15,90,135,17,2023-11-29
+user_030,information-seeker,"business and finance,animals,sports",2020-10-17,宁波,39,45,18,606,473,494,2024-01-01
+user_031,information-source,"fashion and beauty,learning and educational,business and finance",2020-05-22,合肥,72,87,429,2022,7227,242,2023-12-22
+user_032,inactive,"sports,learning and educational,travel",2020-11-10,深圳,11,14,6,60,16,88,2023-12-27
+user_033,inactive,"animals",2020-10-16,太原,21,14,10,2,49,21,2023-11-02
+user_034,inactive,"animals,entertainment,food and dining",2020-03-30,长春,25,16,14,72,161,71,2023-12-13
+user_035,general,"food and dining,science and technology,business and finance",2023-07-08,无锡,48,64,112,585,1991,226,2023-11-11
+user_036,general,"fashion and beauty,entertainment",2022-02-17,南京,61,65,137,806,2337,207,2024-01-11
+user_037,inactive,"travel,science and technology",2023-04-07,南京,19,11,14,14,189,49,2023-12-25
+user_038,general,"sports,animals,entertainment",2023-12-18,哈尔滨,52,32,84,786,2964,292,2023-11-23
+user_039,information-source,"animals",2022-04-26,郑州,91,85,193,2720,2404,180,2024-01-13
+user_040,information-seeker,"fashion and beauty,entertainment,food and dining",2021-11-28,长沙,42,16,18,445,664,562,2023-11-22
+user_041,general,"fitness and health,arts and culture,food and dining",2022-01-10,成都,58,58,73,714,985,214,2023-11-06
+user_042,inactive,"science and technology",2020-05-13,青岛,20,14,6,87,33,30,2023-12-19
+user_043,general,"animals,science and technology,learning and educational",2022-02-19,佛山,51,65,92,1282,2717,104,2023-12-05
+user_044,information-source,"food and dining,business and finance,animals",2020-10-18,南京,89,81,285,4382,5577,71,2023-12-08
+user_045,information-source,"learning and educational,business and finance",2022-10-20,济南,78,94,455,2826,8673,218,2023-11-12
+user_046,information-source,"business and finance",2022-11-01,广州,94,72,116,1958,7207,169,2024-01-02
+user_047,information-source,"animals",2022-11-22,长沙,88,74,375,2068,6788,213,2023-12-22
+user_048,inactive,"animals,learning and educational",2022-01-27,北京,19,20,6,17,127,98,2024-01-07
+user_049,information-source,"learning and educational,entertainment,politics",2021-05-15,武汉,95,90,155,3872,7354,196,2023-11-03
+user_050,information-seeker,"learning and educational,politics",2021-10-19,昆明,25,45,44,637,201,268,2023-11-26
+user_051,information-source,"travel,learning and educational",2023-02-09,石家庄,94,73,260,2033,3334,209,2023-11-12
+user_052,information-seeker,"science and technology",2021-05-29,南昌,59,15,35,718,605,210,2023-12-27
+user_053,general,"animals,fashion and beauty,arts and culture",2020-09-13,大连,53,43,67,1396,901,294,2023-12-25
+user_054,information-source,"sports,arts and culture",2023-01-19,成都,85,75,354,1685,5039,120,2023-11-22
+user_055,general,"learning and educational",2022-03-11,佛山,54,37,119,714,2203,265,2023-11-24
+user_056,information-seeker,"food and dining",2023-03-25,无锡,57,31,10,131,543,346,2023-11-12
+user_057,general,"food and dining",2020-02-12,大连,49,52,73,690,1300,234,2024-01-11
+user_058,general,"animals",2021-04-16,上海,74,63,149,1375,2609,231,2024-01-05
+user_059,information-source,"sports,fashion and beauty,animals",2020-03-27,长沙,66,62,205,4851,4068,176,2024-01-17
+user_060,general,"learning and educational,food and dining,sports",2020-01-01,郑州,63,58,137,502,2615,211,2023-11-07
+user_061,information-seeker,"animals",2022-03-14,南京,45,24,43,674,537,495,2024-01-07
+user_062,information-source,"business and finance",2022-09-11,厦门,86,86,231,3014,3396,237,2023-11-27
+user_063,information-source,"fitness and health,food and dining,animals",2020-12-17,福州,71,73,385,3707,4311,156,2023-11-04
+user_064,general,"learning and educational",2022-07-05,天津,53,48,83,1105,2452,130,2024-01-04
+user_065,information-seeker,"animals",2023-10-07,福州,52,24,40,117,897,431,2024-01-14
+user_066,information-seeker,"entertainment,learning and educational,sports",2023-05-13,深圳,37,34,55,342,1000,505,2024-01-09
+user_067,general,"science and technology,fashion and beauty,entertainment",2021-01-22,南昌,66,54,148,803,2594,275,2023-12-05
+user_068,general,"entertainment,food and dining",2021-02-22,厦门,50,53,57,1311,2412,103,2024-01-15
+user_069,general,"food and dining,entertainment",2021-01-05,天津,72,51,75,677,1726,187,2023-11-05
+user_070,general,"animals,arts and culture",2021-01-02,武汉,74,50,115,1447,2217,193,2023-12-30
+user_071,general,"sports,learning and educational",2023-01-06,佛山,60,51,120,1170,2110,212,2023-11-16
+user_072,information-seeker,"animals,fitness and health,sports",2022-03-16,合肥,55,44,39,594,151,237,2024-01-04
+user_073,inactive,"travel",2022-01-01,南昌,25,10,1,65,86,18,2023-11-12
+user_074,information-seeker,"travel,food and dining",2022-10-18,青岛,31,26,74,644,590,348,2023-12-07
+user_075,general,"animals,learning and educational",2022-08-02,郑州,61,43,130,638,2085,128,2023-12-12
+user_076,general,"business and finance,fashion and beauty,politics",2022-12-19,沈阳,48,34,144,1078,1463,134,2023-12-30
+user_077,information-seeker,"sports",2023-05-12,深圳,35,40,30,574,507,365,2023-12-29
+user_078,inactive,"fitness and health,fashion and beauty",2023-11-02,无锡,24,4,2,84,177,40,2024-01-13
+user_079,general,"fashion and beauty,sports,politics",2020-09-22,郑州,69,62,123,1130,1311,288,2023-12-13
+user_080,general,"travel",2022-10-07,昆明,43,45,97,1325,2417,235,2023-12-24
+user_081,information-source,"business and finance,arts and culture,animals",2022-09-20,天津,67,60,267,1971,6530,184,2023-11-20
+user_082,inactive,"arts and culture,entertainment,fitness and health",2020-03-13,宁波,8,10,16,55,94,75,2024-01-10
+user_083,inactive,"learning and educational,fitness and health",2022-10-01,宁波,22,15,14,38,42,51,2024-01-14
+user_084,general,"arts and culture",2020-06-11,苏州,69,48,50,1176,1208,191,2024-01-10
+user_085,general,"food and dining,sports",2020-12-06,厦门,64,40,95,1476,2681,145,2024-01-16
+user_086,information-seeker,"food and dining",2023-08-31,深圳,49,37,77,109,104,531,2023-11-18
+user_087,inactive,"travel",2020-12-29,沈阳,11,8,11,52,58,60,2023-11-17
+user_088,information-source,"animals",2020-06-07,杭州,65,69,315,2395,8400,215,2023-12-19
+user_089,general,"entertainment,politics",2022-05-09,昆明,67,58,59,577,2582,166,2023-11-22
+user_090,inactive,"learning and educational,arts and culture,entertainment",2022-05-05,厦门,23,12,8,28,13,95,2023-12-07
+user_091,inactive,"arts and culture,travel",2022-12-14,深圳,14,13,11,28,94,62,2023-12-08
+user_092,inactive,"animals,entertainment,food and dining",2020-09-01,昆明,21,14,9,11,122,21,2024-01-17
+user_093,inactive,"animals,learning and educational",2021-09-11,西安,21,13,7,60,139,83,2023-12-28
+user_094,information-seeker,"travel,arts and culture",2020-03-31,石家庄,48,42,19,795,307,503,2023-11-22
+user_095,information-seeker,"arts and culture,entertainment,food and dining",2022-06-24,北京,43,28,11,294,364,362,2023-12-21
+user_096,information-source,"learning and educational,business and finance",2023-11-03,福州,95,77,177,2224,3586,91,2024-01-09
+user_097,information-source,"animals,learning and educational,politics",2023-07-01,昆明,85,71,291,1763,7621,219,2024-01-17
+user_098,inactive,"sports,animals",2022-01-01,福州,10,14,16,79,41,32,2023-11-16
+user_099,information-seeker,"entertainment,fitness and health,travel",2021-08-22,长春,38,34,38,430,725,577,2024-01-10
+user_100,inactive,"business and finance,science and technology,sports",2023-06-11,重庆,19,15,4,69,172,40,2023-12-24
+user_101,information-source,"animals,arts and culture",2020-09-02,福州,77,68,211,1928,4407,193,2024-01-13
+user_102,general,"food and dining,politics",2022-04-03,合肥,64,57,142,664,2262,227,2023-11-03
+user_103,information-source,"fashion and beauty,arts and culture",2022-08-17,深圳,74,71,453,3637,9529,173,2023-12-22
+user_104,information-source,"business and finance,arts and culture",2020-04-17,上海,85,62,384,1179,3028,190,2024-01-15
+user_105,inactive,"fitness and health,fashion and beauty",2022-01-16,北京,12,4,15,57,114,91,2023-12-31
+user_106,information-source,"food and dining,animals",2020-08-31,苏州,88,63,224,1675,3737,234,2023-12-12
+user_107,information-seeker,"fashion and beauty,entertainment,fitness and health",2020-03-02,南昌,29,34,58,326,733,386,2023-12-04
+user_108,inactive,"learning and educational,science and technology",2021-07-26,济南,15,3,15,58,81,30,2024-01-06
+user_109,inactive,"science and technology,sports",2020-05-03,北京,8,14,14,5,109,50,2023-11-14
+user_110,information-source,"business and finance,learning and educational",2022-09-14,成都,81,84,154,2011,9372,67,2024-01-10
+user_111,information-source,"food and dining,animals",2021-03-19,沈阳,80,70,276,4160,7396,125,2023-12-17
+user_112,information-seeker,"fashion and beauty",2020-07-23,南京,59,23,69,272,949,299,2023-11-27
+user_113,information-source,"learning and educational,fitness and health,animals",2023-03-03,杭州,80,88,131,2288,6564,135,2023-12-19
+user_114,information-source,"animals",2020-10-06,成都,86,63,120,4193,7944,108,2023-12-10
+user_115,information-source,"arts and culture,animals,travel",2022-11-01,重庆,84,92,429,4096,9842,105,2023-11-11
+user_116,information-seeker,"travel,arts and culture",2022-12-08,合肥,52,15,49,373,989,459,2023-11-25
+user_117,information-seeker,"sports,animals",2023-07-22,西安,50,37,77,705,549,506,2024-01-06
+user_118,information-seeker,"animals",2021-08-27,福州,57,37,49,402,552,299,2024-01-01
+user_119,information-source,"travel",2022-09-09,成都,93,86,160,1543,4476,128,2023-12-02
+user_120,inactive,"travel",2021-11-28,长沙,19,10,18,100,51,14,2024-01-02
+user_121,inactive,"learning and educational,fitness and health,travel",2023-12-09,福州,23,15,20,57,186,12,2023-12-24
+user_122,information-source,"learning and educational",2020-11-30,重庆,92,82,255,2658,4958,71,2024-01-11
+user_123,inactive,"travel,fashion and beauty",2020-06-26,昆明,14,18,5,0,42,21,2024-01-10
+user_124,inactive,"entertainment,fitness and health",2021-12-06,长沙,19,8,20,48,190,69,2023-12-02
+user_125,general,"animals",2021-03-23,济南,75,30,124,639,2677,150,2024-01-11
+user_126,inactive,"entertainment",2020-04-28,武汉,11,15,7,24,63,15,2023-12-04
+user_127,information-source,"food and dining,fitness and health,learning and educational",2020-12-31,太原,65,75,127,4602,2428,105,2023-11-27
+user_128,information-source,"animals,business and finance,fitness and health",2021-03-09,厦门,90,72,185,3500,8045,143,2023-11-19
+user_129,general,"fashion and beauty,travel,science and technology",2021-01-20,成都,40,33,129,676,2583,143,2023-11-05
+user_130,information-source,"food and dining,fitness and health",2020-09-06,天津,86,85,203,2136,8430,73,2023-11-08
+user_131,inactive,"animals",2020-07-20,重庆,21,7,0,33,93,71,2023-11-12
+user_132,information-source,"learning and educational,food and dining,arts and culture",2021-07-11,武汉,93,76,270,1142,5733,160,2024-01-12
+user_133,inactive,"travel,animals,food and dining",2023-06-15,苏州,22,20,3,81,59,97,2024-01-10
+user_134,information-seeker,"animals",2020-09-13,石家庄,28,41,51,248,752,244,2023-12-03
+user_135,general,"animals",2022-10-11,厦门,75,36,102,601,1656,241,2023-12-17
+user_136,general,"travel,arts and culture",2022-04-07,西安,74,50,55,1408,2212,207,2023-11-29
+user_137,information-source,"food and dining,arts and culture",2020-02-16,石家庄,66,67,421,4056,4326,163,2023-12-09
+user_138,inactive,"entertainment,travel,arts and culture",2022-02-08,上海,23,15,13,21,182,5,2023-12-30
+user_139,inactive,"arts and culture",2023-09-07,武汉,20,12,1,52,100,60,2023-11-09
+user_140,information-source,"business and finance",2023-06-28,无锡,75,78,432,4237,6748,214,2023-11-06
+user_141,information-source,"fashion and beauty,animals",2022-03-14,宁波,84,77,298,2912,6253,203,2024-01-18
+user_142,information-seeker,"entertainment,food and dining",2022-12-01,长沙,51,21,52,578,512,476,2023-11-17
+user_143,information-source,"entertainment",2020-01-17,郑州,80,78,333,4011,4221,73,2023-11-05
+user_144,information-source,"business and finance,fitness and health",2021-12-19,太原,84,80,276,1045,9186,198,2024-01-14
+user_145,information-seeker,"sports,business and finance",2023-11-07,济南,45,38,69,232,164,241,2023-12-28
+user_146,information-seeker,"science and technology",2022-12-04,天津,45,30,24,368,703,488,2024-01-17
+user_147,inactive,"business and finance,sports",2020-08-02,广州,11,17,10,56,199,19,2024-01-03
+user_148,information-source,"learning and educational",2020-03-07,哈尔滨,74,76,161,3292,6483,170,2023-12-24
+user_149,information-seeker,"fitness and health,travel,business and finance",2023-03-24,广州,60,40,21,782,1000,330,2023-11-07
+user_150,information-seeker,"business and finance,entertainment,food and dining",2020-05-10,长春,39,32,19,271,460,498,2023-11-30
+user_151,inactive,"arts and culture,politics,learning and educational",2021-02-16,厦门,12,5,3,72,43,51,2024-01-04
+user_152,information-seeker,"science and technology,animals,food and dining",2021-09-09,大连,42,29,43,155,524,232,2023-11-04
+user_153,inactive,"animals,food and dining,fashion and beauty",2023-05-11,上海,10,20,1,35,23,55,2023-12-24
+user_154,inactive,"animals",2021-03-22,厦门,11,7,15,10,82,90,2024-01-09
+user_155,information-source,"fashion and beauty",2022-12-10,长沙,87,78,241,3633,5819,62,2023-11-20
+user_156,information-seeker,"arts and culture,sports",2023-05-02,长春,25,42,32,571,886,520,2024-01-02
+user_157,information-source,"arts and culture",2021-10-29,天津,93,94,433,1173,3991,95,2023-11-20
+user_158,inactive,"fashion and beauty,science and technology",2022-06-15,哈尔滨,13,3,3,58,22,37,2023-12-22
+user_159,general,"fitness and health",2022-08-03,长沙,53,60,119,695,2074,221,2023-12-29
+user_160,inactive,"fitness and health,fashion and beauty,travel",2021-07-26,深圳,8,8,16,18,127,38,2023-12-03
+user_161,general,"fitness and health",2022-07-22,武汉,40,39,63,686,1995,230,2023-11-19
+user_162,general,"animals",2022-01-30,武汉,44,59,84,1026,993,278,2023-11-30
+user_163,inactive,"sports,fitness and health",2022-06-16,南京,25,8,17,55,13,54,2023-12-25
+user_164,information-source,"animals,arts and culture",2020-09-12,郑州,92,75,137,1043,4446,240,2023-12-09
+user_165,information-source,"fashion and beauty,entertainment",2021-10-27,武汉,90,66,101,1594,2091,130,2023-12-18
+user_166,information-seeker,"learning and educational",2023-09-18,大连,36,19,21,738,277,457,2024-01-04
+user_167,information-seeker,"sports,learning and educational",2021-12-10,南昌,54,43,25,418,999,387,2023-11-27
+user_168,inactive,"entertainment,animals,learning and educational",2023-07-03,南京,8,6,8,36,99,55,2023-12-23
+user_169,inactive,"animals,learning and educational",2021-03-12,杭州,23,9,4,59,143,70,2023-11-18
+user_170,information-seeker,"animals",2022-08-10,成都,43,33,80,533,240,530,2024-01-19
+user_171,information-source,"travel,fashion and beauty,fitness and health",2023-08-17,广州,73,87,223,4441,4247,226,2023-12-24
+user_172,information-seeker,"food and dining,fitness and health",2021-01-28,无锡,38,36,29,231,632,434,2023-12-30
+user_173,information-seeker,"fitness and health",2022-03-19,南昌,35,17,44,760,706,252,2024-01-02
+user_174,information-seeker,"food and dining,travel,fitness and health",2023-08-09,昆明,27,30,23,712,931,449,2023-11-03
+user_175,general,"sports,business and finance,arts and culture",2022-03-17,福州,44,47,117,1424,647,245,2023-11-28
+user_176,general,"learning and educational,business and finance",2020-07-15,天津,65,51,130,1016,647,250,2023-11-02
+user_177,inactive,"animals",2021-11-01,武汉,16,10,6,53,169,65,2024-01-15
+user_178,information-seeker,"science and technology,animals",2020-10-25,石家庄,37,29,41,319,380,512,2024-01-14
+user_179,inactive,"fitness and health,science and technology,learning and educational",2020-12-20,西安,13,18,1,45,59,24,2023-11-18
+user_180,information-seeker,"animals",2022-12-25,上海,46,45,17,291,606,321,2023-11-28
+user_181,information-seeker,"travel,animals",2021-06-25,重庆,49,19,10,554,629,332,2023-11-21
+user_182,inactive,"business and finance",2021-03-12,成都,22,3,10,70,43,89,2023-12-10
+user_183,information-seeker,"fitness and health",2022-09-27,济南,44,22,62,682,143,490,2023-11-15
+user_184,inactive,"fitness and health,politics,arts and culture",2023-03-19,太原,15,17,7,11,140,34,2023-11-09
+user_185,information-seeker,"fitness and health",2023-09-29,济南,55,33,53,270,749,531,2024-01-03
+user_186,information-source,"politics,animals,learning and educational",2023-04-24,哈尔滨,65,75,499,3430,7283,177,2023-11-27
+user_187,information-source,"politics,animals",2021-10-28,沈阳,66,92,200,1611,9959,64,2023-12-25
+user_188,information-source,"animals",2022-03-14,石家庄,80,61,448,4782,8913,164,2023-12-23
+user_189,information-seeker,"animals,science and technology,fitness and health",2023-10-17,长沙,49,37,17,746,102,290,2023-12-27
+user_190,general,"fitness and health,politics",2020-06-06,青岛,49,53,53,1288,903,149,2024-01-10
+user_191,information-seeker,"animals,arts and culture",2021-11-16,天津,46,43,76,263,751,291,2023-11-13
+user_192,inactive,"animals",2023-09-12,无锡,12,3,2,43,17,26,2023-12-05
+user_193,information-seeker,"learning and educational,animals,entertainment",2023-01-19,济南,53,44,62,647,178,255,2023-11-01
+user_194,information-seeker,"business and finance,learning and educational",2021-02-18,上海,43,31,23,298,401,367,2023-12-21
+user_195,information-source,"fashion and beauty,fitness and health",2022-06-30,合肥,88,91,141,3730,8084,63,2023-11-01
+user_196,inactive,"animals",2020-03-30,郑州,7,20,18,100,191,24,2023-12-06
+user_197,general,"food and dining,animals",2023-08-26,郑州,62,50,118,976,746,255,2023-12-08
+user_198,general,"food and dining,travel",2022-08-09,南京,64,61,142,991,1072,178,2023-12-18
+user_199,information-source,"fitness and health,politics,fashion and beauty",2021-03-01,石家庄,79,89,227,1925,3232,52,2023-11-04
+user_200,information-seeker,"animals,business and finance,fashion and beauty",2020-04-10,西安,27,45,12,315,713,250,2023-11-24
+user_201,general,"learning and educational,animals,sports",2023-03-17,佛山,59,63,145,932,688,206,2023-11-19
+user_202,general,"travel",2022-12-23,石家庄,73,55,84,694,1843,127,2023-12-13
+user_203,information-seeker,"animals,travel",2020-10-14,武汉,44,31,52,552,479,447,2023-12-11
+user_204,information-source,"politics,business and finance,fitness and health",2021-08-19,南京,87,85,283,1746,9278,102,2023-11-05
+user_205,information-seeker,"food and dining,sports,animals",2023-01-28,无锡,36,32,69,571,953,486,2023-12-01
+user_206,information-seeker,"sports,travel,animals",2021-03-19,成都,35,26,69,171,877,295,2023-11-29
+user_207,information-source,"travel",2023-02-21,宁波,80,74,410,3348,2053,213,2023-12-01
+user_208,inactive,"animals,arts and culture",2023-11-27,哈尔滨,7,9,16,15,102,25,2023-11-08
+user_209,general,"fitness and health,politics,sports",2022-03-22,哈尔滨,59,58,56,787,1903,258,2024-01-06
+user_210,information-source,"food and dining,travel",2022-02-04,哈尔滨,84,90,163,2803,2382,114,2024-01-10
+user_211,information-seeker,"science and technology,animals",2023-12-15,重庆,59,30,34,583,685,525,2023-12-02
+user_212,information-seeker,"travel,food and dining",2021-12-19,福州,30,37,44,463,998,533,2023-11-08
+user_213,information-source,"fitness and health,business and finance,science and technology",2021-03-23,重庆,93,60,118,3893,9960,90,2024-01-06
+user_214,information-seeker,"business and finance,politics,arts and culture",2023-11-23,成都,43,23,27,639,841,576,2023-12-26
+user_215,general,"fitness and health",2021-09-04,沈阳,63,51,61,513,1040,253,2023-11-09
+user_216,inactive,"animals,food and dining",2023-12-27,重庆,5,14,1,25,185,38,2023-12-16
+user_217,information-seeker,"travel",2023-11-02,沈阳,53,27,63,766,132,398,2023-12-11
+user_218,information-source,"sports,business and finance,arts and culture",2023-06-19,太原,93,62,293,2620,6730,97,2023-11-03
+user_219,information-source,"entertainment",2023-05-08,重庆,81,80,121,1164,9537,50,2023-11-02
+user_220,inactive,"food and dining",2023-08-30,佛山,6,17,10,25,149,5,2023-11-10
+user_221,information-source,"science and technology,food and dining",2023-08-02,南昌,77,90,396,3610,7872,132,2023-12-31
+user_222,inactive,"travel",2020-04-09,厦门,23,6,12,36,82,49,2023-11-06
+user_223,information-source,"animals,arts and culture",2023-01-08,重庆,87,75,325,2475,5386,106,2024-01-12
+user_224,information-seeker,"animals,fitness and health",2023-04-15,广州,57,39,40,360,213,235,2023-12-24
+user_225,information-seeker,"food and dining,animals",2020-10-22,郑州,53,25,59,183,800,589,2023-12-13
+user_226,information-seeker,"fashion and beauty,learning and educational,politics",2021-08-18,重庆,44,29,14,452,543,381,2023-11-27
+user_227,inactive,"business and finance",2023-07-11,成都,8,6,14,96,32,24,2023-12-04
+user_228,inactive,"sports,business and finance,arts and culture",2020-01-26,无锡,10,20,6,82,134,21,2023-11-01
+user_229,information-seeker,"politics",2020-12-21,苏州,37,29,51,769,707,469,2024-01-03
+user_230,inactive,"animals",2023-06-19,沈阳,9,6,0,31,120,69,2023-12-16
+user_231,inactive,"arts and culture",2022-08-05,成都,20,5,15,91,111,61,2023-11-08
+user_232,information-seeker,"business and finance,arts and culture,sports",2020-08-02,杭州,44,22,43,734,121,307,2023-12-21
+user_233,information-source,"sports",2021-07-17,福州,94,74,227,4152,9879,74,2024-01-18
+user_234,information-seeker,"arts and culture,politics,science and technology",2022-12-24,太原,38,21,36,575,427,415,2023-12-02
+user_235,information-seeker,"animals",2022-03-22,广州,32,21,37,261,611,394,2023-12-01
+user_236,information-source,"fashion and beauty,animals",2022-09-07,重庆,92,75,284,1895,4362,152,2023-11-03
+user_237,general,"travel,science and technology",2022-06-14,深圳,50,64,138,854,2419,246,2023-11-16
+user_238,general,"sports,politics",2020-12-18,西安,72,55,79,847,1909,134,2023-11-30
+user_239,information-seeker,"science and technology,entertainment,travel",2023-05-21,厦门,56,41,61,710,168,368,2023-12-02
+user_240,inactive,"entertainment",2020-08-10,沈阳,24,19,0,57,44,56,2023-12-27
+user_241,inactive,"arts and culture,entertainment",2023-08-29,哈尔滨,10,15,6,91,154,32,2023-11-30
+user_242,general,"fitness and health,food and dining,fashion and beauty",2022-05-20,太原,50,40,55,943,2383,259,2024-01-16
+user_243,information-seeker,"animals,travel,food and dining",2023-08-17,石家庄,43,37,24,565,617,541,2023-11-02
+user_244,information-seeker,"learning and educational",2021-09-04,福州,60,16,11,558,634,542,2023-12-06
+user_245,general,"arts and culture,politics,travel",2020-01-27,济南,60,63,136,547,2613,262,2023-12-04
+user_246,inactive,"politics,learning and educational",2021-09-16,济南,23,8,4,74,80,37,2023-12-10
+user_247,information-seeker,"entertainment,fashion and beauty,arts and culture",2022-04-13,石家庄,43,16,17,369,189,309,2023-12-26
+user_248,information-source,"learning and educational,science and technology",2023-08-18,合肥,76,95,422,4728,2128,209,2023-12-03
+user_249,information-seeker,"fitness and health",2023-01-21,苏州,30,40,77,407,342,420,2023-12-12
+user_250,general,"sports,travel,learning and educational",2023-04-09,福州,46,51,69,608,2835,107,2023-12-31
+user_251,inactive,"entertainment",2023-10-25,宁波,6,12,11,40,153,39,2023-12-24
+user_252,information-seeker,"fitness and health,sports",2023-07-31,沈阳,60,21,47,318,189,386,2023-12-17
+user_253,information-source,"food and dining",2022-05-19,长沙,72,90,288,2004,7305,95,2024-01-01
+user_254,information-source,"animals,entertainment,sports",2020-01-25,太原,67,76,327,1283,5094,236,2023-11-06
+user_255,information-seeker,"fitness and health,travel",2022-12-21,哈尔滨,30,43,32,112,120,394,2024-01-01
+user_256,information-seeker,"entertainment",2023-03-14,福州,35,30,60,274,184,421,2023-12-24
+user_257,inactive,"entertainment,learning and educational",2020-08-30,上海,17,7,4,3,43,36,2023-11-10
+user_258,inactive,"sports,entertainment,business and finance",2023-05-21,成都,15,19,2,27,101,59,2023-12-15
+user_259,general,"entertainment,travel",2021-07-02,太原,75,45,69,958,1999,164,2023-12-10
+user_260,inactive,"animals",2023-02-09,郑州,25,5,15,99,183,97,2024-01-15
+user_261,general,"business and finance",2021-02-08,郑州,72,61,73,750,1385,102,2023-11-13
+user_262,information-source,"animals",2023-06-09,无锡,85,62,249,2378,8767,204,2023-11-14
+user_263,inactive,"animals,arts and culture",2020-11-18,苏州,23,15,0,75,64,46,2023-11-22
+user_264,general,"business and finance,travel,entertainment",2020-06-13,成都,71,61,96,1356,2342,234,2024-01-18
+user_265,information-seeker,"sports",2021-01-26,重庆,53,20,71,292,171,438,2023-11-21
+user_266,information-source,"politics,learning and educational,business and finance",2023-09-08,石家庄,95,74,172,2637,8530,139,2024-01-18
+user_267,general,"travel,fashion and beauty",2023-05-20,重庆,74,38,144,697,1086,199,2023-12-02
+user_268,inactive,"fitness and health,arts and culture,sports",2020-02-11,广州,9,15,17,92,48,28,2023-12-14
+user_269,information-seeker,"science and technology,travel,animals",2021-05-05,哈尔滨,47,28,67,442,694,551,2023-12-26
+user_270,inactive,"arts and culture",2021-12-18,南京,13,14,18,19,199,29,2023-11-09
+user_271,general,"business and finance,entertainment",2023-07-04,佛山,56,59,51,834,1462,195,2023-11-17
+user_272,information-seeker,"science and technology,business and finance",2023-12-27,杭州,53,34,40,450,179,478,2023-12-22
+user_273,inactive,"sports",2022-02-09,济南,13,11,18,35,184,10,2024-01-05
+user_274,inactive,"food and dining,travel,business and finance",2020-12-11,长沙,14,3,15,51,118,96,2024-01-02
+user_275,general,"entertainment",2020-05-31,佛山,70,38,100,859,2188,215,2024-01-19
+user_276,general,"politics,fitness and health,science and technology",2022-04-21,西安,45,38,105,1036,1914,201,2024-01-15
+user_277,information-seeker,"sports",2020-11-28,石家庄,28,22,17,121,819,465,2024-01-09
+user_278,information-source,"animals,travel,arts and culture",2022-12-03,厦门,88,85,232,2798,9311,245,2023-11-13
+user_279,inactive,"animals",2020-05-18,济南,25,15,0,18,172,38,2024-01-16
+user_280,general,"science and technology",2021-05-24,沈阳,59,40,79,918,2562,104,2024-01-04
+user_281,general,"fashion and beauty,entertainment,business and finance",2020-02-01,沈阳,47,33,130,844,935,219,2024-01-03
+user_282,information-seeker,"learning and educational,entertainment,arts and culture",2022-03-23,重庆,32,40,56,374,863,346,2023-11-10
+user_283,information-seeker,"business and finance",2021-05-28,沈阳,28,27,61,313,794,423,2024-01-14
+user_284,inactive,"animals",2020-06-12,长沙,20,18,16,81,197,54,2024-01-13
+user_285,information-source,"politics",2020-03-24,郑州,74,65,121,2329,3409,117,2023-12-25
+user_286,information-seeker,"sports,entertainment",2021-12-29,宁波,49,30,69,384,610,337,2023-11-16
+user_287,information-seeker,"animals,arts and culture,science and technology",2023-06-09,成都,57,45,24,153,346,389,2023-11-29
+user_288,general,"food and dining,entertainment,politics",2022-02-09,南京,68,35,125,1188,1795,116,2024-01-17
+user_289,information-source,"politics",2021-12-03,杭州,92,70,190,3840,7612,191,2023-12-11
+user_290,information-seeker,"learning and educational,fashion and beauty",2022-04-08,南京,60,39,43,130,602,254,2023-12-05
+user_291,general,"fitness and health,learning and educational,animals",2022-11-10,青岛,55,51,106,780,1468,108,2023-12-27
+user_292,inactive,"politics,arts and culture",2023-05-06,哈尔滨,6,11,4,53,166,24,2024-01-01
+user_293,information-source,"animals,arts and culture,fitness and health",2022-06-13,北京,68,74,179,4153,4867,73,2024-01-03
+user_294,information-source,"entertainment,learning and educational",2023-03-22,长春,81,84,406,4355,4828,160,2023-12-14
+user_295,information-seeker,"fashion and beauty,travel",2021-04-17,武汉,29,33,74,287,438,500,2024-01-16
+user_296,information-source,"entertainment,animals,politics",2023-08-07,南昌,70,85,207,2359,4083,183,2023-12-16
+user_297,information-source,"fitness and health,animals",2022-09-07,上海,88,70,339,3604,4682,79,2024-01-06
+user_298,information-seeker,"science and technology,learning and educational,arts and culture",2021-04-25,长沙,39,31,29,121,113,351,2023-12-15
+user_299,information-source,"arts and culture",2023-06-19,太原,80,92,182,4140,8670,201,2023-12-04
+user_300,general,"fitness and health,learning and educational",2023-01-11,长春,41,62,122,1368,771,141,2023-11-07
+user_301,inactive,"animals",2022-07-07,无锡,23,17,16,86,55,63,2023-11-30
+user_302,information-seeker,"politics",2023-06-27,天津,35,21,63,234,528,201,2023-12-28
+user_303,information-seeker,"fitness and health,arts and culture",2020-11-08,长沙,34,18,22,162,608,276,2023-12-17
+user_304,general,"fitness and health,business and finance,fashion and beauty",2020-03-12,武汉,65,45,123,661,2803,287,2023-12-09
+user_305,information-source,"arts and culture",2023-10-14,上海,87,70,293,1934,3568,95,2023-11-08
+user_306,general,"food and dining",2021-01-02,南昌,64,31,57,1110,936,177,2023-11-10
+user_307,inactive,"food and dining",2022-06-23,苏州,5,10,19,70,63,84,2024-01-17
+user_308,inactive,"fashion and beauty",2022-08-22,苏州,5,19,19,21,148,17,2023-11-11
+user_309,general,"travel",2021-01-25,北京,58,32,132,1487,2367,109,2023-11-17
+user_310,information-source,"sports,fashion and beauty",2022-06-21,广州,92,61,156,3915,9441,247,2023-11-12
+user_311,general,"food and dining",2020-06-01,重庆,44,65,144,582,2741,216,2023-12-13
+user_312,information-seeker,"science and technology,arts and culture,travel",2021-01-19,太原,36,40,63,373,222,249,2023-11-11
+user_313,general,"fitness and health,business and finance,learning and educational",2023-08-04,广州,53,45,121,1025,2833,100,2023-11-21
+user_314,information-seeker,"politics,business and finance,arts and culture",2020-03-25,济南,29,23,58,703,222,407,2024-01-10
+user_315,information-seeker,"travel,food and dining",2023-12-22,哈尔滨,53,15,25,431,725,225,2023-11-15
+user_316,general,"fitness and health,business and finance",2020-02-22,重庆,40,46,116,858,801,246,2024-01-18
+user_317,general,"entertainment",2021-03-15,上海,40,58,81,1360,1420,176,2023-12-25
+user_318,inactive,"animals,learning and educational,fitness and health",2020-01-07,福州,22,17,14,8,115,32,2023-12-30
+user_319,information-source,"politics,entertainment,business and finance",2021-07-28,成都,79,67,376,3217,3863,88,2023-12-31
+user_320,information-source,"politics,animals",2022-05-16,郑州,70,91,301,1085,5452,233,2023-11-03
+user_321,information-seeker,"travel,entertainment,business and finance",2022-05-31,上海,46,38,53,172,266,560,2023-11-12
+user_322,information-seeker,"learning and educational,travel",2020-01-08,广州,34,29,71,630,756,279,2023-11-21
+user_323,general,"fitness and health,business and finance",2021-12-14,广州,44,39,139,1332,2090,284,2023-11-16
+user_324,information-source,"entertainment,fashion and beauty,science and technology",2022-01-12,广州,76,73,182,1799,6925,55,2024-01-12
+user_325,general,"animals,entertainment,travel",2022-09-23,昆明,58,45,148,1079,1985,142,2023-12-18
+user_326,inactive,"animals,arts and culture,politics",2020-01-30,北京,17,9,12,75,188,24,2023-12-19
+user_327,information-source,"entertainment,science and technology,arts and culture",2021-04-08,广州,95,94,475,3026,2776,126,2024-01-13
+user_328,information-seeker,"arts and culture,learning and educational,entertainment",2023-11-09,苏州,53,27,28,735,936,513,2023-12-07
+user_329,inactive,"business and finance,entertainment,animals",2023-04-15,宁波,7,12,19,35,19,79,2024-01-12
+user_330,information-seeker,"animals,fitness and health,arts and culture",2023-04-15,合肥,42,32,20,372,207,516,2023-12-21
+user_331,general,"animals,arts and culture",2023-11-14,大连,71,45,86,1254,1496,216,2023-11-17
+user_332,general,"fashion and beauty,animals",2022-10-15,重庆,43,33,143,1023,1950,206,2023-12-31
+user_333,information-source,"entertainment",2022-05-20,天津,84,95,309,4538,9060,220,2024-01-10
+user_334,information-source,"science and technology",2022-11-26,昆明,69,69,296,3642,5732,59,2023-12-04
+user_335,information-source,"travel,arts and culture,business and finance",2020-08-17,苏州,80,90,395,2116,8643,146,2023-11-29
+user_336,inactive,"travel,learning and educational,arts and culture",2021-04-10,广州,10,10,6,52,39,42,2023-12-02
+user_337,general,"business and finance,sports",2021-12-15,宁波,66,30,73,1399,1125,196,2024-01-12
+user_338,inactive,"fashion and beauty,business and finance",2022-08-07,广州,6,3,20,40,48,5,2024-01-10
+user_339,information-seeker,"travel,fashion and beauty",2020-10-03,石家庄,25,44,52,153,432,596,2023-11-19
+user_340,information-seeker,"animals",2023-02-13,无锡,33,27,20,171,673,569,2023-12-20
+user_341,inactive,"learning and educational",2021-03-28,青岛,18,16,0,3,17,46,2023-12-15
+user_342,information-seeker,"animals,sports,entertainment",2020-06-14,厦门,48,19,54,736,566,584,2024-01-16
+user_343,general,"food and dining,learning and educational",2023-06-19,上海,63,64,91,680,2346,291,2023-12-01
+user_344,general,"arts and culture,entertainment",2022-09-03,苏州,73,31,107,1059,1861,283,2023-11-28
+user_345,information-source,"travel",2022-07-24,厦门,74,79,289,3219,8024,177,2024-01-03
+user_346,information-seeker,"entertainment,science and technology",2023-09-21,厦门,41,40,12,631,396,534,2023-11-11
+user_347,information-seeker,"animals,fitness and health",2022-08-31,石家庄,35,30,61,381,174,549,2024-01-01
+user_348,information-seeker,"fitness and health",2021-10-11,济南,31,29,17,146,845,430,2023-11-11
+user_349,inactive,"business and finance,fashion and beauty",2020-11-19,哈尔滨,19,15,12,87,100,49,2023-12-20
+user_350,information-source,"business and finance,animals,food and dining",2022-04-21,昆明,90,68,402,1798,5296,130,2023-11-16
+user_351,information-seeker,"entertainment,travel",2020-02-05,太原,37,20,21,606,235,560,2023-12-04
+user_352,inactive,"fitness and health,fashion and beauty,business and finance",2023-07-16,杭州,24,9,14,18,163,83,2024-01-14
+user_353,information-seeker,"science and technology,learning and educational",2023-01-15,广州,26,30,31,331,488,444,2023-11-05
+user_354,inactive,"fashion and beauty",2023-12-21,长沙,18,17,0,39,197,33,2024-01-13
+user_355,general,"fashion and beauty,science and technology,travel",2021-04-09,石家庄,61,48,128,1255,757,292,2023-11-03
+user_356,information-seeker,"food and dining,science and technology,fitness and health",2022-10-13,青岛,56,21,71,195,819,594,2023-11-02
+user_357,general,"arts and culture",2021-07-13,西安,57,33,143,1490,2048,220,2023-12-15
+user_358,information-source,"learning and educational,fitness and health,politics",2021-09-30,长沙,68,63,241,4335,8907,52,2023-11-18
+user_359,information-source,"fashion and beauty,learning and educational,fitness and health",2021-12-04,大连,91,77,339,3409,5738,87,2023-11-24
+user_360,information-source,"arts and culture,animals",2023-09-14,北京,93,81,233,1540,5734,210,2023-12-08
+user_361,information-seeker,"animals,arts and culture,politics",2023-09-03,郑州,28,34,13,221,861,388,2024-01-15
+user_362,general,"entertainment",2020-08-04,佛山,67,40,119,605,2606,152,2024-01-07
+user_363,general,"arts and culture,learning and educational",2021-09-10,无锡,71,53,140,1318,1425,300,2024-01-03
+user_364,inactive,"sports,food and dining,learning and educational",2022-06-24,上海,8,13,12,48,46,73,2023-11-12
+user_365,general,"animals",2021-11-18,合肥,45,43,81,610,1094,300,2023-11-07
+user_366,information-source,"business and finance",2023-06-09,重庆,72,92,118,3008,7245,210,2024-01-09
+user_367,general,"arts and culture,fashion and beauty",2020-09-08,深圳,67,40,108,1435,937,298,2023-12-11
+user_368,inactive,"fashion and beauty,food and dining,entertainment",2022-09-09,青岛,23,11,17,7,109,43,2023-11-20
+user_369,inactive,"entertainment,science and technology",2023-11-23,武汉,13,3,17,88,94,40,2023-11-03
+user_370,general,"fitness and health,fashion and beauty",2020-07-23,西安,58,43,131,1195,2858,244,2023-12-04
+user_371,general,"animals,arts and culture",2020-04-13,西安,54,50,54,951,1484,162,2023-12-12
+user_372,information-seeker,"learning and educational,science and technology,food and dining",2020-05-03,北京,58,40,56,323,247,510,2023-11-30
+user_373,general,"animals,learning and educational",2023-01-30,重庆,70,47,150,824,590,139,2023-11-10
+user_374,general,"travel",2023-07-14,成都,52,36,102,714,1529,275,2024-01-12
+user_375,general,"entertainment,fitness and health",2021-09-21,厦门,60,54,144,820,904,289,2023-11-11
+user_376,information-source,"entertainment,fashion and beauty",2023-10-21,长春,83,79,428,1220,4375,109,2023-11-09
+user_377,inactive,"arts and culture",2023-10-31,太原,16,11,18,68,73,48,2023-12-23
+user_378,information-source,"science and technology",2021-05-03,广州,83,86,213,1185,8779,198,2023-12-10
+user_379,information-source,"entertainment",2020-05-29,西安,70,84,158,4961,6046,124,2023-12-15
+user_380,general,"fashion and beauty,learning and educational,food and dining",2022-07-15,宁波,66,52,58,1317,1229,230,2023-12-14
+user_381,information-seeker,"entertainment",2021-07-27,杭州,60,39,54,631,522,250,2023-12-04
+user_382,information-source,"animals",2023-11-27,昆明,92,89,179,3070,6883,65,2023-11-03
+user_383,information-seeker,"animals,science and technology,travel",2023-12-03,沈阳,59,32,10,255,444,532,2023-12-01
+user_384,inactive,"fitness and health",2020-03-15,无锡,22,3,20,61,81,64,2024-01-02
+user_385,information-source,"animals,sports,learning and educational",2023-01-26,上海,68,71,500,3366,3008,200,2023-12-28
+user_386,inactive,"fashion and beauty,fitness and health",2022-08-05,北京,8,12,1,88,21,15,2024-01-10
+user_387,inactive,"travel,sports",2021-08-31,大连,22,3,0,64,74,74,2023-12-16
+user_388,general,"animals",2022-08-03,佛山,62,48,131,846,2762,129,2023-11-19
+user_389,general,"fitness and health,learning and educational,animals",2021-03-03,成都,55,58,88,822,737,199,2023-11-23
+user_390,inactive,"animals,arts and culture,travel",2022-05-15,沈阳,18,4,20,11,150,68,2023-11-27
+user_391,information-seeker,"fashion and beauty",2022-07-01,广州,47,22,80,107,407,403,2023-11-05
+user_392,information-seeker,"learning and educational,entertainment",2022-10-20,大连,54,19,15,210,612,537,2023-12-27
+user_393,information-seeker,"fashion and beauty",2021-07-16,天津,56,16,18,555,386,530,2024-01-12
+user_394,information-seeker,"science and technology,sports",2021-05-22,北京,39,19,21,232,207,425,2024-01-04
+user_395,information-seeker,"science and technology",2023-11-05,北京,26,25,37,175,307,371,2023-11-25
+user_396,general,"animals,food and dining,arts and culture",2023-10-01,成都,72,50,76,568,2361,274,2023-12-23
+user_397,information-source,"politics,food and dining",2022-04-20,福州,69,92,204,2960,2539,102,2023-11-08
+user_398,information-seeker,"science and technology,politics,sports",2023-03-07,天津,36,27,14,360,654,593,2024-01-18
+user_399,general,"learning and educational,science and technology",2021-04-01,广州,67,33,122,1015,798,212,2023-12-15
+user_400,information-source,"travel,business and finance",2022-05-15,成都,76,83,166,3633,2079,59,2023-11-22
+user_401,general,"animals,arts and culture,business and finance",2020-11-12,合肥,54,62,69,1430,2643,184,2023-11-08
+user_402,general,"arts and culture,science and technology,sports",2022-07-14,长沙,68,34,106,1454,1702,218,2023-12-03
+user_403,information-seeker,"animals,politics",2022-02-21,苏州,26,32,37,609,773,261,2023-11-10
+user_404,information-source,"business and finance,entertainment,fitness and health",2021-06-19,青岛,76,70,185,4431,8222,79,2023-11-11
+user_405,information-source,"food and dining,animals",2022-01-23,西安,83,93,454,2144,6914,108,2023-11-19
+user_406,general,"learning and educational,fashion and beauty",2022-11-11,沈阳,52,39,134,889,2738,226,2023-11-25
+user_407,inactive,"business and finance,arts and culture",2023-09-17,昆明,16,19,8,76,91,79,2023-11-15
+user_408,general,"travel",2023-03-29,太原,72,34,149,1071,2505,200,2024-01-01
+user_409,information-seeker,"food and dining",2020-08-15,西安,35,21,73,233,408,558,2023-12-31
+user_410,general,"learning and educational,travel",2023-08-04,武汉,55,62,125,1187,2113,138,2023-11-20
+user_411,information-seeker,"entertainment",2021-07-03,成都,43,20,13,202,260,282,2023-11-26
+user_412,information-source,"fashion and beauty,animals",2023-09-15,哈尔滨,90,68,142,3429,6725,205,2023-12-30
+user_413,information-source,"travel,politics",2022-09-05,南京,83,74,204,2676,3416,140,2023-11-17
+user_414,general,"entertainment,travel,science and technology",2021-01-05,青岛,45,52,99,845,2284,188,2023-11-03
+user_415,general,"animals",2021-08-29,合肥,41,54,56,535,1592,135,2023-11-09
+user_416,information-seeker,"learning and educational,travel,entertainment",2022-05-17,杭州,47,32,43,324,711,227,2024-01-10
+user_417,information-source,"business and finance",2021-04-11,哈尔滨,82,86,269,2399,6773,234,2023-12-13
+user_418,general,"politics,science and technology,travel",2020-05-09,南昌,53,34,68,1274,2214,278,2024-01-09
+user_419,information-seeker,"entertainment,fashion and beauty",2020-01-02,合肥,27,35,68,655,814,246,2024-01-18
+user_420,inactive,"travel",2021-04-09,重庆,14,9,1,39,91,61,2023-12-20
+user_421,information-seeker,"animals",2020-10-22,昆明,46,43,31,365,739,341,2023-12-11
+user_422,general,"politics,fitness and health,entertainment",2023-07-18,哈尔滨,60,32,149,682,2207,138,2024-01-04
+user_423,general,"food and dining,fashion and beauty",2021-03-03,西安,68,36,90,1300,1247,295,2024-01-13
+user_424,information-seeker,"business and finance",2023-09-27,宁波,43,27,48,236,933,208,2023-12-13
+user_425,inactive,"food and dining,entertainment,business and finance",2023-07-11,重庆,10,12,13,90,78,63,2023-12-17
+user_426,inactive,"learning and educational",2021-03-20,北京,8,9,19,44,155,5,2023-12-13
+user_427,information-source,"animals",2021-11-16,太原,68,86,470,4829,4592,109,2023-11-09
+user_428,information-source,"animals,travel",2020-10-02,哈尔滨,81,84,160,3331,5509,108,2023-11-27
+user_429,information-source,"science and technology,animals",2022-08-01,宁波,71,94,483,1604,9051,224,2023-12-24
+user_430,general,"business and finance,arts and culture",2023-01-08,石家庄,47,49,119,891,1058,141,2023-12-12
+user_431,inactive,"animals",2022-08-05,佛山,12,8,16,81,27,10,2023-12-03
+user_432,inactive,"arts and culture,food and dining",2021-07-17,昆明,22,7,8,5,158,76,2023-12-06
+user_433,inactive,"animals",2022-07-30,重庆,8,20,20,10,169,47,2023-12-30
+user_434,information-source,"arts and culture",2020-09-25,深圳,88,69,401,1001,4592,196,2023-11-18
+user_435,information-source,"entertainment",2022-02-08,北京,90,67,386,3640,2368,125,2024-01-04
+user_436,general,"arts and culture",2022-04-05,广州,65,36,51,691,2067,266,2023-11-19
+user_437,information-source,"animals,entertainment",2021-01-26,厦门,80,72,431,2506,8672,176,2023-12-31
+user_438,general,"politics,animals,learning and educational",2021-08-06,天津,68,33,108,633,1725,259,2023-12-04
+user_439,information-seeker,"business and finance,travel",2020-05-08,苏州,36,43,71,767,433,206,2023-11-18
+user_440,information-source,"entertainment,business and finance",2021-07-13,福州,90,66,354,4701,2423,168,2023-11-23
+user_441,information-source,"politics,fashion and beauty,science and technology",2022-02-21,石家庄,71,95,373,3313,6451,66,2023-12-14
+user_442,information-seeker,"travel,business and finance",2022-04-23,上海,38,22,58,163,508,547,2024-01-04
+user_443,information-source,"animals,learning and educational",2021-08-09,石家庄,93,88,128,4921,2146,230,2023-11-14
+user_444,information-seeker,"animals,sports,travel",2023-03-19,武汉,28,36,74,514,508,589,2023-12-20
+user_445,information-source,"fitness and health,fashion and beauty,entertainment",2022-05-11,石家庄,73,77,341,2280,2553,84,2023-12-22
+user_446,general,"food and dining,entertainment",2021-04-07,石家庄,56,51,60,932,1009,136,2023-11-22
+user_447,information-seeker,"business and finance",2021-05-16,济南,38,38,40,154,297,350,2024-01-18
+user_448,information-seeker,"travel,fashion and beauty",2023-08-26,广州,35,23,22,323,714,451,2023-12-24
+user_449,information-source,"animals",2023-03-17,深圳,85,95,435,4850,7966,219,2024-01-11
+user_450,general,"entertainment",2022-05-16,成都,66,58,119,803,881,215,2023-11-22
+user_451,information-source,"arts and culture,animals,food and dining",2023-10-01,西安,85,63,217,2622,6194,222,2023-12-14
+user_452,information-source,"learning and educational,fitness and health,travel",2023-09-23,宁波,94,76,120,3482,5772,163,2024-01-07
+user_453,general,"animals,science and technology",2021-11-11,武汉,43,37,67,533,2039,151,2024-01-05
+user_454,general,"science and technology,sports,politics",2020-02-28,大连,43,57,108,821,2976,109,2024-01-03
+user_455,inactive,"travel,animals",2023-08-19,青岛,13,15,7,74,54,30,2023-11-25
+user_456,information-source,"entertainment,learning and educational,food and dining",2021-08-08,佛山,68,86,372,2191,7854,64,2024-01-09
+user_457,general,"sports,fashion and beauty",2020-12-04,佛山,66,60,61,1500,1470,295,2023-11-03
+user_458,inactive,"business and finance,politics,fitness and health",2023-08-12,大连,9,12,8,45,163,96,2023-12-15
+user_459,inactive,"sports",2023-07-02,南昌,23,12,0,35,168,70,2023-12-02
+user_460,general,"animals,food and dining",2022-07-15,南昌,75,52,55,1407,1796,188,2023-11-18
+user_461,inactive,"business and finance",2021-02-06,北京,14,3,12,27,57,67,2023-11-01
+user_462,information-source,"food and dining,fashion and beauty,travel",2022-02-24,南昌,65,64,194,1613,6482,113,2024-01-04
+user_463,information-source,"science and technology,entertainment,fitness and health",2023-12-06,天津,92,63,388,1985,4989,216,2023-11-29
+user_464,information-seeker,"sports,learning and educational,animals",2020-05-16,石家庄,49,28,61,239,105,475,2023-11-16
+user_465,information-seeker,"arts and culture,learning and educational,science and technology",2023-02-18,福州,51,20,43,361,188,238,2023-12-13
+user_466,inactive,"travel,animals,sports",2021-08-12,济南,23,3,10,45,37,74,2023-12-06
+user_467,information-source,"business and finance,travel,entertainment",2021-12-27,广州,80,84,331,2053,9826,121,2023-12-23
+user_468,general,"food and dining,animals",2023-08-08,青岛,46,57,146,1247,1666,199,2023-12-29
+user_469,inactive,"fitness and health,fashion and beauty",2023-05-10,北京,7,9,5,28,140,44,2023-12-11
+user_470,inactive,"arts and culture",2023-04-26,西安,16,18,13,64,17,28,2024-01-04
+user_471,information-source,"sports,food and dining,animals",2020-07-14,厦门,80,79,398,4712,6183,92,2023-11-08
+user_472,inactive,"politics,arts and culture,learning and educational",2020-10-30,沈阳,17,8,19,65,132,82,2023-11-01
+user_473,inactive,"sports",2022-06-21,合肥,23,16,19,22,52,55,2024-01-19
+user_474,information-source,"learning and educational",2022-03-12,南昌,81,63,498,4689,9179,69,2023-11-14
+user_475,inactive,"science and technology,food and dining,business and finance",2022-02-23,深圳,13,15,12,54,25,92,2023-11-03
+user_476,information-seeker,"learning and educational",2020-04-24,北京,26,45,14,166,631,506,2023-12-11
+user_477,information-seeker,"fashion and beauty",2022-05-10,成都,32,20,28,486,164,424,2024-01-05
+user_478,general,"fitness and health,learning and educational",2023-12-13,福州,48,36,78,1380,2541,196,2023-11-26
+user_479,general,"entertainment,fitness and health,travel",2021-06-29,广州,61,52,108,1326,1291,103,2023-12-17
+user_480,general,"animals,arts and culture",2023-12-25,合肥,65,37,101,965,651,181,2023-11-23
+user_481,information-source,"science and technology",2020-08-02,广州,80,91,341,1848,3492,235,2024-01-17
+user_482,inactive,"animals,fashion and beauty",2020-07-20,武汉,9,8,10,70,32,63,2023-11-30
+user_483,general,"arts and culture,fashion and beauty,travel",2021-07-13,南昌,61,50,78,1412,870,258,2023-12-18
+user_484,general,"sports,food and dining,animals",2023-10-01,无锡,60,33,148,1241,1596,285,2023-11-03
+user_485,information-source,"fashion and beauty,science and technology,fitness and health",2023-05-20,北京,80,89,463,3534,4642,176,2024-01-05
+user_486,inactive,"arts and culture,fitness and health,animals",2022-05-11,苏州,10,20,8,1,142,43,2023-12-05
+user_487,information-seeker,"politics,business and finance,science and technology",2021-06-27,沈阳,36,17,25,714,503,385,2024-01-01
+user_488,information-seeker,"science and technology,learning and educational",2020-02-20,昆明,49,42,22,246,942,377,2023-11-04
+user_489,information-source,"food and dining,learning and educational,science and technology",2020-05-22,广州,89,71,320,4943,8966,164,2024-01-04
+user_490,information-seeker,"science and technology",2022-05-29,天津,51,42,33,308,442,530,2024-01-04
+user_491,inactive,"animals,science and technology,sports",2021-07-15,沈阳,23,8,3,4,166,60,2024-01-07
+user_492,general,"animals,arts and culture,politics",2021-12-05,深圳,55,55,149,1346,2766,216,2023-12-11
+user_493,inactive,"food and dining,animals",2021-02-24,佛山,18,14,6,47,174,6,2023-11-28
+user_494,information-source,"entertainment",2020-10-13,苏州,68,86,294,2854,4146,114,2024-01-06
+user_495,general,"learning and educational,arts and culture,entertainment",2022-06-16,天津,48,48,109,1136,2381,141,2023-11-13
+user_496,general,"travel,politics",2021-02-13,济南,60,33,135,1076,935,243,2023-11-07
+user_497,inactive,"animals,sports",2023-04-04,青岛,8,10,9,60,88,59,2023-12-13
+user_498,general,"food and dining,learning and educational,science and technology",2022-07-20,深圳,44,40,59,852,2586,259,2023-11-02
+user_499,inactive,"fashion and beauty,learning and educational",2021-03-17,太原,6,17,19,58,125,23,2023-12-05
+user_500,inactive,"sports,food and dining,animals",2020-07-29,南昌,16,9,16,93,190,31,2023-11-21

@@ -119,11 +119,11 @@ function generateTimeSeriesData() {
   // 生成7天 × 24小时 = 168个数据点
   for (let day = 6; day >= 0; day--) {
     for (let hour = 0; hour < 24; hour++) {
-      const date = new Date(endDate);
+    const date = new Date(endDate);
       date.setDate(date.getDate() - day);
       date.setHours(hour, 0, 0, 0);
-      
-      const timestamp = date.toISOString();
+    
+    const timestamp = date.toISOString();
       const dayOfWeek = date.getDay(); // 0=周日, 1=周一, ...
       
       // 基于时间段生成更真实的活跃度模式
@@ -150,16 +150,16 @@ function generateTimeSeriesData() {
       const interactionCount = Math.floor(postCount * (3 + Math.random() * 7));
       const avgActivityScore = Math.min(100, Math.max(10, baseActivity / 5 + Math.random() * 20));
       const avgInfluenceScore = Math.min(100, Math.max(5, baseActivity / 6 + Math.random() * 25));
-      
-      timeSeries.push({
-        timestamp,
-        activeUserCount,
-        newUserCount,
-        postCount,
-        interactionCount,
+    
+    timeSeries.push({
+      timestamp,
+      activeUserCount,
+      newUserCount,
+      postCount,
+      interactionCount,
         avgActivityScore: avgActivityScore.toFixed(1),
         avgInfluenceScore: avgInfluenceScore.toFixed(1)
-      });
+    });
     }
   }
   

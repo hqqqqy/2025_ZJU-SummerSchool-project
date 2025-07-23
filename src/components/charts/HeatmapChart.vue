@@ -8,6 +8,13 @@
           <el-radio-button label="postCount">发帖数</el-radio-button>
         </el-radio-group>
         
+        <el-select v-model="colorScheme" size="small" style="width: 120px" @change="updateChart">
+          <el-option label="经典配色" value="classic" />
+          <el-option label="现代配色" value="modern" />
+          <el-option label="温和配色" value="gentle" />
+          <el-option label="单色配色" value="monochrome" />
+        </el-select>
+        
         <el-select v-model="viewMode" size="small" style="width: 120px" @change="updateChart">
           <el-option label="标准视图" value="standard" />
           <el-option label="紧凑视图" value="compact" />
@@ -82,7 +89,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useAnalysisStore } from '@/stores'
 import type { HeatmapDataPoint } from '@/models'
-import { WEIBO_RED, heatmapColors, echartsTheme } from '@/util/colors'
+import { WEIBO_RED, heatmapColors, heatmapColorSchemes, echartsTheme } from '@/util/colors'
 import { use } from 'echarts/core'
 import { HeatmapChart } from 'echarts/charts'
 import {
@@ -120,6 +127,7 @@ const { hoverState } = storeToRefs(analysisStore)
 
 // 响应式数据
 const selectedMetric = ref<'value' | 'userCount' | 'postCount'>('value')
+const colorScheme = ref<'classic' | 'modern' | 'gentle' | 'monochrome'>('classic')
 const viewMode = ref<'standard' | 'compact'>('standard')
 const showTimeDetail = ref(false)
 const selectedTimeData = ref<HeatmapDataPoint | null>(null)
@@ -138,7 +146,7 @@ const processedData = computed(() => {
   
   // 如果没有数据则使用模拟数据
   console.log('热力图使用模拟数据')
-  return generateMockData()
+    return generateMockData()
 })
 
 const chartData = computed(() => {
@@ -276,7 +284,7 @@ const chartOption = computed(() => {
       right: '10%',
       top: '15%',
       inRange: {
-        color: [heatmapColors.low, heatmapColors.medium, heatmapColors.high]
+        color: getCurrentColorScheme()
       },
       textStyle: {
         color: '#666'
@@ -308,6 +316,59 @@ const chartOption = computed(() => {
 })
 
 // 方法
+function getCurrentColorScheme(): string[] {
+  const schemes = heatmapColorSchemes[colorScheme.value]
+  switch (colorScheme.value) {
+    case 'classic':
+      return [
+        schemes.low,     // 深绿色
+        '#4CAF50',       // 中绿色
+        '#8BC34A',       // 浅绿色
+        '#CDDC39',       // 黄绿色
+        '#FFEB3B',       // 黄色
+        '#FFC107',       // 金色
+        schemes.medium,  // 琥珀色
+        '#FF5722',       // 深橙色
+        schemes.high     // 深红色
+      ]
+    case 'modern':
+      return [
+        schemes.low,     // 蓝色
+        '#1976D2',       // 中蓝色
+        '#512DA8',       // 紫色
+        '#7B1FA2',       // 中紫色
+        '#8E24AA',       // 深紫色
+        '#AD1457',       // 玫红色
+        schemes.medium,  // 深紫红色
+        '#C2185B',       // 粉红色
+        schemes.high     // 深粉色
+      ]
+    case 'gentle':
+      return [
+        schemes.low,     // 青色
+        '#26C6DA',       // 浅青色
+        '#29B6F6',       // 淡蓝色
+        '#42A5F5',       // 蓝色
+        schemes.medium,  // 中蓝色
+        '#5C6BC0',       // 靛蓝色
+        '#7986CB',       // 浅紫色
+        schemes.high     // 深紫色
+      ]
+    case 'monochrome':
+      return [
+        schemes.low,     // 极浅红色
+        '#FFCDD2',       // 浅红色
+        '#EF9A9A',       // 淡红色
+        schemes.medium,  // 中红色
+        '#EF5350',       // 较深红色
+        '#E53935',       // 深红色
+        schemes.high     // 极深红色
+      ]
+    default:
+      return [schemes.low, schemes.medium, schemes.high]
+  }
+}
+
 function updateChart() {
   // 图表会自动更新，因为使用了计算属性
 }
@@ -426,6 +487,10 @@ watch(() => props.data, () => {
   updateChart()
 }, { deep: true })
 
+watch(colorScheme, () => {
+  updateChart()
+})
+
 onMounted(() => {
   updateChart()
 })
@@ -449,6 +514,7 @@ onMounted(() => {
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .chart-container {
